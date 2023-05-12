@@ -3,6 +3,7 @@
   letter-spacing: -0.04em;
   display: flex;
   flex-direction: column;
+
   &__name {
     font-weight: 700;
     font-size: 32px;
@@ -10,9 +11,11 @@
     color: #111111;
     margin-bottom: 40px;
   }
+
   &__name--violet {
     color: #4f2ee8;
   }
+
   &__list {
     list-style: none;
     display: flex;
@@ -20,16 +23,35 @@
     gap: 40px;
     margin: 0;
     padding: 0;
+
+    @include for-tablet-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include for-desktop-up {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
   }
+
   &__book {
     width: fit-content;
   }
+
   &__img {
-    width: 335px;
+    // width: 335px;
     height: 485px;
     margin-bottom: 14px;
     border-radius: 8px;
+
+    @include for-tablet-up {
+      height: 316px;
+    }
+
+    @include for-desktop-up {
+      height: 256px;
+    }
   }
+
   &__title {
     font-weight: 700;
     font-size: 16px;
@@ -37,6 +59,7 @@
     color: #111111;
     margin: 0 0 4px;
   }
+
   &__subtitle {
     font-style: italic;
     font-weight: 400;

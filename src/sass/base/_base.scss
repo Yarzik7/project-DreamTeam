@@ -14,6 +14,36 @@ img {
   height: auto;
 }
 
+.main-container {
+  @include for-desktop-up {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    width: 1440px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  @include for-phone-up {
+    width: 375px;
+  }
+
+  @include for-tablet-up {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  @include for-desktop-up {
+    width: auto;
+    padding: 0;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
