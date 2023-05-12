@@ -1,23 +1,24 @@
-const LINK_All_CATEGORY =
-  'https://books-backend.p.goit.global/books/category-list';
+import getAllCategory from './api/allCategory';
+
 const LINK_ONE_CATEGORY =
   'https://books-backend.p.goit.global/books/category?category=';
 
-const categoryEl = document.querySelector('.js-list-categories');
+const categoryListEl = document.querySelector('.js-list-categories');
 const booksEl = document.querySelector('.js-all-books');
 const categoryNameEl = document.querySelector('.js-category-name');
 
-fetch(LINK_All_CATEGORY)
-  .then(resp => resp.json())
-  .then(data => {
-    const sortArr = data.sort((a, b) => a.list_name.localeCompare(b.list_name));
-    const arr = sortArr
-      .map(({ list_name }) => `<li class="categories__item">${list_name}</li>`)
-      .join('');
-    categoryEl.insertAdjacentHTML('beforeend', arr);
-  });
+getAllCategory().then(data => {
+  const sortArr = data.sort((a, b) => a.list_name.localeCompare(b.list_name));
+  categoryListEl.insertAdjacentHTML('beforeend', markupAllCategories(sortArr));
+});
 
-categoryEl.addEventListener('click', onClick);
+categoryListEl.addEventListener('click', onClick);
+
+function markupAllCategories(arr) {
+  return arr
+    .map(({ list_name }) => `<li class="categories__item">${list_name}</li>`)
+    .join('');
+}
 
 function onClick(e) {
   if (e.target.classList[0] !== 'categories__item') {
@@ -29,17 +30,21 @@ function onClick(e) {
     .join(' ');
   const categoryNameTwo = categoryName.at(-1);
 
-  console.dir(categoryNameEl);
   categoryNameEl.textContent = categoryNameOne + ' ';
   categoryNameEl.insertAdjacentHTML(
     'beforeend',
     `<span class="category_name category__name--violet">${categoryNameTwo}</span>`
   );
 
-  categoryEl
+  categoryListEl
     .querySelector('.categories__current')
     .classList.remove('categories__current');
   e.target.classList.add('categories__current');
+
+  categoryNameEl.scrollIntoView({
+    behavior: 'smooth',
+  });
+
   fetch(LINK_ONE_CATEGORY + e.target.textContent)
     .then(resp => resp.json())
     .then(data => {

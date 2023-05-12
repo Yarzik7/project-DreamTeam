@@ -1,14 +1,30 @@
 .sidebar {
   margin-bottom: 40px;
+
+  @include for-desktop-up {
+  }
+
+  &__container {
+    @include for-tablet-up {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    @include for-desktop-up {
+      display: block;
+    }
+  }
 }
 
 .categories {
+  width: 307px;
+  margin-bottom: 40px;
   &__list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 335px;
+    // width: 335px;
     height: 228px;
     overflow-y: auto;
     font-family: 'DM Sans';
@@ -17,6 +33,10 @@
     line-height: 18px;
     letter-spacing: -0.02em;
     color: rgba(17, 17, 17, 0.6);
+
+    @include for-tablet-up {
+      height: 475px;
+    }
   }
   &__current {
     font-weight: 700;
