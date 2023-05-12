@@ -4,6 +4,11 @@
   display: flex;
   flex-direction: column;
 
+  @include for-desktop-up {
+    padding-left: 40px;
+    box-sizing: border-box;
+  }
+
   &__name {
     font-weight: 700;
     font-size: 32px;
@@ -34,14 +39,21 @@
   }
 
   &__book {
-    width: fit-content;
+    @include for-tablet-up {
+      width: 218px;
+    }
+
+    @include for-desktop-up {
+      width: 180px;
+    }
   }
 
   &__img {
-    // width: 335px;
     height: 485px;
     margin-bottom: 14px;
     border-radius: 8px;
+    object-fit: fill;
+    width: 100%;
 
     @include for-tablet-up {
       height: 316px;
