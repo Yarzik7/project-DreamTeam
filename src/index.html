@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>BooksShop</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <header></header>
+    <aside class="sidebar">
+      <div class="categories">
+        <ul class="js-list-category">
+          <li class="list current js-current-category">All categories</li>
+        </ul>
+      </div>
+      <div class="support"></div>
+    </aside>
+    <main>
+      <div class="container">
+        <div class="main-container">
+          <ul class="js-all-books"></ul>
+        </div>
+      </div>
+    </main>
+    <script src="./js/category.js"></script>
   </body>
 </html>

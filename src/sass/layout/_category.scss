@@ -1,0 +1,40 @@
+.js-all-books {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.book {
+  width: fit-content;
+}
+
+.book__img {
+  width: 335px;
+  height: 485px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+}
+
+.book__title {
+  /* font-family: "DM Sans"; */
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #111111;
+  margin: 0 0 4px;
+}
+
+.book__subtitle {
+  /* font-family: "DM Sans"; */
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+  color: #b4afaf;
+  margin: 0;
+}
