@@ -53,51 +53,85 @@
 
 
 
+.support {
+&__container{
+    // box-sizing: content-box;
+    height: 352px;
+        padding: 24px 40px 20px 40px;
+        // box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+        // border-radius: 16px;
+        // background-image: linear-gradient(to bottom, var(--accent-color), #b8abf6);
+        background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+        box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+        border-radius: 16px;
+    
+    
+        @include for-phone-up {
+            width: 335px;
+        }
+    
+        // @include mobile {
+        //     width: 335px;
+        // }
+    
+        @include for-tablet-up {
+            // width: 335px;
+            min-height: 472px;
+            padding-bottom: 14px;
+        }
+    
+        @include for-desktop-up {
+            width: 356px;
+            height: 490px;
+            padding-bottom: 24px;
+        }
 
-
-
-.support__container {
-    min-height: 352px;
-    padding: 24px 40px 20px 40px;
-    // box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-    // border-radius: 16px;
-    // background-image: linear-gradient(to bottom, var(--accent-color), #b8abf6);
-background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
-    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-    border-radius: 16px;
-
-
-    // @include small-mobile {
-    //     max-width: 335px;
-    // }
-
-    // @include mobile {
-    //     width: 335px;
-    // }
-
-    // @include tablet {
-    //     min-height: 472px;
-    //     padding-bottom: 14px;
-    // }
-
-    // @include desktop {
-    //     width: 318px;
-    //     min-height: 490px;
-    //     padding-bottom: 24px;
-    // }
 }
 
-.support__header-title {
-    display: inline-flex;
+&__header-container{
+display: flex;
+justify-content: flex-start;
     margin-bottom: 40px;
-    // color: var(--caritas-txt);
-    font-size: 28px;
-    letter-spacing: -0.04em;
+
 }
 
-.support__icon {
+&__header-title {
+        // display: inline-flex;
+        //     margin-bottom: 40px;
+            color: #FFFFFF;
+            font-size: 28px;
+            letter-spacing: -0.04em;
+}
+
+&__icon{
     margin-left: 12px;
 }
+
+
+}
+
+
+
+
+
+    
+
+
+
+
+
+
+
+// .support__header-title {
+ 
+//     // color: var(--caritas-txt);
+//     font-size: 28px;
+//     letter-spacing: -0.04em;
+// }
+
+// .support__icon {
+//     margin-left: 12px;
+// }
 
 .support__list {
     margin-bottom: 16px;
