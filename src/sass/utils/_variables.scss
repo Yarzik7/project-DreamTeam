@@ -1,0 +1,56 @@
+/*Light theme*/
+:root {
+  --bcg-light-color: #d0d0d0;
+}
+/*Dark theme*/
+:root {
+  --bcg-dark-color: #202024;
+}
+/*Main color*/
+:root {
+  --white-color: #ffffff;
+  --black-color: #111111;
+  --accent-yellow-color: #eac645;
+  --accent-violet-color: #4f2ee8;
+  --alt-text-color: #b4afaf;
+  --bcg-accent-color: rgba(17, 17, 17, 0.4);
+
+  /*Switch btn features*/
+  --switch-btn-color: linear-gradient(
+    180deg,
+    var(--white-color) 0%,
+    #f7f7f7 100%
+  );
+  --light-gradient-color: linear-gradient(
+    180deg,
+    var(--accent-violet-color) 0%,
+    #dcdcdc 100%
+  );
+  --dark-gradient-color: linear-gradient(
+    180deg,
+    var(--accent-violet-color) 0%,
+    #686868 100%
+  );
+  --transition-duration: 200ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Categories */
+  --categories-light-text: rgba(17, 17, 17, 0.6);
+  --categories-dark-text: rgba(255, 255, 255, 0.6);
+  --scroll-btn-color: #e0e0e0;
+
+  /* Support bar */
+  --support-bcg-color: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    var(--accent-violet-color) 18.03%,
+    var(--white-color) 100%
+  );
+
+  /*Shopping list*/
+  --add-btn-color: 0px 4px 18px rgba(0, 0, 0, 0.15);
+  --shopping-list-text: rgba(0, 0, 0, 0.6);
+
+  /*Pop up text color*/
+  --info-light-color: rgba(17, 17, 17, 0.5);
+  --info-dark-color: rgba(255, 255, 255, 0.5);
+}
