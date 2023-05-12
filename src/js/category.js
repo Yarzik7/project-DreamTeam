@@ -55,8 +55,8 @@ function onClick(e) {
 function markupBooks(data) {
   return data
     .map(
-      ({ author, book_image, title }) => `
-  <li class="category__book">
+      ({ author, book_image, title, _id }) => `
+  <li data-id="${_id}" class="category__book js-book">
     <img class="category__img" src="${book_image}" alt="${title}">
     <h2 class="category__title">${title}</h2>
     <h3 class="category__subtitle">${author}</h3>
