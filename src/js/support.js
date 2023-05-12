@@ -10,9 +10,9 @@ const supportBtnEl = document.querySelector('.js-support_btn');
 
 const markup = founds.map(({ img, title, url }, index) => {
     const number = (index + 1).toString().padStart(2, '0');
-    console.log(title);
+    // console.log(title);
     const imageName = title.toLowerCase().replaceAll(" ","");
-    console.log(imageName);
+    // console.log(imageName);
 
 const imageUrl = new URL(
   `./images/${imageName}.png`,
@@ -20,7 +20,7 @@ const imageUrl = new URL(
 );
 console.log(imageUrl);
   return `<li class="support__item"><a href="${url}" class="support__link" aria-label="${title}" target="_blank" rel="noopener norefferer nofollow">
-    <p class="support__number">${number}</p><img class="support__img" src= ${imageUrl} alt="${title}"/></a></li>`;
+    <p class="support__number">${number}</p><img class="support__img" src= ${img} alt="${title}"/></a></li>`;
 });
 //    console.log(markup);
 
