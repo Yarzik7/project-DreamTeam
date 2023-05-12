@@ -1,40 +1,49 @@
-.js-all-books {
-  list-style: none;
+.category {
+  font-family: 'DM Sans';
+  letter-spacing: -0.04em;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin: 0;
-  padding: 0;
-}
-
-.book {
-  width: fit-content;
-}
-
-.book__img {
-  width: 335px;
-  height: 485px;
-  margin-bottom: 14px;
-  border-radius: 8px;
-}
-
-.book__title {
-  /* font-family: "DM Sans"; */
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: -0.04em;
-  color: #111111;
-  margin: 0 0 4px;
-}
-
-.book__subtitle {
-  /* font-family: "DM Sans"; */
-  font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: -0.04em;
-  color: #b4afaf;
-  margin: 0;
+  &__name {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #111111;
+    margin-bottom: 40px;
+  }
+  &__name--violet {
+    color: #4f2ee8;
+  }
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+  &__book {
+    width: fit-content;
+  }
+  &__img {
+    width: 335px;
+    height: 485px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #111111;
+    margin: 0 0 4px;
+  }
+  &__subtitle {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-width: fit-content;
+    color: #b4afaf;
+    margin: 0;
+  }
 }
