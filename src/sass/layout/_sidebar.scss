@@ -56,10 +56,14 @@
       height: 472px;
     }
   }
+
   &__current {
-    font-weight: 700;
     text-transform: uppercase;
     color: var(--accent-violet-color);
+    text-shadow: 0px 0px 0 var(--accent-violet-color),
+      0px 0px 0 var(--accent-violet-color), 0px 0px 0 var(--accent-violet-color),
+      0px 0px 0 var(--accent-violet-color);
+    transition: text-shadow 1s;
   }
   &__item {
     cursor: pointer;
