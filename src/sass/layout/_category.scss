@@ -13,12 +13,12 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
-    color: #111111;
+    color: var(--black-color);
     margin-bottom: 40px;
   }
 
   &__name--violet {
-    color: #4f2ee8;
+    color: var(--accent-violet-color);
   }
 
   &__list {
@@ -68,7 +68,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-    color: #111111;
+    color: var(--black-color);
     margin: 0 0 4px;
   }
 
@@ -78,7 +78,7 @@
     font-size: 12px;
     line-height: 14px;
     letter-width: fit-content;
-    color: #b4afaf;
+    color: var(--alt-text-color);
     margin: 0;
   }
 }

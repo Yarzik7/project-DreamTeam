@@ -1,57 +1,58 @@
-import getAllCategory from './api/allCategory';
+import getAllCategory from './api/categoryList';
+import getAllBooks from './api/categoryBooks';
 
-const LINK_ONE_CATEGORY =
-  'https://books-backend.p.goit.global/books/category?category=';
-
-const categoryListEl = document.querySelector('.js-list-categories');
-const booksEl = document.querySelector('.js-all-books');
-const categoryNameEl = document.querySelector('.js-category-name');
+const refs = {
+  categoryListEl: document.querySelector('.js-list-categories'),
+  booksEl: document.querySelector('.js-all-books'),
+  categoryNameEl: document.querySelector('.js-category-name'),
+};
 
 getAllCategory().then(data => {
   const sortArr = data.sort((a, b) => a.list_name.localeCompare(b.list_name));
-  categoryListEl.insertAdjacentHTML('beforeend', markupAllCategories(sortArr));
+  refs.categoryListEl.insertAdjacentHTML(
+    'beforeend',
+    markupAllCategories(sortArr)
+  );
 });
 
-categoryListEl.addEventListener('click', onClick);
+refs.categoryListEl.addEventListener('click', onClick);
 
+async function onClick(e) {
+  if (e.target.classList[0] !== 'categories__item') {
+    return;
+  }
+
+  markupNameCategory(e.target.textContent);
+
+  refs.categoryListEl
+    .querySelector('.categories__current')
+    .classList.remove('categories__current');
+  e.target.classList.add('categories__current');
+
+  refs.categoryNameEl.scrollIntoView({
+    behavior: 'smooth',
+  });
+
+  refs.booksEl.innerHTML = markupBooks(await getAllBooks(e.target.textContent));
+  refs.booksEl.classList.add('category__list');
+}
+
+/**
+ * Markup categories in sidebar
+ * @param {Array} arr
+ * @returns string
+ */
 function markupAllCategories(arr) {
   return arr
     .map(({ list_name }) => `<li class="categories__item">${list_name}</li>`)
     .join('');
 }
 
-function onClick(e) {
-  if (e.target.classList[0] !== 'categories__item') {
-    return;
-  }
-  const categoryName = e.target.textContent.split(' ');
-  const categoryNameOne = categoryName
-    .splice(0, categoryName.length - 1)
-    .join(' ');
-  const categoryNameTwo = categoryName.at(-1);
-
-  categoryNameEl.textContent = categoryNameOne + ' ';
-  categoryNameEl.insertAdjacentHTML(
-    'beforeend',
-    `<span class="category_name category__name--violet">${categoryNameTwo}</span>`
-  );
-
-  categoryListEl
-    .querySelector('.categories__current')
-    .classList.remove('categories__current');
-  e.target.classList.add('categories__current');
-
-  categoryNameEl.scrollIntoView({
-    behavior: 'smooth',
-  });
-
-  fetch(LINK_ONE_CATEGORY + e.target.textContent)
-    .then(resp => resp.json())
-    .then(data => {
-      booksEl.innerHTML = markupBooks(data);
-    });
-}
-
+/**
+ * Markup books in main content
+ * @param {Array} data
+ * @returns String
+ */
 function markupBooks(data) {
   return data
     .map(
@@ -64,4 +65,51 @@ function markupBooks(data) {
   `
     )
     .join('');
+}
+
+/**
+ * Markup name category in main content
+ * @param {String} name
+ */
+function markupNameCategory(name) {
+  const categoryName = name.split(' ');
+  const categoryNameOne = categoryName
+    .splice(0, categoryName.length - 1)
+    .join(' ');
+  const categoryNameTwo = categoryName.at(-1);
+
+  refs.categoryNameEl.textContent = categoryNameOne + ' ';
+  refs.categoryNameEl.insertAdjacentHTML(
+    'beforeend',
+    `<span class="category_name category__name--violet">${categoryNameTwo}</span>`
+  );
+}
+
+// ===================test=========================
+refs.booksEl.addEventListener('click', test);
+
+async function test(e) {
+  if (!e.target.classList.contains('button')) {
+    return;
+  }
+  const nameCategory = e.target.parentElement.querySelector(
+    '.category-top-books__title'
+  ).textContent;
+
+  refs.categoryNameEl.scrollIntoView({
+    behavior: 'smooth',
+  });
+
+  markupNameCategory(nameCategory);
+
+  [...refs.categoryListEl.children].forEach(e => {
+    if (e.textContent === nameCategory) {
+      e.classList.add('categories__current');
+    } else if (e.classList.contains('categories__current')) {
+      e.classList.remove('categories__current');
+    }
+  });
+
+  refs.booksEl.innerHTML = markupBooks(await getAllBooks(nameCategory));
+  refs.booksEl.classList.add('category__list');
 }
