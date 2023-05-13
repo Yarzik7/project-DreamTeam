@@ -1,5 +1,5 @@
 .button {
-  @include centered;
+  @include centeredByFlex;
 
   text-transform: uppercase;
 
