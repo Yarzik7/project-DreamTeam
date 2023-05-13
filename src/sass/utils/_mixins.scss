@@ -1,5 +1,11 @@
-@mixin centered {
+@mixin centeredByFlex {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin centeredByPosition {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

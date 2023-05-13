@@ -1,5 +1,8 @@
 .button {
   @include centered;
+
+  text-transform: uppercase;
+
   border: 2px solid var(--accent-violet-color);
   border-radius: 40px;
 

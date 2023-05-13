@@ -1,3 +1,8 @@
+/**
+ * Функція повертає розмітку однієї картки книги
+ * @param {object} - об'єкт параметрів книги
+ * @returns {string} - розмітка однієї картки книги
+ */
 const bookItemMarcup = ({ author, book_image, title, _id }) => {
   return `
   <li class="category__book" data-id=${_id}>
