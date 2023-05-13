@@ -53,4 +53,8 @@
   /*Pop up text color*/
   --info-light-color: rgba(17, 17, 17, 0.5);
   --info-dark-color: rgba(255, 255, 255, 0.5);
+
+  /* Transitions*/
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(.17, .67, .83, .67);
 }
