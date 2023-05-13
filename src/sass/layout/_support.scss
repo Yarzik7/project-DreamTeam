@@ -1,29 +1,27 @@
 .founds {
-    width: 335px;
-    height: 352px;
+  width: 335px;
+  height: 352px;
 
-    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%)
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-    ;
-    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-    border-radius: 16px;
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
 
-    padding-top: 24px;
-    padding-bottom: 20px;
-    padding-left: 40px;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  padding-left: 40px;
 
-
-    &__title {
-        margin: 0px;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 32px;
-        /* identical to box height, or 114% */
-
-        letter-spacing: -0.04em;
-
-        color: #FFFFFF;
-    }
+  &__title {
+    margin: 0px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+  }
 }
 
 // .test {
@@ -39,7 +37,7 @@
 
 // .image-box {
 //     //  background: url("../images/image 3.png");
-//     //     mix-blend-mode: luminosity; 
+//     //     mix-blend-mode: luminosity;
 //    width: 82px;
 //     height: 32px;
 //     left: 34px;
@@ -49,183 +47,97 @@
 //     mix-blend-mode: luminosity;
 //     }
 
-
-
-
-
 .support {
-&__container{
-    // box-sizing: content-box;
+  &__container {  
     height: 352px;
-        padding: 24px 40px 20px 40px;
-        // box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-        // border-radius: 16px;
-        // background-image: linear-gradient(to bottom, var(--accent-color), #b8abf6);
-        background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
-        box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-        border-radius: 16px;
-    
-    
-        @include for-phone-up {
-            width: 335px;
-        }
-    
-        // @include mobile {
-        //     width: 335px;
-        // }
-    
-        @include for-tablet-up {
-            // width: 335px;
-            min-height: 472px;
-            padding-bottom: 14px;
-        }
-    
-        @include for-desktop-up {
-            width: 356px;
-            height: 490px;
-            padding-bottom: 24px;
-        }
+    padding: 24px 40px 20px 40px;
+    background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%);
+    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    border-radius: 16px;
 
-}
+    @include for-phone-up {
+      width: 335px;
+    }
 
-&__header-container{
-display: flex;
-justify-content: flex-start;
+    @include for-tablet-up {
+      min-height: 472px;
+      padding-bottom: 14px;
+    }
+
+    @include for-desktop-up {
+      width: 356px;
+      height: 490px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  &__header-container {
+    display: flex;
+    justify-content: flex-start;
     margin-bottom: 40px;
+  }
 
-}
+  
 
-&__header-title {
-        // display: inline-flex;
-        //     margin-bottom: 40px;
-            color: #FFFFFF;
-            font-size: 28px;
-            letter-spacing: -0.04em;
-}
-
-&__icon{
-    margin-left: 12px;
-}
-
-
-}
-
-
-
-
-
-    
-
-
-
-
-
-
-
-// .support__header-title {
- 
-//     // color: var(--caritas-txt);
-//     font-size: 28px;
-//     letter-spacing: -0.04em;
-// }
-
-// .support__icon {
-//     margin-left: 12px;
-// }
-
-.support__list {
-    margin-bottom: 16px;
-
-    // @include tablet {
-    //     margin-bottom: 32px;
-    // }
-
-    // @include desktop {
+  &__header-title {
+    // display: inline-flex;
     //     margin-bottom: 40px;
-    // }
-}
-
-.support__link {
-    display: flex;
-    align-items: center;
-    height: 32px;
-}
-
-.support__item:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.support__number {
-    margin-right: 16px;
-    font-size: 14px;
-    line-height: 18px;
+    color: #ffffff;
+    font-size: 28px;
     letter-spacing: -0.04em;
-    // color: var(--caritas-txt);
+  }
+
+
+  &__icon {
+    margin-left: 12px;
+  }
+
+
+
+&__list {
+  margin-bottom: 16px;
+
+  @include for-tablet-up {
+      margin-bottom: 32px;
+  }
+
+  @include for-desktop-up {
+      margin-bottom: 40px;
+  }
 }
 
-// .support__img {
-//     filter: grayscale(100%) brightness(0) invert(100%);
-//     transition: filter var(--transition-duration) var(--transition-timing-function),
-//         transform var(--transition-duration) var(--transition-timing-function);
-// }
 
-.support__link:hover .support__img,
-.support__link:focus .support__img {
-    filter: none;
-    transform: scale(1.1);
+&__link {
+  display: flex;
+  align-items: center;
+  height: 32px;
 }
 
-.support__btn {
-    display: flex;
-    padding: 6px;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    border-radius: 50%;
-    // background-color: var(--caritas-txt);
-    // transition: background-color var(--transition-duration) var(--transition-timing-function);
-    animation: bounce 3s infinite;
-
-    // @include tablet {
-    //     padding: 8px;
-    // }
-
-    // &:hover {
-    //     // background-color: var(--accent-color);
-    // }
+&__item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
-.support__btn_icon {
-    // stroke: var(--accent-color);
-    width: 20px;
-    height: 20px;
-    // transition: stroke var(--transition-duration) var(--transition-timing-function);
-
-    // @include tablet {
-    //     width: 22px;
-    //     height: 22px;
-    // }
+&__number {
+  margin-right: 16px;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
 }
 
-// .support__btn:hover .support__btn_icon {
-//     // stroke: var(--caritas-txt);
-// }
+&__img {
+    filter: grayscale(100%) brightness(0) invert(100%);
+    transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-6px);
-    }
-
-    60% {
-        transform: translateY(-4px);
-    }
+&__link:hover &__img,
+&__link:focus &__img {
+  filter: none;
+  transform: scale(1.1);
+}
 }

@@ -6,19 +6,20 @@ import { founds } from "../data/support-data";
 const supportListEl = document.querySelector('.js-support_list');
 const supportBtnEl = document.querySelector('.js-support_btn');
 
-// supportBtnEl.addEventListener('click', renderMoreMarkup);
+
 
 const markup = founds.map(({ img, title, url }, index) => {
     const number = (index + 1).toString().padStart(2, '0');
     // console.log(title);
-    const imageName = title.toLowerCase().replaceAll(" ","");
-    // console.log(imageName);
-
-const imageUrl = new URL(
-  `./images/${imageName}.png`,
-  import.meta.url
-);
-console.log(imageUrl);
+//     const imageName = title.toLowerCase().replaceAll(" ","");
+//     // console.log(imageName);
+// // console.log(img);
+// const imageUrl = new URL(
+//   `../images/${imageName}.png`,
+//   import.meta.url
+// );
+// console.log(imageUrl);
+  console.log(img);
   return `<li class="support__item"><a href="${url}" class="support__link" aria-label="${title}" target="_blank" rel="noopener norefferer nofollow">
     <p class="support__number">${number}</p><img class="support__img" src= ${img} alt="${title}"/></a></li>`;
 });
@@ -40,13 +41,6 @@ function renderMarkup(arr, itemsCountStart, itemsCountEnd) {
   }
 }
 
-function renderMoreMarkup() {
-  if(window.innerWidth < 768) {
-    renderMarkup(markup, startIndex, findEndIndex(startIndex + 1));
-    return
-  }
-  renderMarkup(markup, startIndex, findEndIndex(startIndex));
-}
 
 
 function findEndIndex(value) {
