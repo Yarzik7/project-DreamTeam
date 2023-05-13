@@ -41,7 +41,7 @@
     font-size: 16px;
     line-height: 18px;
     letter-spacing: -0.02em;
-    color: rgba(17, 17, 17, 0.6);
+    color: var(--categories-light-text);
 
     @include for-tablet-up {
       height: 100%;
@@ -59,7 +59,7 @@
   &__current {
     font-weight: 700;
     text-transform: uppercase;
-    color: #4f2ee8;
+    color: var(--accent-violet-color);
   }
   &__item {
     cursor: pointer;
