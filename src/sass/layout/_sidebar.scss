@@ -57,15 +57,6 @@
     }
   }
 
-  @keyframes grow {
-    0% {
-      font-weight: 400;
-    }
-    100% {
-      font-weight: 700;
-    }
-  }
-
   &__current {
     text-transform: uppercase;
     color: var(--accent-violet-color);
