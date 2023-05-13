@@ -19,7 +19,7 @@ const topBooksContainerMarcup = ({ list_name, books }, node) => {
 <li class="category-top-books">
   <h3 class="category-top-books__title">${list_name}</h3>
   <ul class="category-top-books__list">${createTopBooksMarcup(books)}</ul>
-  <button class="action-button category-top-books__action-button">See more</button>
+  <button class="action-button category-top-books__action-button" data-categoryName="${list_name}">See more</button>
 </li>`;
 };
 
