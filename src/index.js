@@ -1,6 +1,7 @@
 import('./js/category');
 import('./js/support');
 import('./js/scrollup');
+import('./js/loader');
 
 const refs = {
   booksListEl: document.querySelector('.js-all-books'),
