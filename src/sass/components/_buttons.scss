@@ -1,0 +1,17 @@
+.action-button {
+  @include centeredByFlex;
+
+  text-transform: uppercase;
+
+  border: 2px solid var(--accent-violet-color);
+  border-radius: 40px;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--white-color);
+
+    background-color: var(--accent-violet-color);
+  }
+}

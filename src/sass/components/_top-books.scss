@@ -1,0 +1,33 @@
+.category-top-books {
+  &__title {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: var(--alt-text-color);
+  }
+
+  &__list {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  &__action-button {
+    margin-left: auto;
+    width: 124px;
+    height: 46px;
+  }
+
+  .category__book {
+    width: calc((100% - 24px * 4) / 5);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
