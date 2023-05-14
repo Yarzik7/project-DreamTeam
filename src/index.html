@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BooksShop</title>
-    <link rel="icon" href="./images/favicon.png" sizes="any" />
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <header></header>
 
-    <div class="main-container">
-      <aside class="sidebar">
-        <div class="container sidebar__container">
-          <div class="categories">  
-            <ul class="categories__list js-list-categories">
-              <li class="categories__item categories__current">All categories</li>
-            </ul>
-          </div>
-          <div class="support">    
-            <section class="support">
-              <div class="support__container">
-                <div class="support__header-container">
-                  <h2 class="support__header-title">
-                    Support Ukraine
-            
-                  </h2>
-                  <img
-                    src="./images/Emblem_of_Ukraine.png"
-                    alt="Emblem of Ukraine"
-                    class="support__icon"
-                  />
-                </div>
-                <ul class="js-support_list support__list"></ul>
-                  </button>
-              </div>
-            </section>
-          </div>
-        </div>
-      </aside>
-      <main>
-        <div class="container">
-          <div class="category">
-            <h1 class="category__name js-category-name">
-              Best Sellers 
-              <span class="category_name category__name--violet">Books</span>
-            </h1>
-            <ul class="category__list js-all-books"></ul>
-          </div>
-        </div>
-        </main>
-    </div>
-    <script src="./index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BooksShop</title>
+  <link rel="icon" href="./images/favicon.png" sizes="any" />
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <script type="module" src="./index.js"></script>
+</head>
+
+<body>
+  <include src="./partials/header.html"></include>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <div class="container sidebar__container">
+        <include src="./partials/caregories-sidebar.html"></include>
+        <include src="./partials/support.html"></include>
+      </div>
+    </aside>
+
+    <main>
+      <div class="container">
+        <include src="./partials/main-content.html"></include>
+      </div>
+    </main>
+  </div>
+</body>
+
 </html>
