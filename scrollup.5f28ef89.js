@@ -1,2 +1,0 @@
-("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequired7c6.register("7ZZgP",(function(e,d){var i=document.querySelector(".btn-scroll");i&&i.classList.add("is-hidden-up"),i&&i.addEventListener("click",(function(e){window.scrollTo({top:0,behavior:"smooth"})})),window.addEventListener("scroll",(function(){window.scrollY>200?i.classList.remove("is-hidden-up"):0==window.scrollY&&i.classList.add("is-hidden-up")}))}));
-//# sourceMappingURL=scrollup.5f28ef89.js.map
