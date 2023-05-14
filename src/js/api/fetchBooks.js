@@ -1,15 +1,12 @@
 import axios from 'axios';
 
 export class AxiosApi {
-  #BASE_URL = 'https://books-backend.p.goit.global/books/bookId/';
+  #BASE_URL = 'https://books-backend.p.goit.global/books/';
 
-  constructor(bookId) {
-    this.bookId = bookId;
-  }
-
-  async getShops() {
-    const url = `${this.#BASE_URL}`;
-    const response = await axios.get(url);
-    return response.data;
+  async getShops(bookId) {
+    const url = `${this.#BASE_URL}${bookId}`;
+    // console.log(url);
+    const result = await axios.get(url);
+    return result;
   }
 }
