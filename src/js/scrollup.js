@@ -6,7 +6,7 @@ if (btnScrl) {
 function handleScroll() {
   if (window.scrollY > 200) {
     btnScrl.classList.remove('is-hidden-up');
-  } else if (window.scrollY == 0) {
+  } else if (window.scrollY === 0) {
     btnScrl.classList.add('is-hidden-up');
   }
 }
