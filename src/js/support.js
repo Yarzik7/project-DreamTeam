@@ -18,7 +18,7 @@ const imageUrl = new URL(
   `./images/${imageName}.png`,
   import.meta.url
 );
-console.log(imageUrl);
+// console.log(imageUrl);
   return `<li class="support__item"><a href="${url}" class="support__link" aria-label="${title}" target="_blank" rel="noopener norefferer nofollow">
     <p class="support__number">${number}</p><img class="support__img" src= ${img} alt="${title}"/></a></li>`;
 });

@@ -12,13 +12,16 @@
 	<!-- Script -->
 	<script type="module" src="./index.js"></script>
 </head>
-<body>
-	<header></header>
-	<aside>
-		<include src="./partials/support.html"></include>
-	</aside>
-	<main>
-		<include src="./partials/shoplist.html"></include>
-	</main>
-</body>
+	<body>
+		<header></header>
+		<aside>
+			<include src="./partials/support.html"></include>
+		</aside>
+		<main>
+			<div class="product-container container" id="shopping-list">
+				<include src="./partials/shoplist.html"></include>
+			</div>
+		</main>
+		<script type="module" src="./js/shoplist.js"></script>
+	</body>
 </html>
