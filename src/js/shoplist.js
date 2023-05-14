@@ -1,20 +1,12 @@
-l// import svgLinkdUrl from '../images/linkedin.svg';
-//  <a href="https://www.linkedin.com/in/nataliia-valko-951501212/" target="_blank" class="team-linkd">
-//     <svg width="24" height="24">
-//         <use href="${svgLinkdUrl}#icon-linkedin-svg"></use>
-//      </svg>
-//   </a>
 import localStoragemethod from '../js/storage-methods';
 import svgDeleteUrl from '../images/sprite.svg';
 import amzonimg1 from '../images/shoplist/amazon1x.png';
 import amzonimg2 from '../images/shoplist/amazon2x.png';
-import amzonimg3 from '../images/shoplist/amazon2x-hover.png';
 import appleimg1 from '../images/shoplist/apple1x.png';
 import appleimg2 from '../images/shoplist/apple2x.png';
-import appleimg3 from '../images/shoplist/apple2x-hover.png';
 import bookshopimg1 from '../images/shoplist/bookshop1x.png';
 import bookshopimg2 from '../images/shoplist/bookshop2x.png';
-import bookshopimg3 from '../images/shoplist/bookshop2x-hover.png';
+
 
 const bookListEl = document.querySelector('.shoplist__cards');
 const notificationContainerEl = document.querySelector('.shoplist-info');
