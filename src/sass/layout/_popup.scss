@@ -1,0 +1,96 @@
+.popup-backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.popup {
+  &__body {
+    position: absolute;
+
+    stroke: #111111;
+  }
+
+  &__container {
+    position: absolute;
+    border: 2px solid #111111;
+    border-radius: 18px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+
+    @include for-phone-only {
+      max-width: 335px;
+      max-height: 762px;
+    }
+
+    @include for-phone-up {
+      width: 335px;
+      max-height: 762px;
+    }
+
+    @include for-tablet-up {
+      width: 579px;
+      max-height: 465px;
+    }
+
+    width: 579px;
+    max-height: 762px;
+  }
+
+  .popup-book {
+    display: flex;
+
+    &__thumb {
+      display: flex;
+    }
+
+    &__img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &__info {
+      display: flex;
+    }
+  }
+}
+
+.btn {
+  &__close {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    z-index: 1111;
+    top: 12px;
+    left: 299px;
+    fill: #000000;
+    // stroke: #000000;
+    cursor: pointer;
+    background: none;
+    border: solid 2px blue;
+    padding: 0;
+    transition: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// .icon-apple-books {
+//   background-image: url('../images/shoplist/apple1x.png');
+//   width: 32px;
+//   height: 32px;
+//   display: block;
+// }
+// .icon-amazon {
+//   background-image: url('../images/shoplist/amazon1x.png');
+//   width: 62px;
+//   height: 19px;
+//   display: block;
+// }
+// .icon-bookshop {
+//   background-image: url('../images/shoplist/bookshop1x.png');
+//   width: 32px;
+//   height: 32px;
+//   display: block;
+// }

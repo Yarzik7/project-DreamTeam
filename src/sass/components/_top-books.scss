@@ -12,19 +12,29 @@
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
     gap: 24px;
-    width: 100%;
+    min-height: 535px;
+    max-height: 550px;
     margin-bottom: 32px;
+
+    overflow: hidden;
+
+    @include for-tablet-up {
+      min-height: 366px;
+      max-height: 383px;
+    }
+
+    @include for-desktop-up {
+      min-height: 308px;
+      max-height: 325px;
+    }
   }
 
   &__action-button {
     margin-left: auto;
     width: 124px;
     height: 46px;
-  }
-
-  .category__book {
-    width: calc((100% - 24px * 4) / 5);
   }
 
   &:not(:last-child) {

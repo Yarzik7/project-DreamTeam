@@ -59,3 +59,8 @@
   --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(.17, .67, .83, .67);
 }
+/*Parameters*/
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 250ms;
+}
