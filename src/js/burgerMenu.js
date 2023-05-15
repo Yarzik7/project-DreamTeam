@@ -12,7 +12,7 @@ function toggleMenu() {
     refs.Menu.classList.toggle("is-hidden");
     refs.openMenuBtn.classList.toggle("is-hidden");
     refs.closeMenuBtn.classList.toggle("is-hidden");
-
+ 
 }
 
 })();

@@ -2,6 +2,7 @@ import('./js/category');
 import('./js/support');
 import('./js/scrollup');
 import('./js/burgerMenu');
+import('./js/currentPage');
 
 const refs = {
   booksListEl: document.querySelector('.js-all-books'),
