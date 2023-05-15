@@ -9,3 +9,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin getPositionTopRight($top, $right) {
+  top: $top + px;
+  right: $right + px;
+}
+
+@mixin getSize($width, $height) {
+  width: $width + px;
+  height: $height + px;
+}

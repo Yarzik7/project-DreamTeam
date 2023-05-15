@@ -10,15 +10,25 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="./sass/index.scss" />
 	<!-- Script -->
+  <script type="module" src="./js/shoplist.js"></script>
 	<script type="module" src="./index.js"></script>
+  <script type="module" src="./index-shopping-list.js"></script>
 </head>
-<body>
-	<header></header>
-	<aside>
-		<include src="./partials/support.html"></include>
-	</aside>
-	<main>
-		<include src="./partials/shoplist.html"></include>
-	</main>
-</body>
+	<body>
+		<include src="./partials/header.html"></include>
+		<div class="main-container">
+			<aside class="sidebar">
+				<div class="container sidebar__container">
+					<include src="./partials/support.html"></include>
+				</div>
+			</aside>
+		</div>
+		<main>
+			<div class="container">
+				<div class="product-container" id="shopping-list">
+					<include src="./partials/shoplist.html"></include>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>
