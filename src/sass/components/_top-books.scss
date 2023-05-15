@@ -14,17 +14,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    max-height: 535px;
+    min-height: 535px;
+    max-height: 550px;
     margin-bottom: 32px;
 
     overflow: hidden;
 
     @include for-tablet-up {
-      max-height: 366px;
+      min-height: 366px;
+      max-height: 383px;
     }
 
     @include for-desktop-up {
-      max-height: 308px;
+      min-height: 308px;
+      max-height: 325px;
     }
   }
 
