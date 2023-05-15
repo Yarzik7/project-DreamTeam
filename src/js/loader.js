@@ -8,15 +8,4 @@ function hideLoader() {
   loader.style.display = "none";
 }
 
-function makeRequest() {
-  showLoader();
- 
-  fetch(url)
-    .then(response => {
-    })
-    .catch(error => {
-    })
-    .finally(() => {
-      hideLoader();
-    });
-}
+export {showLoader, hideLoader}

@@ -1,13 +1,11 @@
+import('./js/loader');
 import('./js/category');
 import('./js/support');
 import('./js/popup/popupModal');
 import('./js/scrollup');
-<<<<<<< HEAD
 import('./js/loader');
-=======
 import('./js/api/topBooks');
->>>>>>> 046d983f4b22dd73b565043f53ce6d0bc867cbab
-
+import('./js/api/topBooks');
 const refs = {
   booksListEl: document.querySelector('.js-all-books'),
 };
