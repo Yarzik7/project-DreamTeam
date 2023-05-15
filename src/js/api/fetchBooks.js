@@ -5,7 +5,7 @@ export class AxiosApi {
 
   async getShops(bookId) {
     const url = `${this.#BASE_URL}${bookId}`;
-    // console.log(url);
+
     const result = await axios.get(url);
     return result;
   }

@@ -5,31 +5,46 @@ const axiosApi = new AxiosApi();
 const LOCALSTORAGE_KEY = 'books';
 const popupModal = document.createElement('div');
 const chosenBook = document.querySelector('.js-all-books');
+let bookInStorage = [];
+let idBook = null;
 
 chosenBook.addEventListener('click', onClick);
 
 async function onClick(e) {
-  const idBook = e.target.parentElement.dataset.id;
+  idBook = e.target.parentElement.dataset.id;
+  let check = checkBookInStorage(idBook)
+    ? 'REMOVE FROM THE SHOPPING LIST'
+    : 'ADD TO SHOPPING LIST';
+  console.log(check);
 
   try {
+    //Fetchs books from backend
     const responce = await axiosApi.getShops(idBook);
     const nodeEl = responce.data;
 
+    //Adds HTML render for modal window
     popupModal.innerHTML = createPopupCard(nodeEl);
     document.body.appendChild(popupModal);
 
+    //Button for adding books to bascket(cart)
     const addHandler = popupModal.querySelector('.js-add-storage');
+    console.dir(addHandler);
 
-    addHandler.addEventListener('click', addToCart(e, nodeEl));
+    addHandler.addEventListener('click', evt => {
+      addBookToShoppingList(idBook);
 
+      // console.log(idBook);
+    });
+
+    //Close modal window button
     const btnPopupClose = popupModal.querySelector('.js-popup-close');
-
     btnPopupClose.addEventListener('click', onClose);
   } catch (error) {
     console.log(error);
   }
 }
 
+//Creates HTML render for modal window
 function createPopupCard({
   author,
   book_image,
@@ -66,8 +81,14 @@ function createPopupCard({
     </div>`;
 }
 
+//Creates HTML render of shop links for modal window
 function createShopLinks(buyLinks) {
-  const markupShops = buyLinks
+  const filteredShops = buyLinks.filter(
+    ({ name }) =>
+      name === 'Amazon' || name === 'Apple Books' || name === 'Bookshop'
+  );
+
+  const markupShops = filteredShops
     .map(
       ({ name, url }) => `  <li>
                 <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
@@ -79,16 +100,47 @@ function createShopLinks(buyLinks) {
   return markupShops;
 }
 
-function addToCart(e, value) {
-  console.log(value);
-
-  saveStorageHandler(LOCALSTORAGE_KEY, value);
-}
-
+//Closes modal window, removes event listeners
 function onClose(evt) {
   if (!evt.target) {
     return;
   } else {
     document.body.removeChild(popupModal);
+    document.removeEventListener('keyup', onEscape);
   }
+}
+
+//Adds book to shopping cart(bascket)
+function addBookToShoppingList(idBook) {
+  if (checkBookInStorage(idBook)) {
+    removeBookFromShopingList(idBook);
+    return;
+  }
+  bookInStorage.push(idBook);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
+  console.log(bookInStorage);
+}
+
+//Removes book from shopping cart(bascket)
+function removeBookFromShopingList(idBook) {
+  let arr = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  arr = arr.filter(item => item !== idBook);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(arr));
+}
+
+//Adds listener for Escape key
+const onEscape = evt => {
+  if (evt.key === 'Escape') {
+    document.body.removeChild(popupModal);
+    document.removeEventListener('keyup', onEscape);
+  }
+};
+document.addEventListener('keydown', onEscape);
+
+function checkBookInStorage(idBook) {
+  bookInStorage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) ?? [];
+  if (!bookInStorage.includes(idBook)) {
+    return false;
+  }
+  return true;
 }
