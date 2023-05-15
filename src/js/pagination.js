@@ -3,7 +3,7 @@ import '/node_modules/tui-pagination/dist/tui-pagination.min.css';
 import axios from 'axios';
 
 const container = document.querySelector('#pagination');
-const listEl = document.querySelector('.shoplist');
+const listEl = document.querySelector('.shopinlist__cards');
 
 const arrBooks = [
   '643282b1e85766588626a085',
