@@ -118,9 +118,16 @@ async function test(e) {
   }
   const nameCategory = e.target.dataset.categoryname;
 
-  refs.categoryNameEl.scrollIntoView({
-    behavior: 'smooth',
-  });
+  if (window.innerWidth < 1440) {
+    refs.categoryNameEl.scrollIntoView({
+      behavior: 'smooth',
+    });
+  } else {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   markupNameCategory(nameCategory);
 
