@@ -1,0 +1,67 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content !important;
+  margin: 0 !important;
+
+  .tui-first,
+  .tui-prev,
+  .tui-next,
+  .tui-last {
+    background-color: #eac645;
+  }
+  .tui-ico-first,
+  .tui-ico-prev,
+  .tui-ico-next,
+  .tui-ico-last {
+    color: #111111;
+  }
+  .pagination--magrin {
+    margin-right: 8px;
+    @include for-tablet-up {
+      margin-right: 10px;
+    }
+  }
+  .tui-first {
+    margin-right: 8px;
+  }
+  .tui-is-disabled,
+  .tui-is-selected {
+    background-color: #111111 !important;
+    color: #b4afaf !important;
+  }
+  .tui-prev {
+    margin-right: 14px !important;
+    @include for-tablet-up {
+      margin-right: 24px !important;
+    }
+  }
+  .tui-next {
+    margin: 0 8px 0 0 !important;
+  }
+  .tui-last-child {
+    margin-right: 14px !important;
+    @include for-tablet-up {
+      margin-right: 24px !important;
+    }
+  }
+  .tui-page-btn {
+    border: 1px solid #111111 !important;
+    font-family: 'DM Sans' !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 22px !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+
+    @include for-tablet-up {
+      width: 44px !important;
+      height: 44px !important;
+    }
+  }
+}
