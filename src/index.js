@@ -3,6 +3,7 @@ import('./js/category');
 import('./js/support');
 import('./js/popup/popupModal');
 import('./js/scrollup');
+import('./js/loader');
 import('./js/api/topBooks');
 
 const refs = {
