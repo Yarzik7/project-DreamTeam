@@ -5,7 +5,7 @@ import('./js/popup/popupModal');
 import('./js/scrollup');
 import('./js/loader');
 import('./js/api/topBooks');
-import('./js/api/topBooks');
+
 const refs = {
   booksListEl: document.querySelector('.js-all-books'),
 };
