@@ -114,7 +114,7 @@
 .js-theme-switch {
   position: relative;
 
-  margin-right: 14px;
+  margin-right: 42px;
   margin-left: auto;
 
   @include for-tablet-up {
@@ -174,7 +174,6 @@
   }
 }
 
-
 // signUp btn
 
 .btn-signup {
@@ -226,24 +225,28 @@
 
 
 // mobile - burger menu
+
 .burger-menu__container {
   @include for-phone-up {
     width: 375px;
   }
+
   @include for-tablet-up {
     display: none;
   }
+
   display: block;
-  position: relative;
-  transform: translateY(-8px);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate( -50%, -50%);
+  
   width: 100vw;
   height: 100vh;
 
-  background: radial-gradient(
-    183.6% 183.01% at 59.76% -23.42%,
+  background: radial-gradient(183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
-    #ffffff 100%
-  );
+    #ffffff 100%);
 
   &::after {
     content: '';
@@ -271,8 +274,11 @@
   gap: 16px;
   flex-direction: column;
 }
+
+
 .burger-menu__btn--open {
-  position: relative;
+  position: absolute;
+  right: 20px;
   display: inline-block;
   width: 28px;
   height: 28px;
@@ -287,25 +293,26 @@
     display: none;
   }
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('/src/images/burger-menu/align-left.png');
-        background-repeat: no-repeat;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/burger-menu/align-left.png');
+    background-repeat: no-repeat;
   }
 
-    &:hover::after,
-    &:focus::after {
-        background-image: url('/src/images/burger-menu/align-left-hover.png');
+  &:hover::after,
+  &:focus::after {
+    background-image: url('/src/images/burger-menu/align-left-hover.png');
   }
+
 }
-
 .burger-menu__btn--close {
-  position: relative;
+ position: absolute;
+  right: 20px;
   display: inline-block;
   width: 28px;
   height: 28px;
@@ -315,24 +322,27 @@
   background-color: transparent;
   cursor: pointer;
 
-  display:none;
-
-&::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('/src/images/burger-menu/x-close.png');
-        background-repeat: no-repeat;
+  @include for-tablet-up {
+      display: none;
     }
 
-    &:hover::after,
-    &:focus::after {
-        background-image: url('/src/images/burger-menu/x-close-hover.png');
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/burger-menu/x-close.png');
+    background-repeat: no-repeat;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    background-image: url('/src/images/burger-menu/x-close-hover.png');
+  }
 }
+
 .btn-signup.burger-menu {
   display: flex;
   justify-content: space-between;
@@ -408,10 +418,17 @@
     border-radius: 36;
     
     background-color: var(--accent-yellow-color);
+    color: var(--black-color);
     font-weight: 700;
   }
 }
 
 .burger-nav__icon {
   fill: currentColor;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
