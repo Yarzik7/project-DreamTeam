@@ -11,6 +11,11 @@ let idBook = null;
 chosenBook.addEventListener('click', onClick);
 
 async function onClick(e) {
+  const currentEl = e.target.parentElement;
+  if (!currentEl.classList.contains('js-book')) {
+    return;
+  }
+
   idBook = e.target.parentElement.dataset.id;
   let check = checkBookInStorage(idBook)
     ? 'REMOVE FROM THE SHOPPING LIST'
