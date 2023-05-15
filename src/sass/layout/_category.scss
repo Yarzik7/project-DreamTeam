@@ -41,6 +41,8 @@
   }
 
   &__book {
+    cursor: pointer;
+
     @include for-tablet-up {
       width: 218px;
     }
@@ -52,7 +54,6 @@
 
   &__img {
     height: 485px;
-    margin-bottom: 14px;
     border-radius: 8px;
     object-fit: fill;
     width: 100%;
@@ -63,6 +64,39 @@
 
     @include for-desktop-up {
       height: 256px;
+    }
+  }
+
+  &__image-box {
+    position: relative;
+
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+
+  &__image-overlay {
+    position: absolute;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+    @include centeredByFlex;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    color: var(--black-color);
+    text-transform: uppercase;
+
+    background-color: var(--accent-yellow-color);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transform: translateY(71px);
+
+    .category__book:hover & {
+      transform: translateY(0);
     }
   }
 
