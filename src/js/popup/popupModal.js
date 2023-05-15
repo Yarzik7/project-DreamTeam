@@ -7,7 +7,6 @@ const popupModal = document.createElement('div');
 const chosenBook = document.querySelector('.js-all-books');
 let bookInStorage = [];
 let idBook = null;
-
 chosenBook.addEventListener('click', onClick);
 
 async function onClick(e) {
@@ -48,7 +47,9 @@ async function onClick(e) {
     console.log(error);
   }
 }
-
+// <svg width="16" height="15">
+//   <use href="./images/icon-x-close.svg"></use>
+// </svg>;
 //Creates HTML render for modal window
 function createPopupCard({
   author,
@@ -62,9 +63,7 @@ function createPopupCard({
   <div class="js-popup popup__body">
   <div class="popup__container">
   <button  class="js-popup-close btn__close" type="button">
-        <svg width="16" height="15"></svg>
-        <use href="./images/sprite.svg#icon-x-close"></use>
-        </svg>
+    <img src="${new URL(`../../images/icon-x-close.svg`, import.meta.url)}">
     </button>
     <div class="popup-book">
     <div class="popup-book__thumb">
