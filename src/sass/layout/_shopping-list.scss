@@ -188,6 +188,18 @@
 }
 
 .shopinlist__btn-icon {
+	stroke: var(--white-color);
+	fill: transparent;
+
+	@include for-tablet-up {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.shopinlist__btn:hover .shopinlist__btn-icon,
+.shopinlist__btn:focus .shopinlist__btn-icon {
+	stroke: var(--black-color);
 }
 
 .shopinlist__book-description {
