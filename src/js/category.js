@@ -1,5 +1,8 @@
 import getAllCategory from './api/categoryList';
 import getAllBooks from './api/categoryBooks';
+import { topBooksContainerMarcup } from './topBooksContainerMarcup';
+import { topBooksData } from './testFiles/testData(Yaroslav)';
+import { bookItemMarcup } from './bookItemMarcup';
 
 const refs = {
   categoryListEl: document.querySelector('.js-list-categories'),
@@ -18,25 +21,29 @@ getAllCategory().then(data => {
 refs.categoryListEl.addEventListener('click', onClick);
 
 async function onClick(e) {
-  if (e.target.classList[0] !== 'categories__item') {
-    return;
+  if (e.target.classList.contains('js-category')) {
+    changeClassCurrentCategory(e.target);
+    scrollUp();
+    markupNameCategory(e.target.textContent);
+
+    refs.booksEl.innerHTML = markupBooks(
+      await getAllBooks(e.target.textContent)
+    );
+    refs.booksEl.classList.add('category__list');
+  } else if (e.target.classList.contains('js-main-category')) {
+    changeClassCurrentCategory(e.target);
+    scrollUp();
+    markupNameCategory('Best Sellers Books');
+
+    refs.booksEl.innerHTML = topBooksData
+      .map(category => topBooksContainerMarcup(category, refs.booksEl))
+      .join('');
+
+    refs.booksEl.classList.remove('category__list');
   }
 
-  markupNameCategory(e.target.textContent);
-
-  refs.categoryListEl
-    .querySelector('.categories__current')
-    .classList.remove('categories__current');
-  e.target.classList.add('categories__current');
-
-  refs.categoryNameEl.scrollIntoView({
-    behavior: 'smooth',
-  });
-
-  refs.booksEl.innerHTML = markupBooks(await getAllBooks(e.target.textContent));
-  refs.booksEl.classList.add('category__list');
+  return;
 }
-
 /**
  * Markup categories in sidebar
  * @param {Array} arr
@@ -44,8 +51,26 @@ async function onClick(e) {
  */
 function markupAllCategories(arr) {
   return arr
-    .map(({ list_name }) => `<li class="categories__item">${list_name}</li>`)
+    .map(
+      ({ list_name }) =>
+        `<li class="categories__item js-category">${list_name}</li>`
+    )
     .join('');
+}
+
+function scrollUp() {
+  if (window.innerWidth < 1440) {
+    refs.categoryNameEl.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
+}
+
+function changeClassCurrentCategory(target) {
+  refs.categoryListEl
+    .querySelector('.categories__current')
+    .classList.remove('categories__current');
+  target.classList.add('categories__current');
 }
 
 /**
@@ -54,17 +79,7 @@ function markupAllCategories(arr) {
  * @returns String
  */
 function markupBooks(data) {
-  return data
-    .map(
-      ({ author, book_image, title, _id }) => `
-  <li data-id="${_id}" class="category__book js-book">
-    <img class="category__img" src="${book_image}" alt="${title}">
-    <h2 class="category__title">${title}</h2>
-    <h3 class="category__subtitle">${author}</h3>
-  </li>
-  `
-    )
-    .join('');
+  return data.map(bookItemMarcup).join('');
 }
 
 /**
@@ -89,16 +104,21 @@ function markupNameCategory(name) {
 refs.booksEl.addEventListener('click', test);
 
 async function test(e) {
-  if (!e.target.classList.contains('button')) {
+  if (!e.target.classList.contains('js-action-button')) {
     return;
   }
-  const nameCategory = e.target.parentElement.querySelector(
-    '.category-top-books__title'
-  ).textContent;
+  const nameCategory = e.target.dataset.categoryname;
 
-  refs.categoryNameEl.scrollIntoView({
-    behavior: 'smooth',
-  });
+  if (window.innerWidth < 1440) {
+    refs.categoryNameEl.scrollIntoView({
+      behavior: 'smooth',
+    });
+  } else {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   markupNameCategory(nameCategory);
 

@@ -60,3 +60,8 @@
   --transition-timing-function: cubic-bezier(.17, .55, .83, .55);
   
 }
+/*Parameters*/
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 250ms;
+}

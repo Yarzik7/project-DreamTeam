@@ -1,8 +1,12 @@
+import('./js/loader');
 import('./js/category');
 import('./js/support');
+import('./js/popup/popupModal');
 import('./js/scrollup');
 import('./js/burgerMenu');
 import('./js/currentPage');
+import('./js/loader');
+import('./js/api/topBooks');
 
 const refs = {
   booksListEl: document.querySelector('.js-all-books'),
@@ -13,7 +17,7 @@ const refs = {
 import { topBooksContainerMarcup } from './js/topBooksContainerMarcup';
 import { topBooksData } from './js/testFiles/testData(Yaroslav)';
 
-refs.booksListEl.innerHTML = topBooksData
-  .map(category => topBooksContainerMarcup(category, refs.booksListEl))
-  .join('');
+// refs.booksListEl.innerHTML = topBooksData
+//   .map(category => topBooksContainerMarcup(category, refs.booksListEl))
+//   .join('');
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
