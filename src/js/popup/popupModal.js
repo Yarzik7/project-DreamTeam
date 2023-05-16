@@ -10,7 +10,7 @@ popupModal.classList.add('backdrop');
 
 const chosenBook = document.querySelector('.js-all-books');
 
-let bookInStorage = [];
+let bookInStorage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
 let idBook = null;
 
 // Get Books From Storage
@@ -97,7 +97,7 @@ function addBookToShoppingList(idBook, evt) {
   evt.target.blur();
 
   if (checkBookInStorage(idBook)) {
-    removeBookFromShopingList(idBook);
+    removeBookFromShoppingList(idBook);
 
     evt.target.textContent = 'ADD TO SHOPPING LIST';
     return;
@@ -108,8 +108,8 @@ function addBookToShoppingList(idBook, evt) {
   evt.target.textContent = 'REMOVE FROM THE SHOPPING LIST';
 }
 
-//Removes book from shopping cart(bascket)
-function removeBookFromShopingList(idBook) {
+//Removes book from shopping list
+function removeBookFromShoppingList(idBook) {
   let arrBooks = getBooksFromStorage().filter(item => item !== idBook);
 
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(arrBooks));
