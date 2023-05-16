@@ -2,7 +2,7 @@ import { SupportFounds } from '../data/support-data';
 import Swiper from 'swiper';
 import '../../node_modules/swiper/swiper.scss';
 import { imegesSupport } from '../images/support-images/sapport-img';
-console.log(imegesSupport);
+
 const supportListEl = document.querySelector('.js-support_list');
 const upBtn = document.querySelector('.swiper-up');
 
