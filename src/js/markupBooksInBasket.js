@@ -18,7 +18,7 @@ function markupBooksInBasket(arr) {
         title,
         list_name,
         description,
-        //   buy_links: [amazon, apple, , , bookshop],
+        buy_links: [amazon, apple, , , bookshop],
       }) => {
         return `<li class="shopinlist__card" data-id="${_id}">
 					<div class="shopinlist__block">
@@ -36,18 +36,26 @@ function markupBooksInBasket(arr) {
               }</p>
 							<ul class="shopinlist__shops">
 								<li class="shopinlist__shop">
-									<a href="${'amazon.url'}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
-									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${'amazon.name'}" class="shopinlist__shop-img" width="48" height="15" />
+									<a href="${
+                    amazon.url
+                  }" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
+									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${
+          amazon.name
+        }" class="shopinlist__shop-img" width="48" height="15" />
 									</a>
 								</li>
 								<li class="shopinlist__shop">
 									<a href="${'apple.url'}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Apple-book site">
-									<img srset="${appleimg1} 1x, ${appleimg2} 2x" src="${appleimg1}" alt="${'apple.name'}" class="shopinlist__shop-img" width="28" height="27" />
+									<img srset="${appleimg1} 1x, ${appleimg2} 2x" src="${appleimg1}" alt="${
+          apple.name
+        }" class="shopinlist__shop-img" width="28" height="27" />
 									</a>
 								</li>
 								<li class="shopinlist__shop">
 									<a href="${'bookshop.url'}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Book-shop site">
-									<img srset="${bookshopimg1} 1x, ${bookshopimg2} 2x" src="${bookshopimg1}" alt="${'bookshop.name'}" class="shopinlist__shop-img" width="32" height="30" />
+									<img srset="${bookshopimg1} 1x, ${bookshopimg2} 2x" src="${bookshopimg1}" alt="${
+          bookshop.name
+        }" class="shopinlist__shop-img" width="32" height="30" />
 									</a>
 								</li>
 							</ul>
@@ -55,18 +63,26 @@ function markupBooksInBasket(arr) {
 							<p class="shopinlist__bookauthor--tablet">${author}</p>
 							<ul class="shopinlist__shops--tablet">
 								<li class="shopinlist__shop">
-									<a href="${'amazon.url'}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
-									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${'amazon.name'}" class="shopinlist__shop-img" width="48" height="15" />
+									<a href="${
+                    amazon.url
+                  }" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
+									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${
+          amazon.name
+        }" class="shopinlist__shop-img" width="48" height="15" />
 									</a>
 								</li>
 								<li class="shopinlist__shop">
 									<a href="${'apple.url'}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Apple-book site">
-									<img srset="${appleimg1} 1x, ${appleimg2} 2x" src="${appleimg1}" alt="${'apple.name'}" class="shopinlist__shop-img" width="28" height="27" />
+									<img srset="${appleimg1} 1x, ${appleimg2} 2x" src="${appleimg1}" alt="${
+          apple.name
+        }" class="shopinlist__shop-img" width="28" height="27" />
 									</a>
 								</li>
 								<li class="shopinlist__shop">
 									<a href="${'bookshop.url'}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Book-shop site">
-									<img srset="${bookshopimg1} 1x, ${bookshopimg2} 2x" src="${bookshopimg1}" alt="${' bookshop.name'}" class="shopinlist__shop-img" width="32" height="30" />
+									<img srset="${bookshopimg1} 1x, ${bookshopimg2} 2x" src="${bookshopimg1}" alt="${
+          bookshop.name
+        }" class="shopinlist__shop-img" width="32" height="30" />
 									</a>
 								</li>
 							</ul>
