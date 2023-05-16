@@ -40,6 +40,7 @@
 
   &__icon {
     margin-left: 12px;
+    fill: var(--white-color);
   }
 
   &__link {
@@ -71,7 +72,6 @@
     transform: scale(1.1);
   }
 
-
   &__btn {
     display: block;
     margin-left: auto;
@@ -80,9 +80,13 @@
     border: none;
     border-radius: 50%;
     background-color: var(--white-color);
+    width: 32px;
+    height: 32px;
 
     @include for-tablet-up {
       padding: 8px;
+      width: 38px;
+      height: 38px;
     }
 
     &:hover .support__btn-icon {
