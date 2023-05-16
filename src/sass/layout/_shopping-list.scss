@@ -161,6 +161,7 @@
 
 .shopinlist__bookauthor--tablet {
   display: none;
+	color: var(--alt-text-color);
 
   @include for-tablet-up {
     display: block;
