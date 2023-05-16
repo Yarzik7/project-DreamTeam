@@ -18,8 +18,35 @@
   .tui-ico-prev,
   .tui-ico-next,
   .tui-ico-last {
-    color: #111111;
+    filter: contrast(200%) brightness(100%);
   }
+
+  .tui-pagination,
+  .tui-page-btn {
+    border: none !important;
+  }
+
+  .tui-last-child,
+  .pagination--magrin {
+    border: 1px solid var(--btn-outline-color) !important;
+    color: var(--number-color) !important;
+  }
+
+  .tui-last-child,
+  .pagination--magrin:hover {
+    color: #000000 !important;
+  }
+
+  .tui-ico-ellip {
+    filter: var(--dots-color);
+  }
+
+  .tui-next-is-ellip:hover {
+    .tui-ico-ellip {
+      filter: brightness(100%);
+    }
+  }
+
   .pagination--magrin {
     margin-right: 8px;
     @include for-tablet-up {
@@ -29,11 +56,15 @@
   .tui-first {
     margin-right: 8px;
   }
-  .tui-is-disabled,
-  .tui-is-selected {
-    background-color: #111111 !important;
-    color: #b4afaf !important;
+  .tui-is-disabled {
+    background-color: var(--disable-background-color) !important;
+    color: var(--disable-icon-color) !important;
   }
+  .tui-is-selected {
+    background-color: var(--selected-background-color) !important;
+    color: var(--selected-icon-color) !important;
+  }
+
   .tui-prev {
     margin-right: 14px !important;
     @include for-tablet-up {
@@ -50,7 +81,6 @@
     }
   }
   .tui-page-btn {
-    border: 1px solid #111111 !important;
     font-family: 'DM Sans' !important;
     font-weight: 700 !important;
     font-size: 18px !important;

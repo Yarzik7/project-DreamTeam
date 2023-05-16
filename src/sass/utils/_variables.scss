@@ -49,6 +49,14 @@
   --book-author-color: rgba(180, 175, 175, 1);
   --book-rew-color: rgba(17, 17, 17, 1);
   --popup-info-text-color: rgba(17, 17, 17, 0.5);
+  /* Pagination */
+  --disable-background-color: #111111;
+  --selected-background-color: #111111;
+  --disable-icon-color: #b4afaf;
+  --selected-icon-color: #ffffff;
+  --btn-outline-color: #111111;
+  --number-color: #000000;
+  --dots-color: #111111;
 }
 
 /*Dark theme*/
@@ -87,5 +95,14 @@
   --book-name-color: rgba(255, 255, 255, 1);
   --book-author-color: rgba(180, 175, 175, 1);
   --book-rew-color: rgba(255, 255, 255, 1);
-  --popup-info-text-color: rgba(255, 255, 255, 0.5)
+  --popup-info-text-color: rgba(255, 255, 255, 0.5);
+
+  /* Pagination */
+  --disable-background-color: #000000;
+  --selected-background-color: #ffffff;
+  --disable-icon-color: #ffffff;
+  --selected-icon-color: #000000;
+  --btn-outline-color: #ffffff;
+  --number-color: #ffffff;
+  --dots-color: invert(100%);
 }

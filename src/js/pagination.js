@@ -10,6 +10,7 @@ const listEl = document.querySelector('.shopinlist__cards');
 const arrBooksStorage = localStoragemethod.load('books');
 
 let ITEM_PER_PAGE = window.innerWidth < 768 ? 4 : 3;
+let VISIBLE_PAGES = window.innerWidth < 768 ? 2 : 3;
 
 if (arrBooksStorage.length > ITEM_PER_PAGE) {
   container.classList.remove('disabled');
@@ -18,7 +19,7 @@ if (arrBooksStorage.length > ITEM_PER_PAGE) {
 const options = {
   totalItems: arrBooksStorage.length,
   itemsPerPage: ITEM_PER_PAGE,
-  visiblePages: 3,
+  visiblePages: VISIBLE_PAGES,
   page: 1,
   centerAlign: false,
   usageStatistics: true,
