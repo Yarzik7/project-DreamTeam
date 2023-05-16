@@ -7,7 +7,17 @@ import('./js/burgerMenu');
 import('./js/currentPage');
 import('./js/loader');
 import('./js/api/topBooks');
+import('./js/themes');
 
+import { setTheme, activateThemeSwitch } from './js/themes';
+const pageEl = document.querySelector('html');
+
+setTheme(pageEl);
+
+pageEl.addEventListener('click', event => {
+
+  activateThemeSwitch(event, pageEl);
+});
 const refs = {
   booksListEl: document.querySelector('.js-all-books'),
 };

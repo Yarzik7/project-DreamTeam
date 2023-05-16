@@ -13,12 +13,12 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
-    color: var(--black-color);
+    color: var(--categories-name);
     margin-bottom: 40px;
   }
 
   &__name--violet {
-    color: var(--accent-violet-color);
+    color: var(--categories-current-color);
   }
 
   &__list {
@@ -104,7 +104,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-    color: var(--black-color);
+    color: var(--categories-name);
     margin: 0 0 4px;
   }
 
