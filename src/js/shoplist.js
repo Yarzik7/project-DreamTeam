@@ -1,162 +1,89 @@
 import localStoragemethod from '../js/storage-methods';
-import svgDeleteUrl from '../images/sprite.svg';
-import amzonimg1 from '../images/shoplist/amazon1x.png';
-import amzonimg2 from '../images/shoplist/amazon2x.png';
-import appleimg1 from '../images/shoplist/apple1x.png';
-import appleimg2 from '../images/shoplist/apple2x.png';
-import bookshopimg1 from '../images/shoplist/bookshop1x.png';
-import bookshopimg2 from '../images/shoplist/bookshop2x.png';
+import axios from 'axios';
+import { pagination, sliceOnGroup } from './pagination';
 
-const bookListEl = document.querySelector('.shoplist__cards');
-const notificationContainerEl = document.querySelector('.shoplist-info');
-const shoppingTitle = document.querySelector('.shoplist-title');
+import markupBooksInBasket from './markupBooksInBasket';
 
+const bookListEl = document.querySelector('.shopinlist__cards');
+const notificationContainerEl = document.querySelector('.shoplist__info');
+const shoppingTitle = document.querySelector('.basket__title');
+const container = document.querySelector('#pagination');
+
+const LOCALSTORAGE_KEY = 'books';
 let bookList = localStoragemethod.load('books');
+const ITEM_PER_PAGE = window.innerWidth < 768 ? 4 : 3;
 
-let currentPage = 1;
-let itemsPerPage = 3;
-let bookCount = bookList.length;
+renderBooks(bookList);
 
-let pagination = getPagination(bookCount, itemsPerPage);
-	pagination.on('beforeMove', event => {
-	currentPage = event.page;
-	renderBooks(bookList, event.page);
-});
+async function renderBooks(data) {
+  if (data.length) {
+    removeEmptyNotificationContainer();
 
-renderBooks(bookList, currentPage);
+    const currentData = data.slice(0, ITEM_PER_PAGE);
 
-function renderBooks(data, page = 1) {
-	const startIndex = (page - 1) * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-	let currentData = data.slice(startIndex, endIndex);
+    const arrBooks = await currentData.map(async id => {
+      const data = await axios.get(
+        `https://books-backend.p.goit.global/books/${id}`
+      );
+      return await data.data;
+    });
+    const arrResult = (await Promise.allSettled(arrBooks)).map(el => el.value);
 
-	if (currentData.length) {
-		removeEmptyNotificationContainer();
-
-		const markup = currentData
-			.map(
-				({
-					_id,
-					book_image,
-					author,
-					book_image_width,
-					book_image_height,
-					title,
-					list_name,
-					description,
-					buy_links: [amazon, apple, , , bookshop],
-				}) => {
-					return `<li class="shopinlist__card data-id="${_id}">
-					<div class="shopinlist__block">
-						<div>
-							<div class="shopinlist__thumb">
-								<img src="${book_image}" alt="${list_name}" class="shopinlist__book-img" width="${book_image_width}" height="${book_image_height}" />
-							</div>
-							<p class="shopinlist__book-author">${author}</p>
-						</div>
-						<div class="shopinlist__wrap">
-							<h2 class="shopinlist__title">${title}</h2>
-							<p class="shopinlist__category">${cutNameCategory(list_name)}</p>
-							<p class="shopinlist__book-description--tablet">${description}</p>
-							<ul class="shopinlist__shops">
-								<li class="shopinlist__shop">
-									<a href="${amazon.url}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
-									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${amazon.name}" class="shopinlist__shop-img" width="48" height="15" />
-									</a>
-								</li>
-								<li class="shopinlist__shop">
-									<a href="${apple.url}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Apple-book site">
-									<img srset="${appleimg1} 1x, ${appleimg2} 2x" src="${appleimg1}" alt="${apple.name}" class="shopinlist__shop-img" width="28" height="27" />
-									</a>
-								</li>
-								<li class="shopinlist__shop">
-									<a href="${bookshop.url}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Book-shop site">
-									<img srset="${bookshopimg1} 1x, ${bookshopimg2} 2x" src="${bookshopimg1}" alt="${bookshop.name}" class="shopinlist__shop-img" width="32" height="30" />
-									</a>
-								</li>
-							</ul>
-							<div class="shopinlist__wrap-shops--tablet">
-							<p class="shopinlist__bookauthor--tablet">${author}</p>
-							<ul class="shopinlist__shops--tablet">
-								<li class="shopinlist__shop">
-									<a href="${amazon.url}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
-									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${amazon.name}" class="shopinlist__shop-img" width="48" height="15" />
-									</a>
-								</li>
-								<li class="shopinlist__shop">
-									<a href="${apple.url}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Apple-book site">
-									<img srset="${appleimg1} 1x, ${appleimg2} 2x" src="${appleimg1}" alt="${apple.name}" class="shopinlist__shop-img" width="28" height="27" />
-									</a>
-								</li>
-								<li class="shopinlist__shop">
-									<a href="${bookshop.url}" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Book-shop site">
-									<img srset="${bookshopimg1} 1x, ${bookshopimg2} 2x" src="${bookshopimg1}" alt="${bookshop.name}" class="shopinlist__shop-img" width="32" height="30" />
-									</a>
-								</li>
-							</ul>
-							</div>
-						</div>
-					</div>
-					<button type="button" class="shopinlist__btn" arial-label="Delete the book from shopping list">
-						<svg class="shopinlist__btn-icon" width="15" height="15">
-							<use href="${svgDeleteUrl}#icon-dump"></use>
-						</svg>
-					</button
-					<p class="shopinlist__book-description">${description}</p>
-			</li>`;
-				}
-		).join('');
-		bookListEl.innerHTML = markup;
-		console.log(markup)
-		bookListEl.addEventListener('click', onBasketClick);
-	} else {
-		pasteEmptyNotificationContainer();
-	}
+    bookListEl.innerHTML = markupBooksInBasket(arrResult);
+    bookListEl.addEventListener('click', onBasketClick);
+  } else {
+    pasteEmptyNotificationContainer();
+  }
 }
 
 function pasteEmptyNotificationContainer() {
-	bookListEl.innerHTML = '';
-	notificationContainerEl.classList.add('js-empty');
-	shoppingTitle.style.marginBottom = '140px';
+  bookListEl.innerHTML = '';
+  notificationContainerEl.classList.add('js-empty');
+  shoppingTitle.style.marginBottom = '140px';
 }
 
 function removeEmptyNotificationContainer() {
-	notificationContainerEl.classList.remove('js-empty');
-	shoppingTitle.style.marginBottom = '';
-	removeEventListener('click', onBasketClick);
+  notificationContainerEl.classList.remove('js-empty');
+  shoppingTitle.style.marginBottom = '';
+  removeEventListener('click', onBasketClick);
 }
 
 function cutNameCategory(name) {
-	if (window.innerWidth <= 768) {
-		if (name.length > 20) {
-			return name.substring(0, 20) + '...';
-		}
-		return name;
-	}
-	return name;
+  if (window.innerWidth <= 768) {
+    if (name.length > 20) {
+      return name.substring(0, 20) + '...';
+    }
+    return name;
+  }
+  return name;
 }
 
 function onBasketClick(event) {
-	const target = event.target.closest('.shopinlist__btn');
-	const page = pagination.getCurrentPage();
+  const target = event.target.closest('.shopinlist__btn');
+  const li = target.closest('.shopinlist__card');
 
-	if (!target) {
-		return;
-	}
-	const bookEl = target.closest('.shopinlist__btn').closest('.shopinlist__card');
-	const seekedId = bookEl.dataset.id.trim();
+  if (!target) {
+    return;
+  }
 
-	const removedElIndexFromStorage = bookList.findIndex(item => item._id === seekedId);
+  const arrSlice = sliceOnGroup(bookList, ITEM_PER_PAGE);
 
-	bookList.splice(removedElIndexFromStorage, 1);
-	localStoragemethod.save(books, bookList);
+  bookList = bookList.filter(item => item !== li.dataset.id);
 
-	bookCount = bookList.length;
-	pagination.setTotalItems(bookCount);
-	pagination.movePageTo(page);
+  localStoragemethod.save(LOCALSTORAGE_KEY, bookList);
+  li.style.display = 'none';
 
-	if (bookListEl.childNodes.length === 0) {
-		pagination.movePageTo(currentPage - 1);
-	}
+  if (arrSlice[pagination.getCurrentPage() - 1].length === 1) {
+    pagination.movePageTo(pagination.getCurrentPage() - 1);
+  } else {
+    pagination.movePageTo(pagination.getCurrentPage());
+  }
+
+  if (bookList.length <= ITEM_PER_PAGE) {
+    container.classList.add('disabled');
+  }
+
+  if (bookList.length === 0) {
+    pasteEmptyNotificationContainer();
+  }
 }
-
