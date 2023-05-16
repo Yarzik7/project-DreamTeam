@@ -1,6 +1,6 @@
 .header__container {
   position: relative;
-  z-index: 10;
+  z-index: 15;
   padding: 18px 20px;
   margin: 0 auto;
   height: auto;
@@ -39,8 +39,6 @@
 .logo__icon {
   fill: #4f2ee8;
 }
-
-.logo__text {}
 
 // navigation part
 .header__nav {
@@ -100,8 +98,6 @@
   }
 }
 
-
-.nav__icon {}
 
 .current-page {
   padding: 8px 16px;
@@ -237,6 +233,7 @@
 
   display: block;
   position: absolute;
+  z-index: 14;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -403,8 +400,6 @@
   justify-content: space-between;
 
 }
-
-.burger-menu__item {}
 
 .burger-menu__link {
   display: inline-flex;
