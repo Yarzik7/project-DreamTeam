@@ -136,7 +136,13 @@
   }
 }
 
-.shopinlist__book-img {
+.shopinlist__shop-img{
+	filter: grayscale(1);
+
+	&:hover,
+	&:focus {
+		filter: grayscale(1) drop-shadow(0px 3px 3x rgba(0, 0, 0, 0.35));
+	}
 }
 
 .shopinlist__book-author {
@@ -180,6 +186,7 @@
     width: 34px;
     height: 34px;
   }
+@include trasition(background-color);
 
   &:hover,
   &:focus {
@@ -190,7 +197,7 @@
 .shopinlist__btn-icon {
 	stroke: var(--white-color);
 	fill: transparent;
-
+	@include trasition(background-color);
 	@include for-tablet-up {
 		width: 18px;
 		height: 18px;
