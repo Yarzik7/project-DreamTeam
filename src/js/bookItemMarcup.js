@@ -7,7 +7,7 @@ const bookItemMarcup = ({ author, book_image, title, _id }) => {
   return `
   <li class="category__book js-book" data-id="${_id}">
     <div class="category__image-box js-book" data-id="${_id}">
-      <img class="category__img" src="${book_image}" alt="${title}">
+      <img class="category__img" src="${book_image}" alt="${title}" loading="lazy">
       <p class="category__image-overlay">Quick view</p>
     </div>
     <h2 class="category__title">${title}</h2>

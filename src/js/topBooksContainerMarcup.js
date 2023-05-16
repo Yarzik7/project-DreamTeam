@@ -5,8 +5,7 @@ import { bookItemMarcup } from './bookItemMarcup';
  * @param {Array} books - масив найпопулярніших книг певної категорії
  * @returns {string} строка з розміткою книг
  */
-const createTopBooksMarcup = books =>
-  books.map(book => bookItemMarcup(book)).join('');
+const createTopBooksMarcup = books => books.map(book => bookItemMarcup(book)).join('');
 
 /**
  * Повертає розмітку контейнера з найпопулярнішими книгами певної категорії
