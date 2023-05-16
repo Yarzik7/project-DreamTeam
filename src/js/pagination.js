@@ -1,25 +1,22 @@
-import Pagination from 'tui-pagination';
+import Pagination from '/node_modules/tui-pagination';
 import '/node_modules/tui-pagination/dist/tui-pagination.min.css';
 import axios from 'axios';
-import markupBooksInBasket from './shoplist';
-import localStoragemethod from '../js/storage-methods';
+import markupBooksInBasket from './markupBooksInBasket';
+import localStoragemethod from './storage-methods';
 
 const container = document.querySelector('#pagination');
 const listEl = document.querySelector('.shopinlist__cards');
 
-const arrBooksTest = localStoragemethod.load('books');
-console.log(arrBooksTest);
+const arrBooksStorage = localStoragemethod.load('books');
 
 let ITEM_PER_PAGE = window.innerWidth < 768 ? 4 : 3;
 
-console.log(arrBooksTest.length);
-
-if (arrBooksTest.length > ITEM_PER_PAGE) {
+if (arrBooksStorage.length > ITEM_PER_PAGE) {
   container.classList.remove('disabled');
 }
 
 const options = {
-  totalItems: arrBooksTest.length,
+  totalItems: arrBooksStorage.length,
   itemsPerPage: ITEM_PER_PAGE,
   visiblePages: 3,
   page: 1,
@@ -48,8 +45,6 @@ const options = {
 
 const pagination = new Pagination(container, options);
 
-// const sliceArr = sliceOnGroup(arrBooksTest, ITEM_PER_PAGE);
-
 function sliceOnGroup(arr, countGroup) {
   var arrTotal = [];
   for (let i = 0; i < arr.length; i += countGroup) {
@@ -59,33 +54,19 @@ function sliceOnGroup(arr, countGroup) {
   return arrTotal;
 }
 
-// ===================================test============================
+pagination.on('afterMove', onMove);
 
-pagination.on('afterMove', test);
-
-async function test(e) {
+async function onMove(e) {
   const arrBooks = localStoragemethod.load('books');
-  const result = sliceOnGroup(arrBooks, ITEM_PER_PAGE);
-  const booksList = await result[e.page - 1].map(async id => {
+  const sliceArr = sliceOnGroup(arrBooks, ITEM_PER_PAGE);
+  const booksList = await sliceArr[e.page - 1].map(async id => {
     const data = await axios.get(
       `https://books-backend.p.goit.global/books/${id}`
     );
     return await data.data;
   });
-  const test = (await Promise.allSettled(booksList)).map(el => el.value);
-  console.log(test);
-  // const result = test
-  //   .map(
-  //     ({ value }) => `
-  // <li data-id="${value._id}" class="category__book js-book">
-  //   <img class="category__img" src="${value.book_image}" alt="${value.title}">
-  //   <h2 class="category__title">${value.title}</h2>
-  //   <h3 class="category__subtitle">${value.author}</h3>
-  // </li>
-  // `
-  //   )
-  //   .join('');
-  listEl.innerHTML = markupBooksInBasket(test);
+  const arrResult = (await Promise.allSettled(booksList)).map(el => el.value);
+  listEl.innerHTML = markupBooksInBasket(arrResult);
 }
 
-export default pagination;
+export { pagination, sliceOnGroup };

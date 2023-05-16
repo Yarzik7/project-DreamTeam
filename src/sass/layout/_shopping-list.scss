@@ -245,6 +245,8 @@
   display: none;
   @include for-desktop-up {
     display: block;
+    margin-right: 40px;
+    margin-top: 40px;
   }
 }
 
