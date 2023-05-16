@@ -38,6 +38,7 @@
 
   &__icon {
     margin-left: 12px;
+    fill: var(--white-color);
   }
 
   &__link {
@@ -69,18 +70,20 @@
     transform: scale(1.1);
   }
 
-
   &__btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 6px;
     border: none;
     border-radius: 50%;
     background-color: var(--white-color);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 
     @include for-tablet-up {
-      padding: 8px;
+      width: 38px;
+      height: 38px;
     }
 
     &:hover .support__btn-icon {
@@ -93,7 +96,6 @@
     width: 20px;
     height: 20px;
     transform: translateY(2px);
-    transform: rotate(180deg);
     fill: var(--accent-violet-color);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 

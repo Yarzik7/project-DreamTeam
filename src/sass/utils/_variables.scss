@@ -1,67 +1,91 @@
-/*Light theme*/
-:root {
-  --bcg-light-color: #d0d0d0;
-}
-/*Dark theme*/
-:root {
-  --bcg-dark-color: #202024;
-}
 /*Main color*/
 :root {
   --white-color: #ffffff;
   --black-color: #111111;
   --accent-yellow-color: #eac645;
   --accent-violet-color: #4f2ee8;
-  --alt-text-color: #b4afaf;
-  --bcg-accent-color: rgba(17, 17, 17, 0.4);
-  --scroll-up-shadow:rgba(79, 46, 232, 0.3);
 
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*Light theme*/
+[page-theme='light'] {
+  --background-color: #f6f6f6;
+  --alt-text-color: #5c5656;
+  --header-background-color: #ffffff;
+  --header-outline-color: #111111;
+  --logo-text-color: #000000;
+  --nav-text-color: #111111;
+  --nav-hover-color: #111111;
+  --nav-icon-color: #111111;
   /*Switch btn features*/
-  --switch-btn-color: linear-gradient(
-    180deg,
-    var(--white-color) 0%,
-    #f7f7f7 100%
-  );
-  --light-gradient-color: linear-gradient(
+  --sw-button-color: linear-gradient(
     180deg,
     var(--accent-violet-color) 0%,
     #dcdcdc 100%
   );
-  --dark-gradient-color: linear-gradient(
+  --sw-button-color: linear-gradient(
+    180deg,
+    var(--accent-violet-color) 0%,
+    #dcdcdc 100%
+  );
+
+  /*mobile menu*/
+  --burger-menu-link: #ffffff;
+  /* Categories */
+  --categories-name: #111111;
+  --categories-list-text: rgba(17, 17, 17, 0.6);
+  --categories-current-color: #4f2ee8;
+  --categories-scrollbar: #e0e0e0;
+  /* See more button */
+  --more-btn-text-color: #000000;
+  --more-btn-hover-color: #ffffff;
+  /* Shopping list */
+  --shopping-list-text: rgba(0, 0, 0, 0.6);
+  /* Pop up */
+  --popup-color: #ffffff;
+  --book-name-color: rgba(17, 17, 17, 1);
+  --book-author-color: rgba(180, 175, 175, 1);
+  --book-rew-color: rgba(17, 17, 17, 1);
+  --popup-info-text-color: rgba(17, 17, 17, 0.5);
+}
+
+/*Dark theme*/
+[page-theme='dark'] {
+  --background-color: #202024;
+  --alt-text-color: rgba(180, 175, 175, 1);
+  --header-background-color: #111111;
+  --header-outline-color: #ffffff;
+  --logo-text-color: #f3f3f3;
+  --nav-text-color: #ffffff;
+  --nav-hover-color: #111111;
+  --nav-icon-color: #ffffff;
+  --sw-button-color: linear-gradient(
     180deg,
     var(--accent-violet-color) 0%,
     #686868 100%
   );
-  --transition-duration: 200ms;
-  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
+  /*Mobile menu*/
+  --burger-menu-link: #111111;
   /* Categories */
-  --categories-light-text: rgba(17, 17, 17, 0.6);
-  --categories-dark-text: rgba(255, 255, 255, 0.6);
-  --scroll-btn-color: #e0e0e0;
+  --categories-name: #ffffff;
+  --categories-list-text: rgba(255, 255, 255, 0.6);
+  --categories-current-color: #eac645;
+  --categories-scrollbar: rgba(17, 17, 17, 0.6);
 
-  /* Support bar */
-  --support-bcg-color: radial-gradient(
-    183.6% 183.01% at 59.76% -23.42%,
-    var(--accent-violet-color) 18.03%,
-    var(--white-color) 100%
-  );
+  /* See more button */
+  --more-btn-text-color: #f3f3f3;
+  --more-btn-hover-color: #111111;
 
-  /*Shopping list*/
-  --add-btn-color: 0px 4px 18px rgba(0, 0, 0, 0.15);
-  --shopping-list-text: rgba(0, 0, 0, 0.6);
+  /* Shopping list */
+  --shopping-list-text: rgba(255, 255, 255, 0.6);
 
-  /*Pop up text color*/
-  --info-light-color: rgba(17, 17, 17, 0.5);
-  --info-dark-color: rgba(255, 255, 255, 0.5);
-
-  /* Transitions*/
-  --transition-duration: 250ms;
-  --transition-timing-function: cubic-bezier(.17, .55, .83, .55);
-  
-}
-/*Parameters*/
-:root {
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-duration: 250ms;
+  /* Pop up */
+  --popup-color: #202024;
+  --book-name-color: rgba(255, 255, 255, 1);
+  --book-author-color: rgba(180, 175, 175, 1);
+  --book-rew-color: rgba(255, 255, 255, 1);
+  --popup-info-text-color: rgba(255, 255, 255, 0.5)
 }

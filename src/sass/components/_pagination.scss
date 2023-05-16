@@ -3,7 +3,10 @@
   align-items: center;
   justify-content: center;
   height: fit-content !important;
-  margin: 0 !important;
+  margin: 20 0 0 0 !important;
+  @include for-tablet-up {
+    margin-top: 40px;
+  }
 
   .tui-first,
   .tui-prev,

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" page-theme='light'>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The page with the books that have been added to the basket, here you can order the selected books, as well as remove books from the basket."
+    />
     <title>BooksShop</title>
     <link rel="icon" href="./images/favicon.png" sizes="any" />
     <link rel="stylesheet" href="./sass/index.scss" />
@@ -12,18 +16,19 @@
   <body>
     <include src="./partials/header.html"></include>
     <div class="main-container">
-      <aside class="sidebar">
+      <aside class="sidebar shoping-list__sidebar">
         <div class="container sidebar__container">
           <include src="./partials/support.html"></include>
         </div>
       </aside>
-    </div>
-    <main>
-      <div class="container">
-        <div class="product-container" id="shopping-list">
-          <include src="./partials/shoplist.html"></include>
+
+      <main class="shoping-list__main">
+        <div class="container">
+          <div class="product-container" id="shopping-list">
+            <include src="./partials/shoplist.html"></include>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
