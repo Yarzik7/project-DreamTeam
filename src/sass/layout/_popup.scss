@@ -239,7 +239,9 @@
 
     @include centeredByFlex;
     @include getSize(24, 24);
-
+    width: 28px;
+    height: 28px;
+    padding: 0;
     background-color: transparent;
     border: none;
 
