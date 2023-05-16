@@ -179,6 +179,7 @@
   background-color: var(--accent-violet-color);
   border-radius: 50%;
   border: none;
+	cursor: pointer;
 
   @include for-tablet-up {
     top: 24px;
