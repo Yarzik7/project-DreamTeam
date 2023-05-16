@@ -1,6 +1,6 @@
 .header__container {
   position: relative;
-  z-index: 10;
+  z-index: 15;
   padding: 18px 20px;
   margin: 0 auto;
   height: auto;
@@ -99,7 +99,6 @@
     font-weight: 700;
   }
 }
-
 
 .nav__icon {
   fill: var(--nav-icon-color);
@@ -236,6 +235,7 @@
 
   display: block;
   position: absolute;
+  z-index: 14;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -402,8 +402,6 @@
   justify-content: space-between;
 
 }
-
-.burger-menu__item {}
 
 .burger-menu__link {
   display: inline-flex;
