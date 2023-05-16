@@ -81,6 +81,7 @@
     background-color: var(--white-color);
     width: 32px;
     height: 32px;
+    cursor: pointer;
 
     @include for-tablet-up {
       width: 38px;
