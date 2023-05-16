@@ -5,13 +5,14 @@
 
   border: 2px solid var(--accent-violet-color);
   border-radius: 40px;
-
+  color: var(--more-btn-text-color);
+  background-color: var(--background-color);
   cursor: pointer;
 
   &:hover,
   &:focus {
-    color: var(--white-color);
+    color: var(--more-btn-hover-color);
 
-    background-color: var(--accent-violet-color);
+    background-color: var(--categories-current-color);
   }
 }
