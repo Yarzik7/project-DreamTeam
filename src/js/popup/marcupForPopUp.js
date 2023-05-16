@@ -43,7 +43,7 @@ function createPopupCard(
           </div>
         </div>
         <button class="action-button pop-up__action-button js-add-storage">${check}</button>
-        <p class="pop-up__congratulations">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
+        <p class="pop-up__congratulations hidden">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
         <button class="js-popup-close close-button" type="button">
           <img src="${new URL(
             `../../images/icon-x-close.svg`,
