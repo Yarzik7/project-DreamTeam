@@ -186,7 +186,7 @@
     width: 34px;
     height: 34px;
   }
-@include trasition(background-color);
+@include transition(background-color);
 
   &:hover,
   &:focus {
@@ -197,7 +197,7 @@
 .shopinlist__btn-icon {
 	stroke: var(--white-color);
 	fill: transparent;
-	@include trasition(background-color);
+	@include transition(background-color);
 	@include for-tablet-up {
 		width: 18px;
 		height: 18px;
