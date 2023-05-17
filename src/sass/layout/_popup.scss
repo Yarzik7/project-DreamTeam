@@ -110,13 +110,15 @@
 
   width: 100vw;
   height: 100vh;
-
-  background-color: var(--bcg-accent-color);
+  background-color: var(--popup-info-text-color);
   transition: opacity 350ms var(--timing-function),
     visibility 350ms var(--timing-function);
 
-  opacity: 1;
-  overflow-y: scroll;
+  // opacity: 1;
+  // overflow-y: scroll;
+
+  backdrop-filter: blur(2px);
+
 }
 
 .pop-up {
@@ -138,7 +140,11 @@
   transition: transform 350ms var(--timing-function),
     visibility 350ms var(--timing-function);
 
+  overflow: hidden;
+
   &__book-info {
+    overflow: hidden;
+
     @include for-tablet-up {
       display: flex;
       align-items: flex-start;
@@ -149,9 +155,6 @@
   &__img {
     max-width: 287px;
     height: 408px;
-
-    // filter: grayscale(100%) brightness(0) invert(100%);
-    // transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @include for-tablet-down {
       margin-bottom: 14px;
@@ -215,24 +218,39 @@
   }
 
   &__action-button {
-    width: 279px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
     height: 46px;
     align-self: center;
+
+    @include for-tablet-up {
+      width: 499px;
+    }
   }
 
   &__congratulations {
-    // display: none;
+    display: block;
+    font-family: 'DM Sans';
     width: 242px;
-
+    margin: auto;
+    letter-spacing: -0.04em;
     font-size: 10px;
     line-height: 1.2;
     text-align: center;
 
+    color: var(--popup-info-text-color);
+
     @include for-tablet-up {
       width: 324px;
-
+      // margin: auto;
       font-size: 12px;
       line-height: 1.17;
+    }
+
+    &__btn {
+      display: block;
+      margin: 0;
     }
   }
 
@@ -248,7 +266,8 @@
     background-color: transparent;
     border: none;
 
-    stroke: black;
+    // stroke: black;
+    stroke: white;
     cursor: pointer;
 
     &:hover,
@@ -263,6 +282,7 @@
 
   .stores-list {
     display: flex;
+    margin-bottom: 40px;
     align-items: center;
     height: 36px;
     gap: 20px;
@@ -276,9 +296,28 @@
     }
   }
 
+  .stores-img {
+
+    filter: grayscale(100%) invert(0);
+    transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   @include for-tablet-up {
     max-width: 579px;
     min-height: 465px;
     padding: 40px;
   }
+}
+
+.hidden {
+  // opacity: 0;
+  // visibility: hidden;
+  // pointer-events: none;
+  display: none;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
