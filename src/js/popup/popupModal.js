@@ -27,6 +27,7 @@ const getBooksFromStorage = () => {
 const onEscape = evt => {
   if (evt.key === 'Escape') {
     document.body.removeChild(popupModal);
+    document.body.style.overflow = 'visible';
     document.removeEventListener('keydown', onEscape);
   }
 };
@@ -61,6 +62,9 @@ async function onClick(e) {
     }
     document.body.appendChild(popupModal);
 
+    //Stops scrolling body
+    document.body.style.overflow = 'hidden';
+
     //Button for adding books to bascket(cart)
     const addHandler = popupModal.querySelector('.js-add-storage');
     addHandler.addEventListener('click', evt => {
@@ -85,6 +89,7 @@ function onCloseByButton(evt) {
   }
 
   document.body.removeChild(popupModal);
+  document.body.style.overflow = 'visible';
   document.removeEventListener('keydown', onEscape);
 }
 
@@ -95,6 +100,7 @@ function onCloseByClickBackdrop(evt) {
   }
 
   document.body.removeChild(popupModal);
+  document.body.style.overflow = 'visible';
   document.removeEventListener('keydown', onEscape);
 }
 
@@ -113,20 +119,23 @@ function addBookToShoppingList(idBook, evt) {
     console.log('its evtTargetTextCont: ', evt.target.textContent);
 
     return;
+  } else {
+    textCongrats.classList.remove('hidden');
+    bookInStorage.push(idBook);
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
+    evt.target.textContent = 'REMOVE FROM THE SHOPPING LIST';
   }
-
-  textCongrats.classList.remove('hidden');
-  bookInStorage.push(idBook);
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
-  evt.target.textContent = 'REMOVE FROM THE SHOPPING LIST';
 }
 
 //Removes book from shopping list
 function removeBookFromShoppingList(idBook) {
+  console.log(idBook);
   let arrBooks = getBooksFromStorage().filter(item => item !== idBook);
+  console.log(arrBooks);
 
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(arrBooks));
   bookInStorage = [];
+  return;
 }
 
 function checkBookInStorage(idBook) {
