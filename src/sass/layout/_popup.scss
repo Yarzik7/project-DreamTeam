@@ -204,7 +204,7 @@
 
   .stores-img {
 
-    filter: grayscale(100%) invert(0);
+    filter: var(--popup-close-img-color);
     transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1),
       transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -214,16 +214,20 @@
     min-height: 465px;
     padding: 40px;
   }
+
 }
 
 .hidden {
-  // opacity: 0;
-  // visibility: hidden;
-  // pointer-events: none;
+
   display: none;
 }
 
 .scrollable {
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.pop-up .stores-img:hover {
+  filter: var(--popup-icon-shop-hover);
+
 }
