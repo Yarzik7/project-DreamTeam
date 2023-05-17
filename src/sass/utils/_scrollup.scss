@@ -16,8 +16,8 @@
 
   &:hover,
   :focus {
-    transform: scale(1);
     background-color: var(--accent-yellow-color);
+    transition: var(--transition-duration);
   }
 }
 .is-hidden-up {

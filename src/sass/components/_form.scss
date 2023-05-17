@@ -1,0 +1,142 @@
+.backdrop_form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+
+  opacity: 1;
+  overflow-y: scroll;
+
+  background: radial-gradient(
+    circle at -208% -208%,
+    rgba(204, 231, 231, 1) 0%,
+    rgba(79, 46, 232, 1) 89%
+  );
+}
+
+.backdrop__container {
+  position: absolute;
+
+  max-width: 335px;
+  width: 100%;
+  max-height: 384px;
+  height: 100%;
+
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
+
+  background-color: -var(--header-background-color);
+
+  & input::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  @include centeredByPosition;
+
+  @include for-tablet-up {
+    max-width: 579px;
+    width: 100%;
+    max-height: 516px;
+    height: 100%;
+  }
+}
+
+.backdrop__button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  width: 28px;
+  height: 28px;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.backdrop__svg {
+  height: 11px;
+  width: 11px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px 40px 40px;
+
+  text-align: center;
+
+  background-color: var(--header-background-color);
+  border-radius: 18px;
+}
+
+.form__text {
+  margin-bottom: 12px;
+
+  font-size: 20px;
+
+  line-height: 1.5;
+  letter-spacing: 0.03;
+}
+
+.form_box {
+  padding-bottom: 40px;
+}
+
+.form__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  & :nth-child(n + 1) {
+    margin-bottom: 28px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  padding: 20px 20px 20px 40px;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.box__field {
+  padding: 20px;
+  padding-left: 100px;
+  width: 100%;
+  max-height: 64px;
+
+  transform: fill 250ms var(--transition-timing-function),
+    border-color 250ms var(--transition-timing-function);
+
+  border: 1px solid var(--header-outline-color);
+  border-radius: 40px;
+}
+
+input[id='password'] {
+  padding-left: 150px;
+}
+
+.box__icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  transform: translateY(-50%);
+}
+
+.btn_form {
+  max-width: 499px;
+  width: 100%;
+  padding: 20px 215px;
+  margin-bottom: 20px;
+  color: var(--background-color);
+  background-color: var(--header-outline-color);
+  border-radius: 40px;
+}
