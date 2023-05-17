@@ -1,11 +1,11 @@
 <div class="backdrop_form">
   <div class="backdrop__container">
-    <button class="backdrop__button" type="button">
-      <svg class="backdrop__svg">
-        <use href="#"></use>
-      </svg>
-    </button>
     <form class="form">
+      <button class="backdrop__button" type="button">
+        <svg class="backdrop__svg" width="28" heigth="28">
+          <use href="./images/sprite.svg#icon-x-close"></use>
+        </svg>
+      </button>
       <div class="form_box">
         <div class="form__container">
           <label class="form__label" for="name">NAME</label>
@@ -14,7 +14,6 @@
             type="text"
             name="name"
             id="name"
-            placeholder="please enter the data"
             required
           />
         </div>
@@ -26,7 +25,6 @@
             type="email"
             name="email"
             id="mail"
-            placeholder="please enter the data"
             required
           />
           <svg class="box__icon" width="28" height="28">
@@ -41,7 +39,6 @@
             type="password"
             name="password"
             id="password"
-            placeholder="please enter the data"
             required
           />
           <svg class="box__icon" width="28" height="28">
@@ -50,9 +47,9 @@
         </div>
       </div>
       <button class="btn_form" type="submit">SING UP</button>
-      <div>
-        <a href="">SING UP</a>
-        <a href="">SING IN</a>
+      <div class="form_div_link">
+        <a class="sing_up" href="">SING UP</a>
+        <a class="sing_in" href="">SING IN</a>
       </div>
     </form>
   </div>

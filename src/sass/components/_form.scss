@@ -29,12 +29,6 @@
 
   background-color: -var(--header-background-color);
 
-  & input::placeholder {
-    font-size: 14px;
-    font-weight: 400;
-    text-align: left;
-  }
-
   @include centeredByPosition;
 
   @include for-tablet-up {
@@ -50,18 +44,21 @@
   top: 24px;
   right: 24px;
 
-  width: 28px;
-  height: 28px;
-
   background-color: transparent;
   border: none;
 
   cursor: pointer;
+
+  transform: scale(1);
+  transition: transform 250ms var(--transition-timing-function);
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .backdrop__svg {
-  height: 11px;
-  width: 11px;
+  height: 28px;
 }
 
 .form {
@@ -88,13 +85,25 @@
   padding-bottom: 40px;
 }
 
+.form_div_link {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.33;
+}
+
 .form__container {
   position: relative;
   display: flex;
   flex-direction: column;
 
-  & :nth-child(n + 1) {
-    margin-bottom: 28px;
+  margin-bottom: 28px;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -112,11 +121,11 @@
   width: 100%;
   max-height: 64px;
 
-  transform: fill 250ms var(--transition-timing-function),
-    border-color 250ms var(--transition-timing-function);
-
   border: 1px solid var(--header-outline-color);
   border-radius: 40px;
+
+  transition: fill 250ms var(--transition-timing-function),
+    border 250ms var(--accent-yellow-color);
 }
 
 input[id='password'] {
@@ -125,8 +134,8 @@ input[id='password'] {
 
 .box__icon {
   position: absolute;
-  top: 50%;
-  left: 12px;
+  right: 32px;
+  bottom: 0;
 
   transform: translateY(-50%);
 }
@@ -134,9 +143,42 @@ input[id='password'] {
 .btn_form {
   max-width: 499px;
   width: 100%;
-  padding: 20px 215px;
+  padding: 20px 210px;
   margin-bottom: 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.33;
+
   color: var(--background-color);
   background-color: var(--header-outline-color);
   border-radius: 40px;
+
+  transition: transform 250ms var(--transition-timing-function);
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.sing_up {
+  color: var(--accent-violet-color);
+  text-decoration: underline;
+  transform: scale(1);
+  transition: transform 250ms var(--transition-timing-function);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.sing_in {
+  color: rgba(17, 17, 17, 0.5);
+
+  transform: scale(1);
+  transition: transform 250ms var(--transition-timing-function);
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
