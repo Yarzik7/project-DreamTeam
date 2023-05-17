@@ -13,7 +13,7 @@
   &:hover,
   &:focus {
     color: var(--more-btn-hover-color);
-
+    @include transition(background-color);
     background-color: var(--categories-current-color);
   }
 }

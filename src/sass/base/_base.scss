@@ -8,7 +8,6 @@ body {
   margin: 0;
   background-color: var(--background-color);
   transition: var(--transition-duration);
-
 }
 
 *,
@@ -70,11 +69,14 @@ img {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0;
+  background-color: var(--categories-scrollbar);
   border-radius: 12px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: var(--categories-current-color);
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: var(--transition-timing-function);
 }
