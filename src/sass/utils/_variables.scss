@@ -20,16 +20,12 @@
   --nav-hover-color: #111111;
   --nav-icon-color: #111111;
   /*Switch btn features*/
-  --sw-button-color: linear-gradient(
-    180deg,
-    var(--accent-violet-color) 0%,
-    #dcdcdc 100%
-  );
-  --sw-button-color: linear-gradient(
-    180deg,
-    var(--accent-violet-color) 0%,
-    #dcdcdc 100%
-  );
+  --sw-button-color: linear-gradient(180deg,
+      var(--accent-violet-color) 0%,
+      #dcdcdc 100%);
+  --sw-button-color: linear-gradient(180deg,
+      var(--accent-violet-color) 0%,
+      #dcdcdc 100%);
 
   /*mobile menu*/
   --burger-menu-link: #ffffff;
@@ -49,6 +45,7 @@
   --book-author-color: rgba(180, 175, 175, 1);
   --book-rew-color: rgba(17, 17, 17, 1);
   --popup-info-text-color: rgba(17, 17, 17, 0.5);
+  --popup-close-img-color: invert(0);
   /* Pagination */
   --disable-background-color: #111111;
   --selected-background-color: #111111;
@@ -69,11 +66,9 @@
   --nav-text-color: #ffffff;
   --nav-hover-color: #111111;
   --nav-icon-color: #ffffff;
-  --sw-button-color: linear-gradient(
-    180deg,
-    var(--accent-violet-color) 0%,
-    #686868 100%
-  );
+  --sw-button-color: linear-gradient(180deg,
+      var(--accent-violet-color) 0%,
+      #686868 100%);
 
   /*Mobile menu*/
   --burger-menu-link: #111111;
@@ -96,6 +91,7 @@
   --book-author-color: rgba(180, 175, 175, 1);
   --book-rew-color: rgba(255, 255, 255, 1);
   --popup-info-text-color: rgba(255, 255, 255, 0.5);
+  --popup-close-img-color: invert(1);
 
   /* Pagination */
   --disable-background-color: #000000;
