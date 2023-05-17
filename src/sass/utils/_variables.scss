@@ -50,6 +50,7 @@
   --book-rew-color: rgba(17, 17, 17, 1);
   --popup-info-text-color: rgba(17, 17, 17, 0.5);
   /* Pagination */
+
   --selected-background-color: #111111;
   --disable-icon-color: invert(72%) sepia(27%) saturate(20%) hue-rotate(17deg)
     brightness(90%) contrast(102%);
@@ -61,6 +62,10 @@
   --hover-number-color: #ffffff;
   --hover-icon-color: invert(88%) sepia(95%) saturate(0%) hue-rotate(111deg)
     brightness(105%) contrast(106%);
+
+  /* Categories list on sidebar */
+  --hover-text-color: #eccf5a;
+  --hover-fill-color: var(--accent-violet-color);
 }
 
 /*Dark theme*/
@@ -111,4 +116,8 @@
   --dots-color: invert(100%);
   --hover-background-color: #ffffff;
   --hover-number-color: #000000;
+
+  /* Categories list on sidebar */
+  --hover-text-color: #3519f0;
+  --hover-fill-color: var(--accent-yellow-color);
 }
