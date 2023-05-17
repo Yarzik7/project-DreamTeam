@@ -87,7 +87,7 @@
   text-transform: uppercase;
 
   color: var(--nav-text-color);
-  
+
   @include transition(font-weight);
 
   &:hover,
@@ -129,7 +129,7 @@
   @include transition (background-image);
 
   &:checked {
-    background-image:var(--sw-button-color);
+    background-image: var(--sw-button-color);
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
@@ -147,8 +147,8 @@
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
       1px 2px 4px rgba(0, 0, 0, 0.1);
 
-    @include transition (transform);  
-    
+    @include transition (transform);
+
   }
 
   &:checked::before {
@@ -197,7 +197,7 @@
     color: var(--white-color);
 
     cursor: pointer;
-    
+
     @include transition (background-color, color);
 
     &:hover,
@@ -212,6 +212,128 @@
   fill: var(--accent-yellow-color);
 }
 
+// Profile btn -USER
+.btn-profile {
+  display: none;
+
+  @include for-tablet-up {
+    position: absolute;
+    top: 12px;
+    right: 32px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    width: 184px;
+    height: 48px;
+
+    margin: 0;
+    padding: 15px 14px;
+
+    background: var(--accent-violet-color);
+    border: 1.5px solid var(--black-color);
+    border-radius: 18px;
+
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: var(--white-color);
+
+    cursor: pointer;
+
+    @include transition (background-color, color);
+
+    &:hover,
+    &:focus {
+      background: var(--white-color);
+      color: var(--black-color);
+    }
+  }
+
+  @include for-desktop-up {
+    position: absolute;
+    top: 12px;
+    right: 24px;
+  }
+}
+
+.user-pic {
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+
+  color: var(--white-color);
+
+  @include transition (color);
+
+  &:hover,
+  &:focus {
+    color: var(--black-color);
+  }
+
+}
+
+.btn-profile__icon {
+  stroke: var(--white-color);
+  fill: currentColor;
+}
+
+// SignOUT btn -USER
+.btn-signout {
+  display: none;
+
+  @include for-tablet-up {
+
+    position: absolute;
+    top: 62px;
+    right: 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 184px;
+    height: 48px;
+
+    margin: 0;
+    padding: 15px 14px;
+
+    background: var(--white-color);
+    border: 1.5px solid var(--black-color);
+    border-radius: 18px;
+
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: var(--black-color);
+
+    cursor: pointer;
+
+    @include transition (background-color, color);
+
+    &:hover,
+    &:focus {
+      background: var(--white-color);
+      color: var(--black-color);
+    }
+  }
+
+  @include for-desktop-up {
+    position: absolute;
+    top: 62px;
+    right: 24px;
+  }
+}
 
 // mobile - burger menu
 
@@ -234,6 +356,8 @@
   width: 100vw;
   height: 100vh;
 
+  overflow-y: hidden;
+
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
     #ffffff 100%);
@@ -249,7 +373,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-  } 
+  }
 }
 
 .burger-menu__box {
@@ -283,7 +407,7 @@
   @include for-tablet-up {
     display: none;
   }
-   
+
   transition-property: background-image;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
@@ -321,9 +445,9 @@
     display: none;
   }
 
-    transition-property: background-image;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function);
+  transition-property: background-image;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 
   &::after {
     content: '';
@@ -341,6 +465,8 @@
     background-image: url('/src/images/burger-menu/x-close-hover.png');
   }
 }
+
+// USER PROFILE 
 
 .btn-signup.burger-menu {
   display: flex;
@@ -366,8 +492,8 @@
   cursor: pointer;
 
   transition-property: background-color, color;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 
   &:hover,
   &:focus {
@@ -379,6 +505,95 @@
     display: none;
   }
 }
+
+
+.btn-profile.burger-menu {
+  position: absolute;
+  top: 48px;
+  left: 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  width: 184px;
+  height: 48px;
+
+  margin: 0;
+  padding: 15px 14px;
+
+  background: var(--accent-violet-color);
+  border: 1.5px solid var(--black-color);
+  border-radius: 18px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  color: var(--white-color);
+
+  cursor: pointer;
+
+  @include transition (background-color, color);
+
+  &:hover,
+  &:focus {
+    background: var(--white-color);
+    color: var(--black-color);
+  }
+
+  @include for-tablet-up {
+    display: none;
+  }
+
+}
+
+.btn-signout.burger-menu {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  left: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 118px;
+  height: 48px;
+  gap: 4px;
+
+  margin: 0;
+  padding: 15px 20px;
+
+  background: var(--white-color);
+  border: 1.5px solid var(--black-color);
+  border-radius: 18px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  color: var(--black-color);
+
+  cursor: pointer;
+
+  @include transition (background-color, color);
+
+  &:hover,
+  &:focus {
+    background: var(--white-color);
+    color: var(--black-color);
+  }
+
+  @include for-tablet-up {
+    display: none;
+  }
+
+}
+
+
+// mobile menu navigation 
 
 .burger-menu__list {
   z-index: 10;
@@ -398,7 +613,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  
+
 
   font-weight: 500;
   font-size: 14px;
@@ -414,7 +629,7 @@
 
   &:hover,
   &:focus {
-  font-weight: 700;
+    font-weight: 700;
   }
 }
 
