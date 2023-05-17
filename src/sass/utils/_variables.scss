@@ -50,13 +50,17 @@
   --book-rew-color: rgba(17, 17, 17, 1);
   --popup-info-text-color: rgba(17, 17, 17, 0.5);
   /* Pagination */
-  --disable-background-color: #111111;
   --selected-background-color: #111111;
-  --disable-icon-color: #b4afaf;
+  --disable-icon-color: invert(72%) sepia(27%) saturate(20%) hue-rotate(17deg)
+    brightness(90%) contrast(102%);
   --selected-icon-color: #ffffff;
   --btn-outline-color: #111111;
   --number-color: #000000;
   --dots-color: #111111;
+  --hover-background-color: #111111;
+  --hover-number-color: #ffffff;
+  --hover-icon-color: invert(88%) sepia(95%) saturate(0%) hue-rotate(111deg)
+    brightness(105%) contrast(106%);
 }
 
 /*Dark theme*/
@@ -98,11 +102,13 @@
   --popup-info-text-color: rgba(255, 255, 255, 0.5);
 
   /* Pagination */
-  --disable-background-color: #000000;
   --selected-background-color: #ffffff;
-  --disable-icon-color: #ffffff;
+  --disable-icon-color: invert(90%) sepia(99%) saturate(28%) hue-rotate(250deg)
+    brightness(107%) contrast(100%);
   --selected-icon-color: #000000;
   --btn-outline-color: #ffffff;
   --number-color: #ffffff;
   --dots-color: invert(100%);
+  --hover-background-color: #ffffff;
+  --hover-number-color: #000000;
 }

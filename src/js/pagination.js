@@ -23,23 +23,23 @@ const options = {
   page: 1,
   centerAlign: false,
   usageStatistics: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
+  firstItemClassName: 'pagination__first-child',
+  lastItemClassName: 'pagination__last-child',
   template: {
-    page: '<a href="#" class="pagination--magrin tui-page-btn">{{page}}</a>',
+    page: '<a href="#" class="pagination__page-btn pagination__number">{{page}}</a>',
     currentPage:
-      '<strong class="pagination--magrin tui-page-btn tui-is-selected">{{page}}</strong>',
+      '<strong class="pagination__page-btn pagination__current-page">{{page}}</strong>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<a href="#" class="pagination__page-btn pagination__{{type}}">' +
+      '<span class="pagination__ico-{{type}} tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="pagination__page-btn pagination__is-disabled pagination__{{type}}">' +
+      '<span class="pagination__ico-{{type}} tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
+      '<a href="#" class="pagination__page-btn pagination__{{type}}-is-ellip">' +
+      '<span class="pagination__ico-ellip">...</span>' +
       '</a>',
   },
 };
@@ -58,6 +58,7 @@ function sliceOnGroup(arr, countGroup) {
 pagination.on('afterMove', onMove);
 
 async function onMove(e) {
+  isCurrentPage(e.page);
   const arrBooks = localStoragemethod.load('books');
   const sliceArr = sliceOnGroup(arrBooks, ITEM_PER_PAGE);
   const booksList = await sliceArr[e.page - 1].map(async id => {
@@ -68,6 +69,17 @@ async function onMove(e) {
   });
   const arrResult = (await Promise.allSettled(booksList)).map(el => el.value);
   listEl.innerHTML = markupBooksInBasket(arrResult);
+}
+
+function isCurrentPage(page) {
+  const lastPage = container.querySelector(
+    '.pagination__last-child'
+  ).textContent;
+  if (page === Number(lastPage)) {
+    container.classList.add('pagination__reverse');
+  } else {
+    container.classList.remove('pagination__reverse');
+  }
 }
 
 export { pagination, sliceOnGroup };
