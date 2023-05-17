@@ -36,8 +36,6 @@
   gap: 8px;
 }
 
-.logo__icon {}
-
 .logo__text {
   fill: var(--logo-text-color);
 }
@@ -46,7 +44,7 @@
 .header__nav {
   margin-left: 40px;
 
-  @include for-tablet-up {
+  @include for-desktop-up {
     margin-left: 76px;
   }
 }
@@ -62,13 +60,10 @@
 
   @include for-tablet-up {
     display: flex;
-    gap: 16px;
+    gap: 8px;
     align-items: center;
   }
 
-  @include for-desktop-up {
-    gap: 24px;
-  }
 }
 
 .nav__item {
@@ -80,7 +75,11 @@
 .nav__link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+
+  padding: 8px 16px;
+  border-radius: 36;
+  border: transparent;
 
   font-weight: 500;
   font-size: 14px;
@@ -88,16 +87,20 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
 
-  color: var(--nav-text-color);
+  
 
-  &:hover,
-  &:focus {
-    padding: 8px 16px;
-    border-radius: 36;
-    color: var(--nav-hover-color);
-    background-color: var(--accent-yellow-color);
-    font-weight: 700;
-  }
+  color: var(--nav-text-color);
+  
+  // @include transition(font-size);
+
+  // &:hover,
+  // &:focus {
+  //   padding: 8px 16px;
+  //   border-radius: 36;
+  //   color: var(--nav-hover-color);
+  //   background-color: var(--accent-yellow-color);
+  //   font-weight: 700;
+  // }
 }
 
 .nav__icon {
