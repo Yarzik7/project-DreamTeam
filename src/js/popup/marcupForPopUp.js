@@ -38,7 +38,7 @@ function createPopupCard(
           <div class="pop-up__description">
             <h2 class="pop-up__book-name">${title}</h2>
             <h2 class="pop-up__book-author">${author}</h2>
-            <p class="pop-up__review">${description}</p>
+            <p class="pop-up__review">${description}Description</p>
             <ul class="stores-list">${createShopLinks(buy_links)}</ul>
           </div>
         </div>
