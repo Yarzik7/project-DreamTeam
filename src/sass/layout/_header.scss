@@ -47,7 +47,7 @@
 .header__nav {
   margin-left: 40px;
 
-  @include for-tablet-up {
+  @include for-desktop-up {
     margin-left: 76px;
   }
 }
@@ -63,13 +63,10 @@
 
   @include for-tablet-up {
     display: flex;
-    gap: 16px;
+    gap: 8px;
     align-items: center;
   }
 
-  @include for-desktop-up {
-    gap: 24px;
-  }
 }
 
 .nav__item {
@@ -80,7 +77,11 @@
 .nav__link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+
+  padding: 8px 16px;
+  border-radius: 36;
+  border: transparent;
 
   font-weight: 500;
   font-size: 14px;
@@ -89,6 +90,8 @@
   text-transform: uppercase;
 
   color: var(--nav-text-color);
+  
+  @include transition(font-weight);
 
   &:hover,
   &:focus {
@@ -126,9 +129,7 @@
   border-radius: 20px;
   appearance: none;
 
-  transition-property: background-image;
-  transition-duration: 500ms;
-  transition-timing-function: var(--transition-timing-function);
+  @include transition (background-image);
 
   &:checked {
     background-image: var(--sw-button-color);
@@ -149,9 +150,8 @@
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
       1px 2px 4px rgba(0, 0, 0, 0.1);
 
-    transition-property: transform;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: (--transition-timing-function);
+    @include transition (transform);  
+    
   }
 
   &:checked::before {
@@ -199,10 +199,8 @@
     color: var(--white-color);
 
     cursor: pointer;
-
-    transition-property: background-color, color;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function);
+    
+    @include transition (background-color, color);
 
     &:hover,
     &:focus {
