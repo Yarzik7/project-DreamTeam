@@ -91,16 +91,12 @@
 
   color: var(--nav-text-color);
   
-  // @include transition(font-size);
+  @include transition(font-weight);
 
-  // &:hover,
-  // &:focus {
-  //   padding: 8px 16px;
-  //   border-radius: 36;
-  //   color: var(--nav-hover-color);
-  //   background-color: var(--accent-yellow-color);
-  //   font-weight: 700;
-  // }
+  &:hover,
+  &:focus {
+    font-weight: 700;
+  }
 }
 
 .nav__icon {
