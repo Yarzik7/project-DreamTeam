@@ -9,4 +9,11 @@ window.onload = function () {
         }
     }
 
+    if (currentPath === '/index.html') {
+        const homeMenuItem = document.querySelector('.nav__link[href="/index.html"]');
+        if (homeMenuItem) {
+            homeMenuItem.classList.add('current-page');
+        }
+    }
+
 }
