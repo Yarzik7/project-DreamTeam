@@ -8,6 +8,8 @@
   color: var(--more-btn-text-color);
   background-color: var(--background-color);
   cursor: pointer;
+  @include transition(background-color);
+  @include transition(color);
 
   &:hover,
   &:focus {
