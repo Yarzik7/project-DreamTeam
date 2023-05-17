@@ -7,6 +7,9 @@
 
   --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Sing up modal */
+  --background-color: rgba(79, 46, 232, 1);
+  --sign-in-text-color:rgba(246, 246, 246, 0.5);
 }
 
 /*Light theme*/
@@ -31,7 +34,7 @@
     #dcdcdc 100%
   );
 
-  /*mobile menu*/
+  /*Mobile menu*/
   --burger-menu-link: #ffffff;
   /* Categories */
   --categories-name: #111111;

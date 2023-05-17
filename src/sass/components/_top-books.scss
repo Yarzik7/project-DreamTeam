@@ -14,20 +14,32 @@
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    min-height: 535px;
-    max-height: 550px;
+    // min-height: 535px;
+    max-height: 535px;
     margin-bottom: 32px;
 
     overflow: hidden;
 
+    .category__book {
+      flex-basis: calc((100% - 0px * 0) / 1);
+
+      @include for-tablet-up {
+        flex-basis: calc((100% - 25px * 2) / 3);
+      }
+
+      @include for-desktop-up {
+        flex-basis: calc((100% - 24px * 4) / 5);
+      }
+    }
+
     @include for-tablet-up {
-      min-height: 366px;
-      max-height: 383px;
+      // min-height: 366px;
+      max-height: 366px;
     }
 
     @include for-desktop-up {
-      min-height: 308px;
-      max-height: 325px;
+      // min-height: 308px;
+      max-height: 306px;
     }
   }
 
