@@ -111,6 +111,9 @@
     line-height: 18px;
     color: var(--categories-name);
     margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__subtitle {
