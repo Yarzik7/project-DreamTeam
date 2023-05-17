@@ -31,11 +31,11 @@ const options = {
       '<strong class="pagination__page-btn pagination__current-page">{{page}}</strong>',
     moveButton:
       '<a href="#" class="pagination__page-btn pagination__{{type}}">' +
-      '<span class="pagination__ico-{{type}} tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="pagination__ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
       '<span class="pagination__page-btn pagination__is-disabled pagination__{{type}}">' +
-      '<span class="pagination__ico-{{type}} tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="pagination__ico-{{type}}"></span>' +
       '</span>',
     moreButton:
       '<a href="#" class="pagination__page-btn pagination__{{type}}-is-ellip">' +

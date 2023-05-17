@@ -12,6 +12,19 @@
     margin-top: 40px;
   }
 
+  .pagination__ico-first {
+    background-image: url(../images/pagination/first.svg);
+  }
+  .pagination__ico-prev {
+    background-image: url(../images/pagination/prev.svg);
+  }
+  .pagination__ico-next {
+    background-image: url(../images/pagination/next.svg);
+  }
+  .pagination__ico-last {
+    background-image: url(../images/pagination/last.svg);
+  }
+
   &__reverse {
     .pagination__ico-next,
     .pagination__ico-last {
@@ -93,6 +106,13 @@
   &__ico-prev,
   &__ico-next,
   &__ico-last {
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 10px;
     filter: contrast(1000%) brightness(0%);
   }
 
