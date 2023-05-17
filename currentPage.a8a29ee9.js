@@ -1,0 +1,2 @@
+("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequired7c6.register("6TbEw",(function(e,n){window.onload=function(){for(var e=window.location.pathname,n=document.querySelectorAll(".nav__link, .burger-menu__link"),l=0;l<n.length;l++)n[l].getAttribute("href")===e&&n[l].classList.add("current-page");if("/index.html"===e){var i=document.querySelector('.nav__link[href="/index.html"]');i&&i.classList.add("current-page")}}}));
+//# sourceMappingURL=currentPage.a8a29ee9.js.map
