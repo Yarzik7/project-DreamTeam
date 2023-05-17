@@ -66,10 +66,15 @@
       0px 0px 0 var(--categories-current-color);
     transition: text-shadow 1s;
   }
+
   &__item {
     cursor: pointer;
     position: relative;
     width: fit-content;
+    transition: color 0.3s 0.1s ease;
+    &:hover {
+      color: var(--hover-text-color);
+    }
   }
   &__item::before {
     transform: scaleX(0);
@@ -90,7 +95,8 @@
     bottom: 0;
     left: 0;
     inset: 0 0 0 0;
-    background-color: #b6a7f6;
+    background-color: var(--hover-fill-color);
+    // color: var(--accent-yellow-color);
     z-index: -1;
     transition: transform 0.3s ease;
   }
