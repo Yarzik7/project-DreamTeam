@@ -130,11 +130,9 @@ function addBookToShoppingList(idBook, evt) {
 //Removes book from shopping list
 function removeBookFromShoppingList(idBook) {
   console.log(idBook);
-  let arrBooks = getBooksFromStorage().filter(item => item !== idBook);
-  console.log(arrBooks);
+  bookInStorage = getBooksFromStorage().filter(item => item !== idBook);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
 
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(arrBooks));
-  bookInStorage = [];
   return;
 }
 

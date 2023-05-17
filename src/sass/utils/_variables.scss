@@ -9,7 +9,7 @@
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   /* Sing up modal */
   --background-color: rgba(79, 46, 232, 1);
-  --sign-in-text-color:rgba(246, 246, 246, 0.5);
+  --sign-in-text-color: rgba(246, 246, 246, 0.5);
 }
 
 /*Light theme*/
@@ -23,16 +23,12 @@
   --nav-hover-color: #111111;
   --nav-icon-color: #111111;
   /*Switch btn features*/
-  --sw-button-color: linear-gradient(
-    180deg,
-    var(--accent-violet-color) 0%,
-    #dcdcdc 100%
-  );
-  --sw-button-color: linear-gradient(
-    180deg,
-    var(--accent-violet-color) 0%,
-    #dcdcdc 100%
-  );
+  --sw-button-color: linear-gradient(180deg,
+      var(--accent-violet-color) 0%,
+      #dcdcdc 100%);
+  --sw-button-color: linear-gradient(180deg,
+      var(--accent-violet-color) 0%,
+      #dcdcdc 100%);
 
   /*Mobile menu*/
   --burger-menu-link: #ffffff;
@@ -46,27 +42,26 @@
   --more-btn-hover-color: #ffffff;
   /* Shopping list */
   --shopping-list-text: rgba(0, 0, 0, 0.6);
-	--shoppin-list-shops: grayscale(100%);
-	--shoppin-list-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  --shoppin-list-shops: grayscale(100%);
+  --shoppin-list-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
   /* Pop up */
   --popup-color: #ffffff;
   --book-name-color: rgba(17, 17, 17, 1);
   --book-author-color: rgba(180, 175, 175, 1);
   --book-rew-color: rgba(17, 17, 17, 1);
   --popup-info-text-color: rgba(17, 17, 17, 0.5);
+  --popup-close-img-color: invert(0);
   /* Pagination */
 
   --selected-background-color: #111111;
-  --disable-icon-color: invert(72%) sepia(27%) saturate(20%) hue-rotate(17deg)
-    brightness(90%) contrast(102%);
+  --disable-icon-color: invert(72%) sepia(27%) saturate(20%) hue-rotate(17deg) brightness(90%) contrast(102%);
   --selected-icon-color: #ffffff;
   --btn-outline-color: #111111;
   --number-color: #000000;
   --dots-color: #111111;
   --hover-background-color: #111111;
   --hover-number-color: #ffffff;
-  --hover-icon-color: invert(88%) sepia(95%) saturate(0%) hue-rotate(111deg)
-    brightness(105%) contrast(106%);
+  --hover-icon-color: invert(88%) sepia(95%) saturate(0%) hue-rotate(111deg) brightness(105%) contrast(106%);
 
   /* Categories list on sidebar */
   --hover-text-color: #eccf5a;
@@ -83,11 +78,9 @@
   --nav-text-color: #ffffff;
   --nav-hover-color: #111111;
   --nav-icon-color: #ffffff;
-  --sw-button-color: linear-gradient(
-    180deg,
-    var(--accent-violet-color) 0%,
-    #686868 100%
-  );
+  --sw-button-color: linear-gradient(180deg,
+      var(--accent-violet-color) 0%,
+      #686868 100%);
 
   /*Mobile menu*/
   --burger-menu-link: #111111;
@@ -103,8 +96,8 @@
 
   /* Shopping list */
   --shopping-list-text: rgba(255, 255, 255, 0.6);
-	--shoppin-list-shops: brightness(0) invert(1);
-	--shoppin-list-hover: drop-shadow(0px 3px 3px rgba(253, 252, 252, 0.35));
+  --shoppin-list-shops: brightness(0) invert(1);
+  --shoppin-list-hover: drop-shadow(0px 3px 3px rgba(253, 252, 252, 0.35));
 
   /* Pop up */
   --popup-color: #202024;
@@ -112,11 +105,11 @@
   --book-author-color: rgba(180, 175, 175, 1);
   --book-rew-color: rgba(255, 255, 255, 1);
   --popup-info-text-color: rgba(255, 255, 255, 0.5);
+  --popup-close-img-color: invert(1);
 
   /* Pagination */
   --selected-background-color: #ffffff;
-  --disable-icon-color: invert(90%) sepia(99%) saturate(28%) hue-rotate(250deg)
-    brightness(107%) contrast(100%);
+  --disable-icon-color: invert(90%) sepia(99%) saturate(28%) hue-rotate(250deg) brightness(107%) contrast(100%);
   --selected-icon-color: #000000;
   --btn-outline-color: #ffffff;
   --number-color: #ffffff;
