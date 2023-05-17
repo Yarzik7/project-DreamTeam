@@ -13,7 +13,7 @@ function createShopLinks(buyLinks) {
       ({ name, url }, idx) => `
       <li class="stores-list__item">
         <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-          <img src="${new URL(
+          <img class="stores-img" src="${new URL(
             bookShopsIcons[idx].x1,
             import.meta.url
           )}" alt="${name}" width="${bookShopsIcons[idx].width}" height="${
@@ -32,7 +32,7 @@ function createPopupCard(
   check
 ) {
   return `
-      <div class="pop-up">
+      <div class="pop-up scrollable">
         <div class="pop-up__book-info">
           <img class="pop-up__img" src="${book_image}" alt="${title}">
           <div class="pop-up__description">
@@ -42,8 +42,10 @@ function createPopupCard(
             <ul class="stores-list">${createShopLinks(buy_links)}</ul>
           </div>
         </div>
+        <div class="pop-up__btn">
         <button class="action-button pop-up__action-button js-add-storage">${check}</button>
-        <p class="pop-up__congratulations hidden">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
+        <p class="pop-up__congratulations">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
+        </div>
         <button class="js-popup-close close-button" type="button">
           <img src="${new URL(
             `../../images/icon-x-close.svg`,

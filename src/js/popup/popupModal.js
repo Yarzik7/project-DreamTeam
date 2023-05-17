@@ -51,8 +51,14 @@ async function onClick(e) {
     const responce = await axiosApi.getShops(idBook);
     const nodeEl = responce.data;
 
-    //Adds HTML render for modal window
+    //Adds HTML render for modal window, checks class hidden in text congratulation
     popupModal.innerHTML = createPopupCard(nodeEl, check);
+    let textCongrats = popupModal.querySelector('.pop-up__congratulations');
+    if (checkBookInStorage(idBook)) {
+      textCongrats.classList.remove('hidden');
+    } else {
+      textCongrats.classList.add('hidden');
+    }
     document.body.appendChild(popupModal);
 
     //Button for adding books to bascket(cart)
@@ -96,13 +102,20 @@ function onCloseByClickBackdrop(evt) {
 function addBookToShoppingList(idBook, evt) {
   evt.target.blur();
 
+  const textCongrats = popupModal.querySelector('.pop-up__congratulations');
+
   if (checkBookInStorage(idBook)) {
+    console.log(idBook);
+    textCongrats.classList.add('hidden');
     removeBookFromShoppingList(idBook);
 
     evt.target.textContent = 'ADD TO SHOPPING LIST';
+    console.log('its evtTargetTextCont: ', evt.target.textContent);
+
     return;
   }
 
+  textCongrats.classList.remove('hidden');
   bookInStorage.push(idBook);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
   evt.target.textContent = 'REMOVE FROM THE SHOPPING LIST';
