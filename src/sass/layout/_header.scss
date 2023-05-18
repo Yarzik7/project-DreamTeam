@@ -89,17 +89,10 @@
   text-transform: uppercase;
 
   color: var(--nav-text-color);
-
-  @include transition(font-weight);
-
-  &:hover,
-  &:focus {
-    font-weight: 700;
-  }
 }
 
 .nav__icon {
-  fill: var(--nav-icon-color);
+  fill: var(--nav-icon-hover-color);
 }
 
 .current-page {
@@ -108,6 +101,9 @@
   color: var(--nav-current-color);
   background-color: var(--accent-yellow-color);
   font-weight: 700;
+  & .nav__icon{
+  fill: #111;
+  }
 }
 
 .js-theme-switch {
