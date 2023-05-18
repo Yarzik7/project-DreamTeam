@@ -1,2 +1,0 @@
-("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequired7c6.register("6TbEw",(function(e,n){window.onload=function(){for(var e=window.location.pathname,n=document.querySelectorAll(".nav__link, .burger-menu__link"),o=0;o<n.length;o++)n[o].getAttribute("href")===e?n[o].classList.add("current-page"):n[o].classList.remove("current-page")}}));
-//# sourceMappingURL=currentPage.5a8100dd.js.map
