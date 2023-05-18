@@ -186,10 +186,18 @@
     stroke: black;
     filter: var(--popup-close-img-color);
     cursor: pointer;
+    border-radius: 50%;
+    @include transition(outline);
+
 
     &:hover,
     &:focus {
       stroke: var(--accent-violet-color);
+
+      outline: solid 1px var(--accent-violet-color);
+
+
+
     }
 
     @include for-tablet-up {
@@ -234,8 +242,7 @@
 }
 
 .scrollable {
-  // overflow-x: hidden;
-  // overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .pop-up .stores-img:hover {

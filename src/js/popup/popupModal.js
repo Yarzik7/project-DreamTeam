@@ -5,6 +5,7 @@ import { createPopupCard } from './marcupForPopUp';
 const axiosApi = new AxiosApi();
 const LOCALSTORAGE_KEY = 'books';
 
+const htmlEl = document.querySelector('html');
 const popupModal = document.createElement('div');
 popupModal.classList.add('backdrop');
 
@@ -33,13 +34,14 @@ const getBooksFromStorage = () => {
 const onEscape = evt => {
   if (evt.key === 'Escape') {
     document.body.removeChild(popupModal);
-    document.body.style.overflow = 'visible';
+
+    htmlEl.classList.remove('scrollable');
     document.removeEventListener('keydown', onEscape);
   }
 };
 
 /**
- * Fetch
+ * Fetch book from backend, render HTML
  * @param {*} e
  * @returns
  */
@@ -63,7 +65,7 @@ async function onClick(e) {
     const responce = await axiosApi.getShops(idBook);
     const nodeEl = responce.data;
 
-    //Adds HTML render for modal window, checks class hidden in text congratulation
+    //Add HTML render for modal window, check class hidden in text congratulation
     popupModal.innerHTML = createPopupCard(nodeEl, check);
     let textCongrats = popupModal.querySelector('.pop-up__congratulations');
     if (checkBookInStorage(idBook)) {
@@ -73,8 +75,8 @@ async function onClick(e) {
     }
     document.body.appendChild(popupModal);
 
-    //Stops scrolling body
-    document.body.style.overflow = 'hidden';
+    //Stop scrolling body
+    htmlEl.classList.add('scrollable');
 
     //Button for adding books to bascket(cart)
     const addHandler = popupModal.querySelector('.js-add-storage');
@@ -93,14 +95,14 @@ async function onClick(e) {
   }
 }
 
-//Closes modal window, removes event listeners
+//Close modal window, remove event listeners
 function onCloseByButton(evt) {
   if (!evt.target) {
     return;
   }
 
   document.body.removeChild(popupModal);
-  document.body.style.overflow = 'visible';
+  htmlEl.classList.remove('scrollable');
   document.removeEventListener('keydown', onEscape);
 }
 
@@ -111,7 +113,7 @@ function onCloseByClickBackdrop(evt) {
   }
 
   document.body.removeChild(popupModal);
-  document.body.style.overflow = 'visible';
+  htmlEl.classList.remove('scrollable');
   document.removeEventListener('keydown', onEscape);
 }
 
