@@ -13,10 +13,10 @@ function createShopLinks(buyLinks) {
       ({ name, url }, idx) => `
       <li class="stores-list__item">
         <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-          <img class="stores-img" src="${new URL(
-            bookShopsIcons[idx].x1,
-            import.meta.url
-          )}" alt="${name}" width="${bookShopsIcons[idx].width}" height="${
+          <img class="stores-img${!idx ? ' amazon' : ''}" src="${new URL(
+        bookShopsIcons[idx].x1,
+        import.meta.url
+      )}" alt="${name}" width="${bookShopsIcons[idx].width}" height="${
         bookShopsIcons[idx].height
       }">
         </a>
@@ -38,7 +38,9 @@ function createPopupCard(
           <div class="pop-up__description">
             <h2 class="pop-up__book-name">${title}</h2>
             <h2 class="pop-up__book-author">${author}</h2>
-            <p class="pop-up__review">${description}Description</p>
+            <p class="pop-up__review">${
+              !description ? 'Description' : description
+            }</p>
             <ul class="stores-list">${createShopLinks(buy_links)}</ul>
           </div>
         </div>
