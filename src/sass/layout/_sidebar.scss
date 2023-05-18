@@ -9,9 +9,11 @@
     @include for-tablet-up {
       display: flex;
       justify-content: space-between;
+      height: 472px;
       gap: 32px;
     }
     @include for-desktop-up {
+      height: auto;
       display: block;
     }
   }
