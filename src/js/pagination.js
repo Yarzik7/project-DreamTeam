@@ -4,8 +4,10 @@ import axios from 'axios';
 import markupBooksInBasket from './markupBooksInBasket';
 import localStoragemethod from './storage-methods';
 
-const container = document.querySelector('#pagination');
-const listEl = document.querySelector('.shopinlist__cards');
+const refs = {
+  container: document.querySelector('#pagination'),
+  listEl: document.querySelector('.shopinlist__cards'),
+};
 
 const arrBooksStorage = localStoragemethod.load('books');
 
@@ -13,9 +15,10 @@ let ITEM_PER_PAGE = window.innerWidth < 768 ? 4 : 3;
 let VISIBLE_PAGES = window.innerWidth < 768 ? 2 : 3;
 
 if (arrBooksStorage.length > ITEM_PER_PAGE) {
-  container.classList.remove('disabled');
+  refs.container.classList.remove('disabled');
 }
 
+// Options for pagination
 const options = {
   totalItems: arrBooksStorage.length,
   itemsPerPage: ITEM_PER_PAGE,
@@ -44,19 +47,14 @@ const options = {
   },
 };
 
-const pagination = new Pagination(container, options);
-
-function sliceOnGroup(arr, countGroup) {
-  var arrTotal = [];
-  for (let i = 0; i < arr.length; i += countGroup) {
-    var arrRes = arr.slice(i, i + countGroup);
-    arrTotal.push(arrRes);
-  }
-  return arrTotal;
-}
+const pagination = new Pagination(refs.container, options);
 
 pagination.on('afterMove', onMove);
 
+/**
+ * After move pagination
+ * @param {Object} e
+ */
 async function onMove(e) {
   isCurrentPage(e.page);
   const arrBooks = localStoragemethod.load('books');
@@ -68,18 +66,37 @@ async function onMove(e) {
     return await data.data;
   });
   const arrResult = (await Promise.allSettled(booksList)).map(el => el.value);
-  listEl.innerHTML = markupBooksInBasket(arrResult);
+  refs.listEl.innerHTML = markupBooksInBasket(arrResult);
 }
 
+/**
+ * For scss style
+ * @param {Number} page
+ */
 function isCurrentPage(page) {
-  const lastPage = container.querySelector(
+  const lastPage = refs.container.querySelector(
     '.pagination__last-child'
   ).textContent;
   if (page === Number(lastPage)) {
-    container.classList.add('pagination__reverse');
+    refs.container.classList.add('pagination__reverse');
   } else {
-    container.classList.remove('pagination__reverse');
+    refs.container.classList.remove('pagination__reverse');
   }
+}
+
+/**
+ * Slice all books id on array with arrays for pagination pages
+ * @param {Array} arr
+ * @param {Number} countGroup
+ * @returns Array with arrays
+ */
+function sliceOnGroup(arr, countGroup) {
+  const arrTotal = [];
+  for (let i = 0; i < arr.length; i += countGroup) {
+    const arrRes = arr.slice(i, i + countGroup);
+    arrTotal.push(arrRes);
+  }
+  return arrTotal;
 }
 
 export { pagination, sliceOnGroup };

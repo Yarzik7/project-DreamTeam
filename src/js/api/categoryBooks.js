@@ -9,7 +9,8 @@ const LINK_ONE_CATEGORY =
  * @returns Array with books
  */
 async function getAllBooks(categoryName) {
-  return axios.get(LINK_ONE_CATEGORY + categoryName).then(resp => resp.data);
+  const data = (await axios.get(LINK_ONE_CATEGORY + categoryName)).data;
+  return data;
 }
 
 export default getAllBooks;
