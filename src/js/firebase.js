@@ -9,7 +9,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
-import { getDatabase, ref, set, child, get } from 'firebase/database';
+import { getDatabase, ref, set, child, get, push } from 'firebase/database';
 
 
 // Your web app's Firebase configuration
@@ -27,14 +27,14 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 // const app = initializeApp(firebaseConfig);
-// console.log(app);
+// console.log(app);userId
 
 // const database = getDatabase(app);
 // console.log(database);
 
 const form = document.querySelector('.login-form');
 form.addEventListener('submit', onSubmit);
-
+let userId = '';
 function onSubmit(event) {
   event.preventDefault();
   const name = event.currentTarget.elements.name.value;
@@ -49,8 +49,9 @@ function onSubmit(event) {
     .then(userCredential => {
       // Signed in
       const user = userCredential.user;
+      userId = user.uid;
       console.log(user);
-      writeUserData(user.uid, name, email);
+      writeUserData(name, email);
   
     })
     .catch(error => {
@@ -62,12 +63,17 @@ function onSubmit(event) {
   // ________________Вхід старого ___________
   //   signInWithEmailAndPassword(auth, email, password)
   //     .then(resp => console.log(resp))
+
+  // ?????????????????????????
+    // const user = userCredential.user;
+    //   userId = user.uid;
+
   //         .catch(err => console.log(err));
   //   form.reset();
 }
 
 
-function writeUserData(userId, name, email) {
+function writeUserData(name, email) {
   const db = getDatabase();
   set(ref(db, 'users/' + userId), {
     name: name,
@@ -75,7 +81,12 @@ function writeUserData(userId, name, email) {
   });
 }
 
-
+function writeUserBooks(books) {
+  const db = getDatabase();
+  push(ref(db, 'users/' + userId), {
+    selectedBooks: books,
+  });
+}
 
 
 // вхід до системи_________________
@@ -130,7 +141,7 @@ signOut(auth).then(() => {
 })
 };
 
-
+export {HendlerSignOut, writeUserBooks, writeUserData}
 
 
 // // запит на данні кристувача___________
