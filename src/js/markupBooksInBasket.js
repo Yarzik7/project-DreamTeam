@@ -41,7 +41,7 @@ function markupBooksInBasket(arr) {
                   }" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
 									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${
           amazon.name
-        }" class="shopinlist__shop-img" width="48" height="15" />
+        }" class="shopinlist__shop-img amazon" width="48" height="15" />
 									</a>
 								</li>
 								<li class="shopinlist__shop">
@@ -68,7 +68,7 @@ function markupBooksInBasket(arr) {
                   }" class="shopinlist__shop-link" target="_blank" crossorigin="anonymous" rel="noopener noreferrer" aria-label="Amazon-book site">
 									<img srset="${amzonimg1} 1x, ${amzonimg2} 2x" src="${amzonimg1}" alt="${
           amazon.name
-        }" class="shopinlist__shop-img" width="48" height="15" />
+        }" class="shopinlist__shop-img amazon" width="48" height="15" />
 									</a>
 								</li>
 								<li class="shopinlist__shop">

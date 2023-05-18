@@ -1,4 +1,4 @@
-<div class="loader-container">
+const loaderMarcup = `
 <div class="loader">
     <div>
       <ul>
@@ -35,5 +35,6 @@
       </ul>
     </div>
     <span>Loading</span>
-</div>
-</div>
+</div>`;
+
+export {loaderMarcup};

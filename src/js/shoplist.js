@@ -67,9 +67,13 @@ function onBasketClick(event) {
     pasteEmptyNotificationContainer();
     return;
   } else {
-    const currentPage =
-      arrSlice[pagination.getCurrentPage() - 1].length === 1 ? 1 : 0;
-    pagination.movePageTo(pagination.getCurrentPage() - currentPage);
+    const currentPage = pagination.getCurrentPage();
+
+    const currentPageNum = arrSlice[currentPage - 1].length === 1 ? 1 : 0;
+
+    currentPageNum === 1 ? pagination.reset(bookList.length) : null;
+
+    pagination.movePageTo(currentPage - currentPageNum);
 
     bookList.length <= ITEM_PER_PAGE
       ? container.classList.add('disabled')

@@ -72,6 +72,10 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+
+	@include for-phone-only {
+		margin-bottom: 4px;
+	}
 }
 
 .shopinlist__wrap {
@@ -83,6 +87,10 @@
 }
 
 .shopinlist__title {
+	@include for-phone-only {
+		font-size: calc(14px + 2 * ((100vw - 320px) / (374 - 320)));
+		max-width: calc(100px + 44 * ((100vw - 320px) / (374 - 320)));
+	}
   margin-bottom: 4px;
   max-width: 193px;
   font-weight: 700;
@@ -136,15 +144,26 @@
   }
 }
 
-.shopinlist__shop-img{
-	filter: grayscale(1);
+.shopinlist__shop {
+	filter: grayscale(100%);
 
-	&:hover,
-	&:focus {
-		filter: grayscale(1) drop-shadow(0px 3px 3x rgba(0, 0, 0, 0.35));
+	&:hover &-img {
+		filter: var(--shoppin-list-hover);
+		}
+}
+
+.shopinlist__shop-img {
+	filter: grayscale(1);
+	@include transition(filter);
+
+	&:hover {
+		filter: var(--shoppin-list-hover);
 	}
 }
 
+.amazon {
+	filter: var(--shoppin-list-shops);
+}
 .shopinlist__book-author {
   font-style: italic;
   font-weight: 400;
@@ -172,7 +191,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+
+	@include for-phone-only {
+		right: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
+		top: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
+		width: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
+		height: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
+	}
+
+	position: absolute;
   top: 14px;
   right: 14px;
   width: 28px;
@@ -215,6 +242,7 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
+	color: var(--black-color);
 
   @include for-tablet-up {
     display: none;
@@ -246,6 +274,12 @@
   letter-spacing: -0.02em;
   text-align: center;
   color: var(--shopping-list-text);
+
+	@include for-tablet-up {
+		margin-bottom: 20px;
+		font-size: 18px;
+		line-height: 1.33;
+	}
 }
 
 .shoplist__info.js-empty {

@@ -1,4 +1,6 @@
-import('./js/loader');
+import('./js/loaderClass');
+import('./js/loaderMarcup');
+// import('./js/loader');
 import('./js/category');
 import('./js/support');
 import('./js/popup/popupModal');
@@ -6,7 +8,12 @@ import('./js/scrollup');
 import('./js/burgerMenu');;
 import('./js/loader');
 import('./js/api/topBooks');
+import('./js/burgerMenu');
+import('./js/currentPage');
+// import('./js/loader');
+import('./js/api/topBooks');
 import('./js/themes');
+import('./js/form');
 
 
 import { changeCurrentPageOnHomePage } from './js/currentPage';
@@ -16,7 +23,6 @@ const pageEl = document.querySelector('html');
 setTheme(pageEl);
 
 pageEl.addEventListener('click', event => {
-
   activateThemeSwitch(event, pageEl);
 });
 const refs = {
