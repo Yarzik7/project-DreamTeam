@@ -13,7 +13,7 @@ function createShopLinks(buyLinks) {
       ({ name, url }, idx) => `
       <li class="stores-list__item">
         <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-          <img class="stores-img${!idx ? ' amazon' : ''}" src="${new URL(
+          <img class="stores-img${!idx ? '__amazon' : ''}" src="${new URL(
         bookShopsIcons[idx].x1,
         import.meta.url
       )}" alt="${name}" width="${bookShopsIcons[idx].width}" height="${
