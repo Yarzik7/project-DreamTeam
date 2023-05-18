@@ -32,7 +32,7 @@ function markupBooksInBasket(arr) {
 							<h2 class="shopinlist__title">${title}</h2>
 							<p class="shopinlist__category">${cutNameCategory(list_name)}</p>
 							<p class="shopinlist__book-description--tablet">${
-                !description ? 'Info empty!!!' : description
+                !description ? 'Description empty!!!' : description
               }</p>
 							<ul class="shopinlist__shops">
 								<li class="shopinlist__shop">
