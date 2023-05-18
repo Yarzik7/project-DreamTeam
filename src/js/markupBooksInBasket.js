@@ -29,11 +29,11 @@ function markupBooksInBasket(arr) {
 							<p class="shopinlist__book-author">${author}</p>
 						</div>
 						<div class="shopinlist__wrap">
-							<h2 class="shopinlist__title">${title}</h2>
+							<h2 class="shopinlist__title">${cutNameCategory(title)}</h2>
 							<p class="shopinlist__category">${cutNameCategory(list_name)}</p>
 							<p class="shopinlist__book-description--tablet">${
-                !description ? 'Info empty!!!' : description
-              }</p>
+                !description ? 'Description' : description
+							}</p>
 							<ul class="shopinlist__shops">
 								<li class="shopinlist__shop">
 									<a href="${
@@ -101,7 +101,7 @@ function markupBooksInBasket(arr) {
 }
 
 function cutNameCategory(name) {
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth < 768) {
     if (name.length > 20) {
       return name.substring(0, 20) + '...';
     }
