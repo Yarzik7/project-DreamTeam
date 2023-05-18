@@ -1,9 +1,9 @@
-import('./js/loader');
+import('./js/loaderClass');
+import('./js/loaderMarcup');
 import('./js/category');
 import('./js/support');
 import('./js/popup/popupModal');
 import('./js/scrollup');
-import('./js/loader');
 import('./js/api/topBooks');
 import('./js/api/topBooks');
 const refs = {
