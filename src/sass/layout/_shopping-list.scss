@@ -163,6 +163,9 @@
 
 .amazon {
 	filter: var(--shoppin-list-shops);
+	&:hover {
+			filter: var(--shoppin-amazon-hover) !important;
+		}
 }
 .shopinlist__book-author {
   font-style: italic;
@@ -242,7 +245,7 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-	color: var(--black-color);
+	color: var(--book-rew-color);
 
   @include for-tablet-up {
     display: none;
