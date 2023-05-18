@@ -11,7 +11,6 @@
   --nav-current-color: #111111;
   /* Sing up modal */
   --background-color: rgba(79, 46, 232, 1);
-  --sign-in-text-color: rgba(246, 246, 246, 0.5);
 }
 
 /*Light theme*/
@@ -75,6 +74,13 @@
   /* Categories list on sidebar */
   --hover-text-color: #eccf5a;
   --hover-fill-color: var(--accent-violet-color);
+
+  /* Form modal */
+  --sign-in-text-color: rgba(17, 17, 17, 0.5);
+  --background-color-form-modal: #f6f6f6;
+  --border-color-form-modal: rgba(17, 17, 17, 1);
+  --btn-color-text: rgba(243, 243, 243, 1);
+  --sign-up-text-color: rgba(79, 46, 232, 1);
 }
 
 /*Dark theme*/
@@ -133,4 +139,10 @@
   /* Categories list on sidebar */
   --hover-text-color: #3519f0;
   --hover-fill-color: var(--accent-yellow-color);
+
+  /* Form modal */
+  --sign-in-text-color: rgba(246, 246, 246, 0.5);
+  --border-color-form-modal: rgba(246, 246, 246, 1);
+  --background-color-form-modal: rgba(32, 32, 36, 1);
+  --sign-up-text-color: rgba(79, 46, 232, 1);
 }
