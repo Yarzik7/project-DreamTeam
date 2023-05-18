@@ -3,7 +3,6 @@ import '/node_modules/tui-pagination/dist/tui-pagination.min.css';
 import axios from 'axios';
 import markupBooksInBasket from './markupBooksInBasket';
 import localStoragemethod from './storage-methods';
-import scrollUp from './category';
 
 const refs = {
   container: document.querySelector('#pagination'),
@@ -31,11 +30,11 @@ const options = {
   firstItemClassName: 'pagination__first-child',
   lastItemClassName: 'pagination__last-child',
   template: {
-    page: '<a href="#" class="pagination__page-btn pagination__number">{{page}}</a>',
+    page: '<a aria-label="Number page {{page}}" href="#" class="pagination__page-btn pagination__number">{{page}}</a>',
     currentPage:
       '<strong class="pagination__page-btn pagination__current-page">{{page}}</strong>',
     moveButton:
-      '<a href="#" class="pagination__page-btn pagination__{{type}}">' +
+      '<a aria-label="Load {{type}}" href="#" class="pagination__page-btn pagination__{{type}}">' +
       '<span class="pagination__ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
@@ -43,7 +42,7 @@ const options = {
       '<span class="pagination__ico-{{type}}"></span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="pagination__page-btn pagination__{{type}}-is-ellip">' +
+      '<a aria-label="Load more page and move to next page" href="#" class="pagination__page-btn pagination__{{type}}-is-ellip">' +
       '<span class="pagination__ico-ellip">...</span>' +
       '</a>',
   },
