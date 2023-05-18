@@ -4,9 +4,11 @@
   --black-color: #111111;
   --accent-yellow-color: #eac645;
   --accent-violet-color: #4f2ee8;
-
+  --nav-current-color: #111111;
   --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --burger-menu-link: #ffffff;
+  --nav-current-color: #111111;
   /* Sing up modal */
   --background-color: rgba(79, 46, 232, 1);
   --sign-in-text-color: rgba(246, 246, 246, 0.5);
@@ -23,15 +25,19 @@
   --nav-hover-color: #111111;
   --nav-icon-color: #111111;
   /*Switch btn features*/
-  --sw-button-color: linear-gradient(180deg,
-      var(--accent-violet-color) 0%,
-      #dcdcdc 100%);
-  --sw-button-color: linear-gradient(180deg,
-      var(--accent-violet-color) 0%,
-      #dcdcdc 100%);
+  --sw-button-color: linear-gradient(
+    180deg,
+    var(--accent-violet-color) 0%,
+    #dcdcdc 100%
+  );
+  --sw-button-color: linear-gradient(
+    180deg,
+    var(--accent-violet-color) 0%,
+    #dcdcdc 100%
+  );
 
   /*Mobile menu*/
-  --burger-menu-link: #ffffff;
+  --burger-menu-icon: rgba(17, 17, 17, 1);
   /* Categories */
   --categories-name: #111111;
   --categories-list-text: rgba(17, 17, 17, 0.6);
@@ -55,14 +61,16 @@
   /* Pagination */
 
   --selected-background-color: #111111;
-  --disable-icon-color: invert(72%) sepia(27%) saturate(20%) hue-rotate(17deg) brightness(90%) contrast(102%);
+  --disable-icon-color: invert(72%) sepia(27%) saturate(20%) hue-rotate(17deg)
+    brightness(90%) contrast(102%);
   --selected-icon-color: #ffffff;
   --btn-outline-color: #111111;
   --number-color: #000000;
   --dots-color: #111111;
   --hover-background-color: #111111;
   --hover-number-color: #ffffff;
-  --hover-icon-color: invert(88%) sepia(95%) saturate(0%) hue-rotate(111deg) brightness(105%) contrast(106%);
+  --hover-icon-color: invert(88%) sepia(95%) saturate(0%) hue-rotate(111deg)
+    brightness(105%) contrast(106%);
 
   /* Categories list on sidebar */
   --hover-text-color: #eccf5a;
@@ -75,16 +83,18 @@
   --alt-text-color: rgba(180, 175, 175, 1);
   --header-background-color: #111111;
   --header-outline-color: #ffffff;
-  --logo-text-color: #f3f3f3;
+  --logo-text-color: rgba(255, 255, 255, 1);
   --nav-text-color: #ffffff;
   --nav-hover-color: #111111;
   --nav-icon-color: #ffffff;
-  --sw-button-color: linear-gradient(180deg,
-      var(--accent-violet-color) 0%,
-      #686868 100%);
+  --sw-button-color: linear-gradient(
+    180deg,
+    var(--accent-violet-color) 0%,
+    #686868 100%
+  );
 
   /*Mobile menu*/
-  --burger-menu-link: #111111;
+  --burger-menu-icon: rgba(255, 255, 255, 1);
   /* Categories */
   --categories-name: #ffffff;
   --categories-list-text: rgba(255, 255, 255, 0.6);
@@ -111,7 +121,8 @@
 
   /* Pagination */
   --selected-background-color: #ffffff;
-  --disable-icon-color: invert(90%) sepia(99%) saturate(28%) hue-rotate(250deg) brightness(107%) contrast(100%);
+  --disable-icon-color: invert(90%) sepia(99%) saturate(28%) hue-rotate(250deg)
+    brightness(107%) contrast(100%);
   --selected-icon-color: #000000;
   --btn-outline-color: #ffffff;
   --number-color: #ffffff;
