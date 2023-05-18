@@ -9,9 +9,11 @@
     @include for-tablet-up {
       display: flex;
       justify-content: space-between;
+      height: 472px;
       gap: 32px;
     }
     @include for-desktop-up {
+      height: auto;
       display: block;
     }
   }
@@ -60,13 +62,41 @@
   &__current {
     text-transform: uppercase;
     color: var(--categories-current-color);
-    text-shadow: 0px 0px 0 var(--categories-current-color),
-      0px 0px 0 var(--categories-current-color),
-      0px 0px 0 var(--categories-current-color),
-      0px 0px 0 var(--categories-current-color);
-    transition: text-shadow 1s;
+    font-weight: 700;
+    transition: color 1s;
   }
+
   &__item {
     cursor: pointer;
+    position: relative;
+    width: fit-content;
+    transition: color 0.3s 0.1s ease;
+    &:hover {
+      color: var(--hover-text-color);
+    }
+  }
+  &__item::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  &__item:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  &__item::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0 0 0 0;
+    background-color: var(--hover-fill-color);
+    // color: var(--accent-yellow-color);
+    z-index: -1;
+    transition: transform 0.3s ease;
   }
 }

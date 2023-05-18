@@ -25,6 +25,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
+    gap: 40px;
 
     margin: 0;
     padding: 0;
@@ -111,6 +112,9 @@
     line-height: 18px;
     color: var(--categories-name);
     margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__subtitle {
@@ -118,8 +122,10 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    letter-width: fit-content;
     color: var(--alt-text-color);
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

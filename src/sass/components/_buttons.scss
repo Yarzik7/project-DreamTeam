@@ -1,6 +1,7 @@
 .action-button {
   @include centeredByFlex;
 
+
   text-transform: uppercase;
 
   border: 2px solid var(--accent-violet-color);
@@ -9,12 +10,11 @@
   background-color: var(--background-color);
   cursor: pointer;
   @include transition(background-color);
-  @include transition(color);
 
   &:hover,
   &:focus {
     color: var(--more-btn-hover-color);
-
+    @include transition(background-color);
     background-color: var(--categories-current-color);
   }
 }

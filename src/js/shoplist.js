@@ -1,7 +1,6 @@
 import localStoragemethod from '../js/storage-methods';
 import axios from 'axios';
 import { pagination, sliceOnGroup } from './pagination';
-
 import markupBooksInBasket from './markupBooksInBasket';
 
 const bookListEl = document.querySelector('.shopinlist__cards');
@@ -48,42 +47,36 @@ function removeEmptyNotificationContainer() {
   removeEventListener('click', onBasketClick);
 }
 
-function cutNameCategory(name) {
-  if (window.innerWidth <= 768) {
-    if (name.length > 20) {
-      return name.substring(0, 20) + '...';
-    }
-    return name;
-  }
-  return name;
-}
-
 function onBasketClick(event) {
-  const target = event.target.closest('.shopinlist__btn');
-  const li = target.closest('.shopinlist__card');
+  const bntCloseEl = event.target.closest('.shopinlist__btn');
+  const cardEl = event.target.closest('.shopinlist__card');
 
-  if (!target) {
+  if (!bntCloseEl) {
     return;
   }
 
   const arrSlice = sliceOnGroup(bookList, ITEM_PER_PAGE);
 
-  bookList = bookList.filter(item => item !== li.dataset.id);
+  bookList = bookList.filter(item => item !== cardEl.dataset.id);
 
   localStoragemethod.save(LOCALSTORAGE_KEY, bookList);
-  li.style.display = 'none';
 
-  if (arrSlice[pagination.getCurrentPage() - 1].length === 1) {
-    pagination.movePageTo(pagination.getCurrentPage() - 1);
-  } else {
-    pagination.movePageTo(pagination.getCurrentPage());
-  }
+  bntCloseEl.style.display = 'none';
 
-  if (bookList.length <= ITEM_PER_PAGE) {
-    container.classList.add('disabled');
-  }
-
-  if (bookList.length === 0) {
+  if (!bookList.length) {
     pasteEmptyNotificationContainer();
+    return;
+  } else {
+    const currentPage = pagination.getCurrentPage();
+
+    const currentPageNum = arrSlice[currentPage - 1].length === 1 ? 1 : 0;
+
+    currentPageNum === 1 ? pagination.reset(bookList.length) : null;
+
+    pagination.movePageTo(currentPage - currentPageNum);
+
+    bookList.length <= ITEM_PER_PAGE
+      ? container.classList.add('disabled')
+      : null;
   }
 }

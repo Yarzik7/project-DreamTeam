@@ -8,7 +8,6 @@ body {
   margin: 0;
   background-color: var(--background-color);
   transition: var(--transition-duration);
-
 }
 
 *,
@@ -46,7 +45,6 @@ img {
 
   @include for-tablet-up {
     width: 768px;
-    height: 472px;
     padding: 0 32px;
   }
 
@@ -62,19 +60,12 @@ img {
   width: 8px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  /* background-color: #f1f1f1; */
-  border-radius: 12px;
-}
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0;
+  background-color: var(--categories-scrollbar);
   border-radius: 12px;
-}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  &:hover {
+    background-color: var(--categories-current-color);
+  }
 }
