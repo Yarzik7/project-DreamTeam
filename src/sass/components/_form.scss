@@ -27,8 +27,6 @@
   transition: transform var(--transition-duration)
     var(--transition-timing-function);
 
-  background-color: -var(--header-background-color);
-
   @include centeredByPosition;
 
   @include for-tablet-up {
@@ -59,7 +57,7 @@
 
 .backdrop__svg {
   height: 28px;
-  fill: var(--logo-text-color);
+  fill: var(--border-color-form-modal);
 }
 
 .form {
@@ -69,8 +67,9 @@
 
   text-align: center;
 
-  background-color: var(--header-background-color);
+  background-color: var(--background-color-form-modal);
   border-radius: 18px;
+  border: 2px solid var(--border-color-form-modal);
 }
 
 .form__text {
@@ -100,6 +99,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   margin-bottom: 28px;
 
@@ -122,11 +122,14 @@
   width: 100%;
   max-height: 64px;
 
-  border: 1px solid var(--header-outline-color);
+  border: 2px solid var(--border-color-form-modal);
   border-radius: 40px;
 
-  transition: fill 250ms var(--transition-timing-function),
-    border 250ms var(--accent-yellow-color);
+  &:focus {
+    .box__field {
+      color: red;
+    }
+  }
 }
 
 input[id='password'] {
@@ -136,34 +139,32 @@ input[id='password'] {
 .box__icon {
   position: absolute;
   right: 32px;
-  bottom: 0;
-
-  transform: translateY(-50%);
 }
 
 .btn_form {
   max-width: 499px;
   width: 100%;
+  max-height: 64px;
   padding: 20px 210px;
   margin-bottom: 20px;
 
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.33;
 
-  color: var(--background-color);
-  background-color: var(--header-outline-color);
+  color: var(--btn-color-text);
+  background-color: var(--border-color-form-modal);
   border-radius: 40px;
 
   transition: transform 250ms var(--transition-timing-function);
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
 }
 
 .sing_up {
-  color: var(--accent-violet-color);
+  color: var(--sign-up-text-color);
   text-decoration: underline;
   transform: scale(1);
   transition: transform 250ms var(--transition-timing-function);
@@ -174,7 +175,7 @@ input[id='password'] {
 }
 
 .sing_in {
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--sign-in-text-color);
 
   transform: scale(1);
   transition: transform 250ms var(--transition-timing-function);

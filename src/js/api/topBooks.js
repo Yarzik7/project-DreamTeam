@@ -15,19 +15,21 @@ async function getBooks() {
 
   try {
     loader.show();
+    
     const books = await getRequest(`${URL_TOP_BOOKS}`);
-
     const array = books.map(topBooksContainerMarcup).join('');
 
     refs.ul.classList.remove('category__list');
     refs.ul.innerHTML = array;
   } catch (error) {
     console.log(error);
+
   } finally {
     if (firstLoadPage) {
       preLoader.hide();
       firstLoadPage = false;
     }
+
     loader.hide();
   }
 }
