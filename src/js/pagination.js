@@ -3,10 +3,12 @@ import '/node_modules/tui-pagination/dist/tui-pagination.min.css';
 import axios from 'axios';
 import markupBooksInBasket from './markupBooksInBasket';
 import localStoragemethod from './storage-methods';
+import scrollUp from './category';
 
 const refs = {
   container: document.querySelector('#pagination'),
   listEl: document.querySelector('.shopinlist__cards'),
+  titleEl: document.querySelector('.basket__title'),
 };
 
 const arrBooksStorage = localStoragemethod.load('books');
@@ -67,6 +69,10 @@ async function onMove(e) {
   });
   const arrResult = (await Promise.allSettled(booksList)).map(el => el.value);
   refs.listEl.innerHTML = markupBooksInBasket(arrResult);
+
+  refs.titleEl.scrollIntoView({
+    behavior: 'smooth',
+  });
 }
 
 /**

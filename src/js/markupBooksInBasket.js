@@ -34,6 +34,8 @@ function markupBooksInBasket(arr) {
 							<p class="shopinlist__book-description--tablet">${
                 !description ? 'Description' : description
 							}</p>
+                !description ? 'Description empty!!!' : description
+              }</p>
 							<ul class="shopinlist__shops">
 								<li class="shopinlist__shop">
 									<a href="${

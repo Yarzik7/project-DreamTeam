@@ -13,7 +13,10 @@ const chosenBook = document.querySelector('.js-all-books');
 let bookInStorage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
 let idBook = null;
 
-// Get Books From Storage
+/**
+ * Get Books From Storage
+ * @returns array
+ */
 const getBooksFromStorage = () => {
   try {
     return JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) ?? [];
@@ -23,7 +26,10 @@ const getBooksFromStorage = () => {
   }
 };
 
-//Adds listener for Escape key
+/**
+ * Add listener for Escape key
+ * @param {keydown} evt
+ */
 const onEscape = evt => {
   if (evt.key === 'Escape') {
     document.body.removeChild(popupModal);
@@ -32,6 +38,11 @@ const onEscape = evt => {
   }
 };
 
+/**
+ * Fetch
+ * @param {*} e
+ * @returns
+ */
 async function onClick(e) {
   const currentEl = e.target.parentElement;
 

@@ -171,7 +171,7 @@
   line-height: 1.17;
   letter-spacing: -0.04em;
   max-width: 98px;
-
+  color: var(--alt-text-color);
   @include for-tablet-up {
     display: none;
     max-width: 116px;
