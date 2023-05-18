@@ -27,8 +27,6 @@
   transition: transform var(--transition-duration)
     var(--transition-timing-function);
 
-  background-color: -var(--header-background-color);
-
   @include centeredByPosition;
 
   @include for-tablet-up {
@@ -48,17 +46,20 @@
   border: none;
 
   cursor: pointer;
-
-  transform: scale(1);
-  transition: transform 250ms var(--transition-timing-function);
-
-  &:hover {
-    transform: scale(1.05);
-  }
 }
 
 .backdrop__svg {
   height: 28px;
+  fill: var(--border-color-form-modal);
+  border-radius: 50%;
+
+  transition: outline 250ms var(--transition-timing-function),
+    border-radius 250ms var(--transition-timing-function);
+
+  &:hover {
+    outline: 1px solid black;
+    border-radius: 50%;
+  }
 }
 
 .form {
@@ -68,8 +69,9 @@
 
   text-align: center;
 
-  background-color: var(--header-background-color);
+  background-color: var(--background-color-form-modal);
   border-radius: 18px;
+  border: 2px solid var(--border-color-form-modal);
 }
 
 .form__text {
@@ -99,6 +101,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   margin-bottom: 28px;
 
@@ -109,60 +112,79 @@
 
 .form__label {
   position: absolute;
-  padding: 20px 20px 20px 40px;
+  display: block;
+  margin: 20px 20px 20px 40px;
 
   font-size: 18px;
   font-weight: bold;
+
+  transition: transform 250ms var(--transition-timing-function);
+
+  background-color: var(--background-color-form-modal);
 }
 
 .box__field {
-  padding: 20px;
-  padding-left: 100px;
   width: 100%;
   max-height: 64px;
 
-  border: 1px solid var(--header-outline-color);
+  padding: 20px;
+  padding-left: 100px;
+
+  background-color: var(--background-color-form-modal);
+
+  border: 2px solid var(--border-color-form-modal);
   border-radius: 40px;
 
-  transition: fill 250ms var(--transition-timing-function),
-    border 250ms var(--accent-yellow-color);
+  transition: transform 250ms var(--transition-timing-function);
+
+  &:focus {
+    padding-left: 20px;
+  }
+
+  &:focus + .form__label {
+    transform: translateY(-149%);
+    padding-left: 2px;
+    padding-right: 2px;
+  }
 }
 
-input[id='password'] {
+input#password {
   padding-left: 150px;
+
+  &:focus {
+    padding-left: 20px;
+  }
 }
 
 .box__icon {
   position: absolute;
   right: 32px;
-  bottom: 0;
-
-  transform: translateY(-50%);
 }
 
 .btn_form {
   max-width: 499px;
   width: 100%;
-  padding: 20px 210px;
+  max-height: 64px;
+  padding: 20px;
   margin-bottom: 20px;
 
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.33;
 
-  color: var(--background-color);
-  background-color: var(--header-outline-color);
+  color: var(--btn-color-text);
+  background-color: var(--border-color-form-modal);
   border-radius: 40px;
 
   transition: transform 250ms var(--transition-timing-function);
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
 }
 
 .sing_up {
-  color: var(--accent-violet-color);
+  color: var(--sign-up-text-color);
   text-decoration: underline;
   transform: scale(1);
   transition: transform 250ms var(--transition-timing-function);
@@ -173,7 +195,7 @@ input[id='password'] {
 }
 
 .sing_in {
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--sign-in-text-color);
 
   transform: scale(1);
   transition: transform 250ms var(--transition-timing-function);
