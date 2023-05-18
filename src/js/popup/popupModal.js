@@ -111,12 +111,10 @@ function addBookToShoppingList(idBook, evt) {
   const textCongrats = popupModal.querySelector('.pop-up__congratulations');
 
   if (checkBookInStorage(idBook)) {
-    console.log(idBook);
     textCongrats.classList.add('hidden');
     removeBookFromShoppingList(idBook);
 
     evt.target.textContent = 'ADD TO SHOPPING LIST';
-    console.log('its evtTargetTextCont: ', evt.target.textContent);
 
     return;
   } else {
@@ -129,7 +127,6 @@ function addBookToShoppingList(idBook, evt) {
 
 //Removes book from shopping list
 function removeBookFromShoppingList(idBook) {
-  console.log(idBook);
   bookInStorage = getBooksFromStorage().filter(item => item !== idBook);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
 

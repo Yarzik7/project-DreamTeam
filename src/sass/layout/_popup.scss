@@ -17,9 +17,6 @@
   transition: opacity 350ms var(--timing-function),
     visibility 350ms var(--timing-function);
 
-  // opacity: 1;
-  // overflow-y: scroll;
-
   backdrop-filter: blur(2px);
 
 }
@@ -30,7 +27,7 @@
 
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
+
   max-width: 335px;
   min-height: 762px;
 
@@ -129,9 +126,16 @@
     height: 46px;
     align-self: center;
     font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
 
     @include for-tablet-up {
       width: 499px;
+      font-size: 18px;
+      line-height: 1.33;
+      letter-spacing: -0.01em;
+
     }
   }
 
@@ -149,7 +153,6 @@
 
     @include for-tablet-up {
       width: 324px;
-      // margin: auto;
       font-size: 12px;
       line-height: 1.17;
     }
@@ -182,7 +185,7 @@
     }
 
     @include for-tablet-up {
-      @include getPositionTopRight(24, 24);
+      @include getPositionTopRight(20, 20);
     }
   }
 
