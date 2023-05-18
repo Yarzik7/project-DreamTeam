@@ -25,3 +25,5 @@ async function getBooks() {
 }
 
 getBooks();
+
+export default getBooks;
