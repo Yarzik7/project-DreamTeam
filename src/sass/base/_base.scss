@@ -71,3 +71,16 @@ img {
     background-color: var(--categories-current-color);
   }
 }
+
+.main-content {
+  width: 100%;
+
+  .category {
+    .container {
+      @include for-desktop-up {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
