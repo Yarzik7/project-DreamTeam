@@ -15,10 +15,9 @@ const createTopBooksMarcup = books =>
  * @returns {string} - розмітка контейнера
  */
 const topBooksContainerMarcup = ({ list_name, books }, node) => {
-  node.classList.remove('category__list');
   return `
 <li class="category-top-books">
-  <h3 class="category-top-books__title">${list_name}</h3>
+  <h2 class="category-top-books__title">${list_name}</h2>
   <ul class="category-top-books__list">${createTopBooksMarcup(books)}</ul>
   <button class="action-button category-top-books__action-button js-action-button" data-categoryName="${list_name}">See more</button>
 </li>`;

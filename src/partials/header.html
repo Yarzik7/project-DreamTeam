@@ -1,48 +1,108 @@
 <header>
-    <div class="header">
-        <div class="container header-container">
-            <!-- logo part -->
-            <div class="logo-wrap">
-            <a class="logo" href="./index.html">
-                <svg class="logo-icon"
-                width="24"
-                height="24"
-                aria-label="logo icon">
-                    <use href="/src/images/sprite.svg#icon-logo-color"></use>
-                </svg>
-                <svg class="logo-text"
-                width="77"
-                height="14"
-                aria-label="logo text">
-                    <use href="/src/images/sprite.svg#icon-logo-text"></use>
-                </svg>
+    <div class="container header__container">
+      <!-- logo part -->
+      <div class="logo__wrap">
+        <a class="logo" href="./index.html">
+          <svg class="logo__icon" width="24" height="24" aria-label="logo icon">
+            <use href="/src/images/sprite.svg#icon-logo-color"></use>
+          </svg>
+          <svg class="logo__text" width="77" height="14" aria-label="logo text">
+            <use href="/src/images/sprite.svg#icon-logo-text"></use>
+          </svg>
+        </a>
+      </div>
+      <!-- navigation part -->
+      <div class="header__nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="./index.html" class="nav__link current-page"> Home </a>
+          </li>
+          <li class="nav__item">
+            <a href="./shopping-list.html" class="nav__link">
+              Shopping list
+              <svg class="nav__icon" width="20" height="20">
+                <use href="/src/images/sprite.svg#icon-uil_cart"></use>
+              </svg>
             </a>
-        </div>
-        <!-- navigation part -->
-        <div class="header-nav">   
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-            Home
-                </a>
-            </li>
-            <li class="nav-item current-page">
-                <a href="./shopping-list.html" class="nav-link">
-                Shopping list 
-                    <svg class="nav__icon" width="20" height="20">
-                        <use href="/src/images/sprite.svg#icon-cart"></use>
-                    </svg>
-                </a>
-            </li>
+          </li>
         </ul>
-<!-- switcher Dark/Light theme  -->
-        </div>
-            <input type="checkbox" class="js-theme-switch">
-        </div>
-<!-- mobile menu -->
+      </div>
+      <!-- switcher Dark/Light theme  -->
+      <input type="checkbox" class="js-theme-switch" />
+      <!-- SignUP btn -->
+      <button class="btn-signup" type="button">Sign up
+        <svg class="btn-signup__icon" width="20" height="20">
+            <use href="/src/images/sprite.svg#icon-arrow-narrow-right-color"></use>
+        </svg>
+        </button>
 
+      <!-- Profile btn  USER  -->
+<button class="btn-profile is-hidden" type="button">
+  <img class="user-pic" src="/src/images/user-pic.jpg" alt="user photo">
+  <span class="profile-name">Stephen</span>
+  <svg class="btn-profile__icon" width="20" height="20">
+    <use href="/src/images/sprite.svg#icon-fi-ss-caret-down"></use>
+  </svg>
+</button>
+
+      <!-- LogOUT btn  USER -->
+        <button class="btn-signout is-hidden" type="button">Log out
+          <svg class="btn-signup__icon" width="20" height="20">
+            <use href="/src/images/sprite.svg#icon-arrow-narrow-right-color"></use>
+          </svg>
+        </button>
+
+
+      <!-- mobile menu -->
+      <button type="button" class="burger-menu__btn--open" btn-menu-open>
+      </button>
+        <button type="button" class="burger-menu__btn--close is-hidden" btn-menu-close>
+        </button>
     </div>
-
-  
+  </div>
 
 </header>
+<div class="container burger-menu__container is-hidden" data-menu>
+    <div class="burger-menu__box">
+      <!-- USER PROFILE  -->
+    <button class="btn-signup burger-menu" type="button">
+        Sign up
+        <svg class="btn-signup__icon" width="20" height="20">
+            <use href="/src/images/sprite.svg#icon-arrow-narrow-right-color"></use>
+        </svg>
+    </button>
+<!-- Profile btn mobile menu -  USER  -->
+<button class="btn-profile burger-menu is-hidden" type="button">
+  <img class="user-pic" src="/src/images/user-pic.jpg" alt="user photo">
+  <span class="profile-name">Stephen</span>
+  <svg class="btn-profile__icon" width="20" height="20">
+    <use href="/src/images/sprite.svg#icon-fi-ss-caret-down"></use>
+  </svg>
+</button>
+
+<!-- SignOUT btn mobile menu -  USER -->
+<button class="btn-signout burger-menu" type="button">Log out
+  <svg class="btn-signup__icon" width="20" height="20">
+    <use href="/src/images/sprite.svg#icon-arrow-narrow-right-color"></use>
+  </svg>
+</button>
+
+
+    <!-- mobile menu navigation  -->
+    <div class="burger-menu__wrap">
+      <ul class="burger-menu__list">
+        <li class="burger-menu__item">
+            <a href="./index.html" class="burger-menu__link current-page"> Home </a>
+        </li>
+        <li class="burger-menu__item">
+            <a href="./shopping-list.html" class="burger-menu__link">
+                Shopping list
+                <svg class="burger-nav__icon" width="20" height="20">
+                    <use href="/src/images/sprite.svg#icon-uil_cart"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+    </div>
+    </div>
+

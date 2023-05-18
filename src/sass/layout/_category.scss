@@ -13,12 +13,12 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
-    color: var(--black-color);
+    color: var(--categories-name);
     margin-bottom: 40px;
   }
 
   &__name--violet {
-    color: var(--accent-violet-color);
+    color: var(--categories-current-color);
   }
 
   &__list {
@@ -26,19 +26,24 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     margin: 0;
     padding: 0;
 
     @include for-tablet-up {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      gap: 25px;
     }
     @include for-desktop-up {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 24px;
     }
   }
 
   &__book {
+    cursor: pointer;
+
     @include for-tablet-up {
       width: 218px;
     }
@@ -49,11 +54,21 @@
   }
 
   &__img {
-    height: 485px;
-    margin-bottom: 14px;
-    border-radius: 8px;
-    object-fit: fill;
+    display: block;
     width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+  }
+
+  &__image-box {
+    position: relative;
+    height: 485px;
+
+    margin-bottom: 14px;
+    overflow: hidden;
 
     @include for-tablet-up {
       height: 316px;
@@ -64,12 +79,42 @@
     }
   }
 
+  &__image-overlay {
+    position: absolute;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+    @include centeredByFlex;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    color: var(--black-color);
+    text-transform: uppercase;
+
+    background-color: var(--accent-yellow-color);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transform: translateY(71px);
+    @include transition(transform);
+
+    .category__book:hover & {
+      transform: translateY(0);
+    }
+  }
+
   &__title {
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-    color: var(--black-color);
+    color: var(--categories-name);
     margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__subtitle {
@@ -77,8 +122,10 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    letter-width: fit-content;
     color: var(--alt-text-color);
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

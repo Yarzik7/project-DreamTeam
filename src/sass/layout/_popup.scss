@@ -1,93 +1,233 @@
-.popup-backdrop {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(17, 17, 17, 0.4);
-    ;
+.backdrop.is-hidden {
+  visibility: hidden;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--popup-info-text-color);
+  transition: opacity 350ms var(--timing-function),
+    visibility 350ms var(--timing-function);
+
+  // opacity: 1;
+  // overflow-y: scroll;
+
+  backdrop-filter: blur(2px);
 
 }
 
-.popup {
+.pop-up {
+  position: absolute;
+  @include centeredByPosition;
 
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  max-width: 335px;
+  min-height: 762px;
 
-    &__body {
+  width: 100%;
+  padding: 40px 24px;
 
-        position: absolute;
+  background-color: var(--popup-color);
+  border: 2px solid var(--categories-name);
+  border-radius: 18px;
 
-        stroke: #111111;
+  transition: transform 350ms var(--timing-function),
+    visibility 350ms var(--timing-function);
 
+  overflow: hidden;
 
+  &__book-info {
+    overflow: hidden;
+
+    @include for-tablet-up {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__img {
+    max-width: 287px;
+    height: 408px;
+
+    @include for-tablet-down {
+      margin-bottom: 14px;
     }
 
-    &__container {
-        position: absolute;
-        border: 2px solid #111111;
-        border-radius: 18px;
-        width: 100%;
-        top: 50%;
-        left: 50%;
-        background-color: #fff;
+    @include for-tablet-up {
+      @include getSize(192, 281);
+    }
+  }
 
-        @include for-phone-only {
-            max-width: 335px;
-            max-height: 762px;
+  &__description {
+    max-width: 279px;
+  }
 
-        }
+  &__book-name {
+    margin-bottom: 4px;
 
-        @include for-phone-up {
-            width: 335px;
-            max-height: 762px;
+    font-size: 16px;
+    line-height: 1.12;
+    color: var(--book-name-color);
 
-        }
+    @include for-tablet-up {
+      margin-bottom: 8px;
 
-        @include for-tablet-up {
-            width: 579px;
-            max-height: 465px;
-        }
+      font-size: 24px;
+      line-height: 1.17;
+    }
+  }
 
-        width: 579px;
-        max-height: 762px;
+  &__book-author {
+    margin-bottom: 18px;
 
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    color: var(--book-author-color);
+
+    @include for-tablet-up {
+      margin-bottom: 20px;
+
+      font-size: 14px;
+      line-height: 1.29;
+    }
+  }
+
+  &__review {
+    margin-bottom: 14px;
+    min-height: 70px;
+
+    font-size: 14px;
+    line-height: 1.29;
+    color: var(--book-rew-color);
+
+    @include for-tablet-up {
+      margin-bottom: 20px;
+
+      font-size: 14px;
+      line-height: 1.29;
+    }
+  }
+
+  &__action-button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    height: 46px;
+    align-self: center;
+    font-weight: 700;
+
+    @include for-tablet-up {
+      width: 499px;
+    }
+  }
+
+  &__congratulations {
+    display: block;
+    font-family: 'DM Sans';
+    width: 242px;
+    margin: auto;
+    letter-spacing: -0.04em;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+
+    color: var(--popup-info-text-color);
+
+    @include for-tablet-up {
+      width: 324px;
+      // margin: auto;
+      font-size: 12px;
+      line-height: 1.17;
     }
 
-    .popup-book {
-        display: flex;
-
-
-        &__thumb {
-            display: flex;
-        }
-
-        &__img {
-            max-width: 100%;
-            max-height: 100%;
-
-        }
-
-        &__info {
-            display: flex;
-        }
-
+    &__btn {
+      display: block;
+      margin: 0;
     }
+  }
+
+  .close-button {
+    position: absolute;
+    @include getPositionTopRight(12, 12);
+
+    @include centeredByFlex;
+    @include getSize(24, 24);
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
+    stroke: black;
+    filter: var(--popup-close-img-color);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      stroke: var(--accent-violet-color);
+    }
+
+    @include for-tablet-up {
+      @include getPositionTopRight(24, 24);
+    }
+  }
+
+  .stores-list {
+    display: flex;
+    margin-bottom: 40px;
+    align-items: center;
+    height: 36px;
+    gap: 20px;
+
+    &__item {
+      filter: grayscale(100%);
+
+      &:hover {
+        filter: grayscale(100%)drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+      }
+    }
+  }
+
+  .stores-img {
+
+    filter: var(--popup-close-img-color);
+    transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @include for-tablet-up {
+    max-width: 579px;
+    min-height: 465px;
+    padding: 40px;
+  }
 
 }
 
+.hidden {
 
-.btn {
+  display: none;
+}
 
-    &__close {
-        display: flex;
-        width: 24px;
-        height: 24px;
-        position: absolute;
-        top: 12px;
-        left: 299px;
-        fill: #000000;
-        stroke: #000000;
-        cursor: pointer;
-        background: none;
-        border: solid 2px blue;
-        padding: 0;
-        transition: cubic-bezier(.4, 0, .2, 1);
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
-    }
+.pop-up .stores-img:hover {
+  filter: var(--popup-icon-shop-hover);
+
 }

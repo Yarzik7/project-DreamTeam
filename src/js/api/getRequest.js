@@ -7,13 +7,13 @@ import axios from 'axios';
  */
 
 async function getRequest(link) {
-  try {
-    const RESPONSE = await axios.get(`${link}`);
-    const DATA = await RESPONSE.data;
-    return DATA;
-  } catch (err) {
-    console.log(err);
-  }
+  // try {
+  const response = await axios.get(`${link}`);
+  const data = await response.data;
+  return data;
+  // } catch (err) {
+  // console.log(err);
+  // }
 }
 
 export { getRequest };

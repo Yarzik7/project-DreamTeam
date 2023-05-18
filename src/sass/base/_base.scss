@@ -2,6 +2,14 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  display: block;
+  height: auto;
+  margin: 0;
+  background-color: var(--background-color);
+  transition: var(--transition-duration);
+}
+
 *,
 *::before,
 *::after {
@@ -15,10 +23,12 @@ img {
 }
 
 .main-container {
+  padding: 40px 0;
   @include for-desktop-up {
     display: flex;
     margin: 0 auto;
-    padding: 0 24px;
+    padding-left: 24px;
+    padding-right: 24px;
     box-sizing: border-box;
     width: 1440px;
   }
@@ -41,6 +51,7 @@ img {
 
   @include for-desktop-up {
     width: auto;
+    height: auto;
     padding: 0;
   }
 }
@@ -58,11 +69,14 @@ img {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0;
+  background-color: var(--categories-scrollbar);
   border-radius: 12px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: var(--categories-current-color);
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: var(--transition-timing-function);
 }

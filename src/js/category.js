@@ -2,6 +2,7 @@ import getAllCategory from './api/categoryList';
 import getAllBooks from './api/categoryBooks';
 import { topBooksContainerMarcup } from './topBooksContainerMarcup';
 import { topBooksData } from './testFiles/testData(Yaroslav)';
+import { bookItemMarcup } from './bookItemMarcup';
 
 const refs = {
   categoryListEl: document.querySelector('.js-list-categories'),
@@ -78,17 +79,7 @@ function changeClassCurrentCategory(target) {
  * @returns String
  */
 function markupBooks(data) {
-  return data
-    .map(
-      ({ author, book_image, title, _id }) => `
-  <li data-id="${_id}" class="category__book js-book">
-    <img class="category__img" src="${book_image}" alt="${title}">
-    <h2 class="category__title">${title}</h2>
-    <h3 class="category__subtitle">${author}</h3>
-  </li>
-  `
-    )
-    .join('');
+  return data.map(bookItemMarcup).join('');
 }
 
 /**
@@ -118,9 +109,16 @@ async function test(e) {
   }
   const nameCategory = e.target.dataset.categoryname;
 
-  refs.categoryNameEl.scrollIntoView({
-    behavior: 'smooth',
-  });
+  if (window.innerWidth < 1440) {
+    refs.categoryNameEl.scrollIntoView({
+      behavior: 'smooth',
+    });
+  } else {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   markupNameCategory(nameCategory);
 

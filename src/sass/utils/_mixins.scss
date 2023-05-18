@@ -19,3 +19,9 @@
   width: $width + px;
   height: $height + px;
 }
+
+@mixin transition($property...) {
+	transition-property: $property;
+	transition-duration: var(--transition-duration);
+	transition-timing-function: var(--transition-timing-function);
+}

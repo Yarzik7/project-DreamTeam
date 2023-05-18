@@ -2,24 +2,22 @@
   <div class="support__container">
     <div class="support__header-container">
       <h2 class="support__header-title">Support Ukraine</h2>
-         <img
+      <!-- <img
         src="./images/Emblem_of_Ukraine.png"
         alt="Emblem of Ukraine"
         class="support__icon"
-      />
+      /> -->
+      <svg class="support__icon" width="20" height="32">
+        <use href="/src/images/sprite.svg#icon-gerb"></use>
+      </svg>
     </div>
     <div class="swiper mySwiper">
       <div class="swiper-wrapper js-support_list"></div>
     </div>
-    <div class="support__navigation"> <button type="button" class="support__btn support__btn--down swiper-down">
-      <svg class="support__btn-icon width="20" height="20" aria-label="Scroll up">
+    <button type="button" class="support__btn swiper-up">
+      <svg class="support__btn-icon" aria-label="Scroll down">
         <use href="./images/sprite.svg#icon-slider"></use>
       </svg>
     </button>
-    <button type="button" class="support__btn swiper-up">
-      <svg class="support__btn-icon width="20" height="20" aria-label="Scroll down">
-        <use href="./images/sprite.svg#icon-slider"></use>
-      </svg>
-    </button></div>   
   </div>
 </section>

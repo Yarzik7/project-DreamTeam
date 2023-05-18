@@ -1,94 +1,143 @@
 import { AxiosApi } from '../api/fetchBooks';
-import saveStorageHandler from './localStorageHandler';
+
+import { createPopupCard } from './marcupForPopUp';
 
 const axiosApi = new AxiosApi();
 const LOCALSTORAGE_KEY = 'books';
+
 const popupModal = document.createElement('div');
+popupModal.classList.add('backdrop');
+
 const chosenBook = document.querySelector('.js-all-books');
 
-chosenBook.addEventListener('click', onClick);
+let bookInStorage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
+let idBook = null;
+
+// Get Books From Storage
+const getBooksFromStorage = () => {
+  try {
+    return JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) ?? [];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+//Adds listener for Escape key
+const onEscape = evt => {
+  if (evt.key === 'Escape') {
+    document.body.removeChild(popupModal);
+    document.body.style.overflow = 'visible';
+    document.removeEventListener('keydown', onEscape);
+  }
+};
 
 async function onClick(e) {
-  const idBook = e.target.parentElement.dataset.id;
+  const currentEl = e.target.parentElement;
+
+  if (!currentEl.classList.contains('js-book')) {
+    return;
+  }
+
+  idBook = e.target.parentElement.dataset.id;
+
+  document.addEventListener('keydown', onEscape);
+
+  let check = checkBookInStorage(idBook)
+    ? 'REMOVE FROM THE SHOPPING LIST'
+    : 'ADD TO SHOPPING LIST';
 
   try {
+    //Fetchs books from backend
     const responce = await axiosApi.getShops(idBook);
     const nodeEl = responce.data;
 
-    popupModal.innerHTML = createPopupCard(nodeEl);
+    //Adds HTML render for modal window, checks class hidden in text congratulation
+    popupModal.innerHTML = createPopupCard(nodeEl, check);
+    let textCongrats = popupModal.querySelector('.pop-up__congratulations');
+    if (checkBookInStorage(idBook)) {
+      textCongrats.classList.remove('hidden');
+    } else {
+      textCongrats.classList.add('hidden');
+    }
     document.body.appendChild(popupModal);
 
+    //Stops scrolling body
+    document.body.style.overflow = 'hidden';
+
+    //Button for adding books to bascket(cart)
     const addHandler = popupModal.querySelector('.js-add-storage');
+    addHandler.addEventListener('click', evt => {
+      addBookToShoppingList(idBook, evt);
+    });
 
-    addHandler.addEventListener('click', addToCart(e, nodeEl));
-
+    //Close modal window button
     const btnPopupClose = popupModal.querySelector('.js-popup-close');
+    btnPopupClose.addEventListener('click', onCloseByButton);
 
-    btnPopupClose.addEventListener('click', onClose);
+    //Close modal by click on backdrop
+    popupModal.addEventListener('click', onCloseByClickBackdrop);
   } catch (error) {
     console.log(error);
   }
 }
 
-function createPopupCard({
-  author,
-  book_image,
-  title,
-  buy_links,
-  list_name,
-  description,
-}) {
-  return `<div class="popup-backdrop">
-  <div class="js-popup popup__body">
-  <div class="popup__container">
-  <button  class="js-popup-close btn__close" type="button">
-        <svg width="16" height="15"></svg>
-        <use href="./images/sprite.svg#icon-x-close"></use>
-        </svg>
-    </button>
-    <div class="popup-book">
-    <div class="popup-book__thumb">
-        <img class="popup-book__img" src="${book_image}" alt="${title}">
-        </div>
-    <div class="popup-book__info"
-        <h2>${title}</h2>
-        <h3>${author}</h3>
-        <p>${description}</p>
-        <ul class="modal__shops-link">${createShopLinks(buy_links)}</ul>
-        </div>
-    </div>
-    <div>
-        <button type="button" class="action-button js-add-storage">add to shoping list</button>
-        <p class="popup__text">text</p>
-    </div>
-    </div>
-    </div>
-    </div>`;
-}
-
-function createShopLinks(buyLinks) {
-  const markupShops = buyLinks
-    .map(
-      ({ name, url }) => `  <li>
-                <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-                    <img src="" alt="${name}">
-                </a>
-            </li>`
-    )
-    .join('');
-  return markupShops;
-}
-
-function addToCart(e, value) {
-  console.log(value);
-
-  saveStorageHandler(LOCALSTORAGE_KEY, value);
-}
-
-function onClose(evt) {
+//Closes modal window, removes event listeners
+function onCloseByButton(evt) {
   if (!evt.target) {
     return;
+  }
+
+  document.body.removeChild(popupModal);
+  document.body.style.overflow = 'visible';
+  document.removeEventListener('keydown', onEscape);
+}
+
+// Close By Click on Backdrop
+function onCloseByClickBackdrop(evt) {
+  if (!evt.target.classList.contains('backdrop')) {
+    return;
+  }
+
+  document.body.removeChild(popupModal);
+  document.body.style.overflow = 'visible';
+  document.removeEventListener('keydown', onEscape);
+}
+
+//Adds book to shopping cart(bascket)
+function addBookToShoppingList(idBook, evt) {
+  evt.target.blur();
+
+  const textCongrats = popupModal.querySelector('.pop-up__congratulations');
+
+  if (checkBookInStorage(idBook)) {
+    console.log(idBook);
+    textCongrats.classList.add('hidden');
+    removeBookFromShoppingList(idBook);
+
+    evt.target.textContent = 'ADD TO SHOPPING LIST';
+    console.log('its evtTargetTextCont: ', evt.target.textContent);
+
+    return;
   } else {
-    document.body.removeChild(popupModal);
+    textCongrats.classList.remove('hidden');
+    bookInStorage.push(idBook);
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
+    evt.target.textContent = 'REMOVE FROM THE SHOPPING LIST';
   }
 }
+
+//Removes book from shopping list
+function removeBookFromShoppingList(idBook) {
+  console.log(idBook);
+  bookInStorage = getBooksFromStorage().filter(item => item !== idBook);
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
+
+  return;
+}
+
+function checkBookInStorage(idBook) {
+  return getBooksFromStorage().includes(idBook);
+}
+
+chosenBook.addEventListener('click', onClick);

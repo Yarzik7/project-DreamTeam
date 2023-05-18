@@ -9,15 +9,15 @@
   height: 54px;
   border-radius: 50%;
   border: 5px solid var(--scroll-up-shadow);
-
+  cursor: pointer;
   background-color: var(--accent-violet-color);
   box-shadow: 0 0 0 5px rgba(79, 46, 232, 0.3);
   transition: var(--transition-duration) ease-out;
 
   &:hover,
   :focus {
-    transform: scale(1);
     background-color: var(--accent-yellow-color);
+    transition: var(--transition-duration);
   }
 }
 .is-hidden-up {
