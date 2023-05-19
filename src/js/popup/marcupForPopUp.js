@@ -13,12 +13,14 @@ function createShopLinks(buyLinks) {
       ({ name, url }, idx) => `
       <li class="stores-list__item">
         <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-          <img class="stores-img${!idx ? '__amazon' : ''}" src="${new URL(
-        bookShopsIcons[idx].x1,
-        import.meta.url
-      )}" alt="${name}" width="${bookShopsIcons[idx].width}" height="${
-        bookShopsIcons[idx].height
-      }">
+          <img
+          srset = "${bookShopsIcons[idx].x1} 1x, ${bookShopsIcons[idx].x2} 2x"
+          src="${bookShopsIcons[idx].x1},
+          alt="${name}" 
+          width="${bookShopsIcons[idx].width}" 
+          height="${bookShopsIcons[idx].height}"
+      class="stores-img${!idx ? '__amazon' : ''}" 
+      )}">
         </a>
       </li>`
     )
