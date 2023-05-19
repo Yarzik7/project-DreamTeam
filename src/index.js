@@ -21,6 +21,7 @@ import('./js/themes');
 import('./js/firebase');
 
 import('./js/form');
+import('./js/autorithation')
 
 import { changeCurrentPageOnHomePage } from './js/currentPage';
 import { setTheme, activateThemeSwitch } from './js/themes';

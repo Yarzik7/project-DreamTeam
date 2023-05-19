@@ -135,6 +135,7 @@ function addBookToShoppingList(idBook, evt) {
     bookInStorage.push(idBook);
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(bookInStorage));
     evt.target.textContent = 'REMOVE FROM THE SHOPPING LIST';
+
   }
 }
 
@@ -151,3 +152,41 @@ function checkBookInStorage(idBook) {
 }
 
 chosenBook.addEventListener('click', onClick);
+
+
+// function writeUserBooks(userId,books) {
+//   const db = getDatabase();
+//   push(ref(db, 'users/' + userId), {
+//     selectedBooks: books,
+//   });
+// }
+
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     console.log(uid);
+//     // ...
+//   } else {
+//    console.log('usera ne ma');
+//     // ...
+//   }
+// });
+
+// const auth = getAuth();
+// const user = auth.currentUser;
+
+// if (user) {
+//   // User is signed in, see docs for a list of available properties
+//   // https://firebase.google.com/docs/reference/js/firebase.User
+//   // ...
+// } else {
+//   // No user is signed in.
+// }
+
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { takeUserId } from '../firebase';
+// import { getDatabase, ref, set, child, get, push } from 'firebase/database';
+// import { writeUserBooks } from '../firebase';
