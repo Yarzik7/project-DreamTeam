@@ -120,6 +120,7 @@
 
   transition: transform 250ms var(--transition-timing-function);
 
+  color: var(--border-color-form-modal);
   background-color: var(--background-color-form-modal);
 }
 
@@ -159,6 +160,7 @@ input#password {
 .box__icon {
   position: absolute;
   right: 32px;
+  fill: var(--border-color-form-modal);
 }
 
 .btn_form {
