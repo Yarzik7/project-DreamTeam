@@ -1,85 +1,90 @@
-// import { initializeApp } from 'firebase/app';
-// import {
-//   getAuth,
-//   onAuthStateChanged,
-//   signOut,
-//   signInWithEmailAndPassword,
-//   Auth,
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-// } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+  signInWithEmailAndPassword,
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
-// import { getDatabase, ref, set, child, get, push } from 'firebase/database';
+import { getDatabase, ref, set, child, get, push } from 'firebase/database';
 
 
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyA33UV7OBjkFv7cGwHXspz56WwnFTkUl1Y',
-//   authDomain: 'dream-team-project-bc025.firebaseapp.com',
-//   databaseURL:
-//     'https://dream-team-project-bc025-default-rtdb.europe-west1.firebasedatabase.app',
-//   projectId: 'dream-team-project-bc025',
-//   storageBucket: 'dream-team-project-bc025.appspot.com',
-//   messagingSenderId: '343989525653',
-//   appId: '1:343989525653:web:4644793e39efe02e6a0f9c',
-// };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyA33UV7OBjkFv7cGwHXspz56WwnFTkUl1Y',
+  authDomain: 'dream-team-project-bc025.firebaseapp.com',
+  databaseURL:
+    'https://dream-team-project-bc025-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'dream-team-project-bc025',
+  storageBucket: 'dream-team-project-bc025.appspot.com',
+  messagingSenderId: '343989525653',
+  appId: '1:343989525653:web:4644793e39efe02e6a0f9c',
+};
 
-// initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
-// // const app = initializeApp(firebaseConfig);
-// // console.log(app);userId
+// const app = initializeApp(firebaseConfig);
+// console.log(app);userId
 
-// // const database = getDatabase(app);
-// // console.log(database);
+// const database = getDatabase(app);
+// console.log(database);
 
-// const form = document.querySelector('.login-form');
+// const form = document.querySelector('.form');
 // form.addEventListener('submit', onSubmit);
-// let userId = '';
+
+
+  // __________Створення нового Користувача_________
+
 // function onSubmit(event) {
-//   event.preventDefault();
+// //   event.preventDefault();
 //   const name = event.currentTarget.elements.name.value;
 //   const email = event.currentTarget.elements.email.value;
 //   const password = event.currentTarget.elements.password.value;
+    
+
 //   if (password.value === '' || email.value === '') {
 //     alert('Всі поля повинні бути заповненні!');
 //   }
-//   // __________Створення нового Користувача_________
 //   const auth = getAuth();
 //   createUserWithEmailAndPassword(auth, email, password)
 //     .then(userCredential => {
-//       // Signed in
 //       const user = userCredential.user;
-//       userId = user.uid;
+//       const userId = user.uid;
 //       console.log(user);
-//       writeUserData(name, email);
-  
+//         writeUserData(userId, name, email);
 //     })
 //     .catch(error => {
 //       const errorCode = error.code;
 //       const errorMessage = error.message;
-
+// //   form.reset();
 //     });
-
-//   // ________________Вхід старого ___________
-//   //   signInWithEmailAndPassword(auth, email, password)
-//   //     .then(resp => console.log(resp))
-
-//   // ?????????????????????????
-//     // const user = userCredential.user;
-//     //   userId = user.uid;
-
-//   //         .catch(err => console.log(err));
-//   //   form.reset();
 // }
 
 
-// function writeUserData(name, email) {
-//   const db = getDatabase();
-//   set(ref(db, 'users/' + userId), {
-//     name: name,
-//     email: email,
-//   });
-// }
+
+  // ________________Вхід старого ___________
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then(resp => console.log(resp))
+
+  // ?????????????????????????
+    // const user = userCredential.user;
+    //   userId = user.uid;
+
+  //         .catch(err => console.log(err));
+
+
+
+
+function writeUserData(userId, name, email) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    name: name,
+    email: email,
+  });
+}
 
 // function writeUserBooks(books) {
 //   const db = getDatabase();
@@ -89,27 +94,27 @@
 // }
 
 
-// // вхід до системи_________________
+// вхід до системи_________________
 
-// //   signInWithEmailAndPassword(auth, email.value, password.value)
-// //     .then(resp => console.log(resp))
-// //         .catch(err => console.log(err));
+//   signInWithEmailAndPassword(auth, email.value, password.value)
+//     .then(resp => console.log(resp))
+//         .catch(err => console.log(err));
 
 
-
-// // ______Наглядач (працює постійно)______________________
+// ______Наглядач (працює постійно)______________________
 // const auth = getAuth();
 // const dbRef = ref(getDatabase());
 
 // onAuthStateChanged(auth, user => {
-//   if (user) {
-//     console.log(user);
-//     get(child(dbRef, `users/${user.uid}`))
+//     if (user) {
+//       console.log(user);
+//       get(child(dbRef, `users/${user.uid}`))
 //       .then(userData => {
-//         if (userData.exists()) {
-//           const userProfile = userData.val();
+//           if (userData.exists()) {
+//             console.log(userData);
+//             const userProfile = userData.val();
+//             console.log(userProfile);
 //           const usserName = userProfile.name;
-
 //           // ___отримує ім'я користувача__________
 //           console.log(usserName);
 //         } else {
@@ -117,31 +122,49 @@
 //         }
 //       })
 //       .catch(error => {
-//         console.error(error);
+//         console.log(error);
 //       });
 
-//     // ...
+    // ...
 //   } else {
 //     // User is signed out
 //     // _________________користувач вийшов? - змінюємо кнопку_________
 //   }
 // });
 
-// // вихід із системи________________________________
+// вихід із системи________________________________
 
-// const signOutBtn = document.querySelector('.js-signOut-button');
-// signOutBtn.addEventListener('click', HendlerSignOut);
+const signOutBtn = document.querySelector('.js-signOutBtn');
+signOutBtn.addEventListener('click', HendlerSignOut);
 
-//  function HendlerSignOut() {
-// signOut(auth).then(() => {
-//   // Sign-out successful.
-//  console.log('you are signOut');
-// }).catch((error) => {
-//   console.log(error)
-// })
-// };
+function HendlerSignOut() {
+    //   const auth = getAuth();
+signOut(auth).then(() => {
+  // Sign-out successful.
+ console.log('you are signOut');
+}).catch((error) => {
+  console.log(error)
+})
+};
 
-// export {HendlerSignOut, writeUserBooks, writeUserData}
+
+// const auth = getAuth();
+// const user = auth.currentUser;
+// console.log(user);
+// if (user) {
+//   // User is signed in, see docs for a list of available properties
+//   // https://firebase.google.com/docs/reference/js/firebase.User
+//   // ...
+//     console.log(user);
+// } else {
+//   // No user is signed in.
+//     console.log('usera net');
+// }
+export {HendlerSignOut, writeUserBooks, writeUserData}
+
+
+
+
 
 
 // // запит на данні кристувача___________
