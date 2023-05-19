@@ -16,6 +16,7 @@ const signUpBtnheder = document.querySelector('.Js-signUpBtn-heder');
 const profileName = document.querySelector('.js-profile-name');
 const signOutBtn = document.querySelector('.js-logOutBtn-header');
 
+
 form.addEventListener('submit', onSubmit);
 signInEl.addEventListener('click', onSignIn);
 signUpEl.addEventListener('click', onSignUp);

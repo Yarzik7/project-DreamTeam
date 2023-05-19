@@ -22,6 +22,7 @@ const firebaseConfig = {
   messagingSenderId: '343989525653',
   appId: '1:343989525653:web:4644793e39efe02e6a0f9c',
 };
+import Notiflix from 'notiflix';
 
 initializeApp(firebaseConfig);
 
@@ -30,12 +31,19 @@ const signOutBtn = document.querySelector('.js-logOutBtn-header');
 const profileBtn = document.querySelector('.Js-profileBtn');
 const logOutBtnHeader = document.querySelector('.js-logOutBtn-header');
 const profileName = document.querySelector('.js-profile-name');
+const shopListBtn = document.querySelector('.js-link-shoppingList');
 
 profileBtn.addEventListener('click', hendlerProfileBtn);
 signOutBtn.addEventListener('click', HendlerSignOut);
 signUpBtnheder.addEventListener('click', hendlersignUpBtnheder);
+shopListBtn.addEventListener('click', hendlerShopListBtn);
 
-
+function hendlerShopListBtn(e) {
+  if (!signUpBtnheder.classList.contains('is-hidden')) {
+    e.preventDefault();
+    Notiflix.Notify.info('Please, signIn for access to Shopping List!');
+  }
+}
 
 // ______Наглядач (працює постійно)______________________
 const auth = getAuth();
@@ -43,15 +51,14 @@ const dbRef = ref(getDatabase());
 
 onAuthStateChanged(auth, user => {
   if (user) {
-      get(child(dbRef, `users/${user.uid}`))
+    get(child(dbRef, `users/${user.uid}`))
       .then(userData => {
-        if (userData.exists()) {         
+        if (userData.exists()) {
           const userProfile = userData.val();
-               const usserName = userProfile.name;
+          const usserName = userProfile.name;
           profileName.textContent = usserName;
           profileBtn.classList.remove('is-hidden');
-          signUpBtnheder.classList.add('is-hidden');     
-      
+          signUpBtnheder.classList.add('is-hidden');
         } else {
           console.log('No data available');
         }
@@ -59,7 +66,7 @@ onAuthStateChanged(auth, user => {
       .catch(error => {
         console.log(error);
       });
-  } 
+  }
 });
 
 // ________________Для хедеру_____________
@@ -69,8 +76,8 @@ onAuthStateChanged(auth, user => {
 function HendlerSignOut() {
   const auth = getAuth();
   profileBtn.classList.add('is-hidden');
-    signUpBtnheder.classList.remove('is-hidden');
-    signOutBtn.classList.add('is-hidden');
+  signUpBtnheder.classList.remove('is-hidden');
+  signOutBtn.classList.add('is-hidden');
   signOut(auth)
     .then(() => {
       console.log('you are signOut');
@@ -91,17 +98,15 @@ function hendlersignUpBtnheder() {
 // _________________heder Profile - button
 
 function hendlerProfileBtn() {
-    // if(logOutBtnHeader.classList.contains(''))
-    logOutBtnHeader.classList.toggle('is-hidden');
-//   logOutBtnHeader.classList.remove('is-hidden');
+  // if(logOutBtnHeader.classList.contains(''))
+  logOutBtnHeader.classList.toggle('is-hidden');
+  //   logOutBtnHeader.classList.remove('is-hidden');
 }
-
 
 export { HendlerSignOut, writeUserBooks, writeUserData };
 
 // // запит на данні кристувача___________
 
-        
 // const dbRef = ref(getDatabase());
 // get(child(dbRef, `users/${userId}`)).then((snapshot) => {
 //   if (snapshot.exists()) {
@@ -115,22 +120,17 @@ export { HendlerSignOut, writeUserBooks, writeUserData };
 
 // __________запис даних користувача_________
 
-    function writeUserData(userId, name, email) {
+function writeUserData(userId, name, email) {
   const db = getDatabase();
   set(ref(db, 'users/' + userId), {
     name: name,
     email: email,
   });
 }
-    
-    
-    // function writeUserBooks(books) {
+
+// function writeUserBooks(books) {
 //   const db = getDatabase();
 //   push(ref(db, 'users/' + userId), {
 //     selectedBooks: books,
 //   });
 // }
-
-
-
-
