@@ -149,6 +149,13 @@ async function onClickButton(e) {
       e.classList.remove('categories__current');
     }
   });
+
+   refs.booksEl.innerHTML = '';
+   const loader = new Loader(refs.sectionCategory, 'loader-container');
+   loader.show();
+
   refs.booksEl.innerHTML = markupBooks(await getAllBooks(nameCategory));
+
+  loader.hide();
   refs.booksEl.classList.add('category__list');
 }
