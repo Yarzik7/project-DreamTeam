@@ -38,6 +38,7 @@ const preLoader = new Loader(
   document.querySelector('header'),
   'preloader-page'
 );
+preLoader.show();
 getBooks();
 
 export default getBooks;
