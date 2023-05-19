@@ -7,20 +7,20 @@ import bookshop2x from '../images/shoplist/bookshop2x.png';
 
 const bookShopsIcons = [
   {
-    x1: new URL(amazon1x, import.meta.url),
-    x2: new URL(amazon2x, import.meta.url),
+    x1: amazon1x,
+    x2: amazon2x,
     width: '62',
     height: '19',
   },
   {
-    x1: new URL(apple1x, import.meta.url),
-    x2: new URL(apple2x, import.meta.url),
+    x1: apple1x,
+    x2: apple2x,
     width: '33',
     height: '32',
   },
   {
-    x1: new URL(bookshop1x, import.meta.url),
-    x1: new URL(bookshop2x, import.meta.url),
+    x1: bookshop1x,
+    x2: bookshop2x,
     width: '38',
     height: '36',
   },
