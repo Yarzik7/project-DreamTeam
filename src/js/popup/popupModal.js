@@ -32,12 +32,10 @@ const getBooksFromStorage = () => {
  * @param {keydown} evt
  */
 const onEscape = evt => {
-  if (evt.key === 'Escape') {
-    document.body.removeChild(popupModal);
-
-    htmlEl.classList.remove('scrollable');
-    document.removeEventListener('keydown', onEscape);
+  if (evt.key !== 'Escape') {
+    return;
   }
+  animationCloseModal();
 };
 
 /**
@@ -100,10 +98,7 @@ function onCloseByButton(evt) {
   if (!evt.target) {
     return;
   }
-
-  document.body.removeChild(popupModal);
-  htmlEl.classList.remove('scrollable');
-  document.removeEventListener('keydown', onEscape);
+  animationCloseModal();
 }
 
 // Close By Click on Backdrop
@@ -111,10 +106,7 @@ function onCloseByClickBackdrop(evt) {
   if (!evt.target.classList.contains('backdrop')) {
     return;
   }
-
-  document.body.removeChild(popupModal);
-  htmlEl.classList.remove('scrollable');
-  document.removeEventListener('keydown', onEscape);
+  animationCloseModal();
 }
 
 //Adds book to shopping cart(bascket)
@@ -148,6 +140,19 @@ function removeBookFromShoppingList(idBook) {
 
 function checkBookInStorage(idBook) {
   return getBooksFromStorage().includes(idBook);
+}
+
+function animationCloseModal() {
+  document.querySelector('.pop-up').classList.add('pop-up__close');
+  const backdropCloseEl = document.querySelector('.backdrop');
+  backdropCloseEl.classList.add('backdrop__close');
+
+  setTimeout(() => {
+    backdropCloseEl.classList.remove('backdrop__close');
+    document.body.removeChild(popupModal);
+    htmlEl.classList.remove('scrollable');
+    document.removeEventListener('keydown', onEscape);
+  }, 200);
 }
 
 chosenBook.addEventListener('click', onClick);
