@@ -2,6 +2,7 @@ import localStoragemethod from '../js/storage-methods';
 import axios from 'axios';
 import { pagination, sliceOnGroup } from './pagination';
 import markupBooksInBasket from './markupBooksInBasket';
+import { Loader } from './loaderClass';
 
 const bookListEl = document.querySelector('.shopinlist__cards');
 const notificationContainerEl = document.querySelector('.shoplist__info');
@@ -12,6 +13,12 @@ const LOCALSTORAGE_KEY = 'books';
 let bookList = localStoragemethod.load('books');
 const ITEM_PER_PAGE = window.innerWidth < 768 ? 4 : 3;
 
+const preLoader = new Loader(
+  document.querySelector('header'),
+  'preloader-page'
+);
+preLoader.show();
+
 renderBooks(bookList);
 
 async function renderBooks(data) {
@@ -19,7 +26,6 @@ async function renderBooks(data) {
     removeEmptyNotificationContainer();
 
     const currentData = data.slice(0, ITEM_PER_PAGE);
-
     const arrBooks = await currentData.map(async id => {
       const data = await axios.get(
         `https://books-backend.p.goit.global/books/${id}`
@@ -27,12 +33,12 @@ async function renderBooks(data) {
       return await data.data;
     });
     const arrResult = (await Promise.allSettled(arrBooks)).map(el => el.value);
-
     bookListEl.innerHTML = markupBooksInBasket(arrResult);
     bookListEl.addEventListener('click', onBasketClick);
   } else {
     pasteEmptyNotificationContainer();
   }
+  preLoader.hide();
 }
 
 function pasteEmptyNotificationContainer() {

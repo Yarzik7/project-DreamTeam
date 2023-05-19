@@ -2,11 +2,13 @@ import getAllCategory from './api/categoryList';
 import getAllBooks from './api/categoryBooks';
 import { bookItemMarcup } from './bookItemMarcup';
 import getBooks from './api/topBooks';
+import { Loader } from './loaderClass';
 
 const refs = {
   categoryListEl: document.querySelector('.js-list-categories'),
   booksEl: document.querySelector('.js-all-books'),
   categoryNameEl: document.querySelector('.js-category-name'),
+  sectionCategory: document.querySelector('.category > .container'),
 };
 
 // Function for marcup categories on sidebar
@@ -31,14 +33,24 @@ async function onClick(e) {
     scrollUp();
     markupNameCategory(e.target.textContent);
 
+    refs.booksEl.innerHTML = '';
+    const loader = new Loader(refs.sectionCategory, 'loader-container');
+    loader.show();
+
     refs.booksEl.innerHTML = markupBooks(
       await getAllBooks(e.target.textContent)
     );
+
+    loader.hide();
+
     refs.booksEl.classList.add('category__list');
   } else if (e.target.classList.contains('js-main-category')) {
     changeClassCurrentCategory(e.target);
     scrollUp();
     markupNameCategory('Best Sellers Books');
+
+    refs.booksEl.innerHTML = '';
+
     getBooks();
   }
 
