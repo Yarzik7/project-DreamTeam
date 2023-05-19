@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  overflow-y: overlay;
 }
 
 body {
@@ -24,6 +25,7 @@ img {
 
 .main-container {
   padding: 40px 0;
+
   @include for-desktop-up {
     display: flex;
     margin: 0 auto;
@@ -67,5 +69,18 @@ img {
 
   &:hover {
     background-color: var(--categories-current-color);
+  }
+}
+
+.main-content {
+  width: 100%;
+
+  .category {
+    .container {
+      @include for-desktop-up {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
   }
 }

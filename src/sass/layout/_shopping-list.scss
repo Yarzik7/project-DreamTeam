@@ -68,14 +68,14 @@
   }
 }
 
-.shopinlist__thumb > .shopinlist__book-img {
+.shopinlist__thumb>.shopinlist__book-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 
-	@include for-phone-only {
-		margin-bottom: 4px;
-	}
+  @include for-phone-only {
+    margin-bottom: 4px;
+  }
 }
 
 .shopinlist__wrap {
@@ -87,12 +87,13 @@
 }
 
 .shopinlist__title {
-	@include for-phone-only {
-		font-size: calc(14px + 2 * ((100vw - 320px) / (374 - 320)));
-		max-width: calc(100px + 44 * ((100vw - 320px) / (374 - 320)));
-	}
+  @include for-phone-only {
+    font-size: calc(14px + 2 * ((100vw - 320px) / (374 - 320)));
+    max-width: calc(100px + 44 * ((100vw - 320px) / (374 - 320)));
+  }
+
   margin-bottom: 4px;
-  max-width: 193px;
+  max-width: 150px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
@@ -145,25 +146,30 @@
 }
 
 .shopinlist__shop {
-	filter: grayscale(100%);
+  filter: grayscale(100%);
 
-	&:hover &-img {
-		filter: var(--shoppin-list-hover);
-		}
+  &:hover &-img {
+    filter: var(--shoppin-list-hover);
+  }
 }
 
 .shopinlist__shop-img {
-	filter: grayscale(1);
-	@include transition(filter);
+  filter: grayscale(1);
+  @include transition(filter);
 
-	&:hover {
-		filter: var(--shoppin-list-hover);
-	}
+  &:hover {
+    filter: var(--shoppin-list-hover);
+  }
 }
 
 .amazon {
-	filter: var(--shoppin-list-shops);
+  filter: var(--shoppin-list-shops);
+
+  &:hover {
+    filter: var(--shoppin-amazon-hover) !important;
+  }
 }
+
 .shopinlist__book-author {
   font-style: italic;
   font-weight: 400;
@@ -171,6 +177,7 @@
   line-height: 1.17;
   letter-spacing: -0.04em;
   max-width: 98px;
+  color: var(--alt-text-color);
 
   @include for-tablet-up {
     display: none;
@@ -180,7 +187,7 @@
 
 .shopinlist__bookauthor--tablet {
   display: none;
-	color: var(--alt-text-color);
+  color: var(--alt-text-color);
 
   @include for-tablet-up {
     display: block;
@@ -192,14 +199,14 @@
   justify-content: center;
   align-items: center;
 
-	@include for-phone-only {
-		right: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
-		top: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
-		width: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
-		height: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
-	}
+  @include for-phone-only {
+    right: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
+    top: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
+    width: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
+    height: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
+  }
 
-	position: absolute;
+  position: absolute;
   top: 14px;
   right: 14px;
   width: 28px;
@@ -207,7 +214,7 @@
   background-color: var(--accent-violet-color);
   border-radius: 50%;
   border: none;
-	cursor: pointer;
+  cursor: pointer;
 
   @include for-tablet-up {
     top: 24px;
@@ -215,7 +222,8 @@
     width: 34px;
     height: 34px;
   }
-@include transition(background-color);
+
+  @include transition(background-color);
 
   &:hover,
   &:focus {
@@ -224,25 +232,26 @@
 }
 
 .shopinlist__btn-icon {
-	stroke: var(--white-color);
-	fill: transparent;
-	@include transition(background-color);
-	@include for-tablet-up {
-		width: 18px;
-		height: 18px;
-	}
+  stroke: var(--white-color);
+  fill: transparent;
+  @include transition(background-color);
+
+  @include for-tablet-up {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .shopinlist__btn:hover .shopinlist__btn-icon,
 .shopinlist__btn:focus .shopinlist__btn-icon {
-	stroke: var(--black-color);
+  stroke: var(--black-color);
 }
 
 .shopinlist__book-description {
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-	color: var(--black-color);
+  color: var(--book-rew-color);
 
   @include for-tablet-up {
     display: none;
@@ -275,11 +284,11 @@
   text-align: center;
   color: var(--shopping-list-text);
 
-	@include for-tablet-up {
-		margin-bottom: 20px;
-		font-size: 18px;
-		line-height: 1.33;
-	}
+  @include for-tablet-up {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .shoplist__info.js-empty {
@@ -296,6 +305,7 @@
 
 .shoping-list__sidebar {
   display: none;
+
   @include for-desktop-up {
     display: block;
     margin-right: 40px;

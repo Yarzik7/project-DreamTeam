@@ -7,6 +7,7 @@ import localStoragemethod from './storage-methods';
 const refs = {
   container: document.querySelector('#pagination'),
   listEl: document.querySelector('.shopinlist__cards'),
+  titleEl: document.querySelector('.basket__title'),
 };
 
 const arrBooksStorage = localStoragemethod.load('books');
@@ -29,11 +30,11 @@ const options = {
   firstItemClassName: 'pagination__first-child',
   lastItemClassName: 'pagination__last-child',
   template: {
-    page: '<a href="#" class="pagination__page-btn pagination__number">{{page}}</a>',
+    page: '<a aria-label="Number page {{page}}" href="#" class="pagination__page-btn pagination__number">{{page}}</a>',
     currentPage:
       '<strong class="pagination__page-btn pagination__current-page">{{page}}</strong>',
     moveButton:
-      '<a href="#" class="pagination__page-btn pagination__{{type}}">' +
+      '<a aria-label="Load {{type}}" href="#" class="pagination__page-btn pagination__{{type}}">' +
       '<span class="pagination__ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
@@ -41,7 +42,7 @@ const options = {
       '<span class="pagination__ico-{{type}}"></span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="pagination__page-btn pagination__{{type}}-is-ellip">' +
+      '<a aria-label="Load more page and move to next page" href="#" class="pagination__page-btn pagination__{{type}}-is-ellip">' +
       '<span class="pagination__ico-ellip">...</span>' +
       '</a>',
   },
@@ -67,6 +68,10 @@ async function onMove(e) {
   });
   const arrResult = (await Promise.allSettled(booksList)).map(el => el.value);
   refs.listEl.innerHTML = markupBooksInBasket(arrResult);
+
+  refs.titleEl.scrollIntoView({
+    behavior: 'smooth',
+  });
 }
 
 /**

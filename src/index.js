@@ -8,7 +8,7 @@ import('./js/scrollup');
 
 // import('./js/burgerMenu');
 
-import('./js/burgerMenu');;
+import('./js/burgerMenu');
 
 import('./js/api/topBooks');
 import('./js/burgerMenu');
@@ -23,11 +23,9 @@ import('./js/firebase');
 import('./js/form');
 import('./js/autorithation')
 
-
-
 import { changeCurrentPageOnHomePage } from './js/currentPage';
 import { setTheme, activateThemeSwitch } from './js/themes';
-const pageEl = document.querySelector('html');
+const pageEl = document.querySelector('body');
 
 setTheme(pageEl);
 

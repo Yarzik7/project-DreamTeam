@@ -6,7 +6,6 @@ class Loader {
     this.container = container;
     this.cssClassName = cssClassName;
     this.interval = 0;
-    this.show();
   }
 
   startAnimation() {

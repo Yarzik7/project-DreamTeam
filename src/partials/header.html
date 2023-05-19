@@ -28,7 +28,7 @@
         </ul>
       </div>
       <!-- switcher Dark/Light theme  -->
-      <input type="checkbox" class="js-theme-switch" />
+      <input type="checkbox" class="js-theme-switch" aria-label="Change theme" />
       <!-- SignUP btn -->
       <button class="btn-signup Js-signUpBtn-heder" type="button">Sign up
         <svg class="btn-signup__icon" width="20" height="20">
@@ -54,9 +54,15 @@
 
 
       <!-- mobile menu -->
-      <button type="button" class="burger-menu__btn--open" btn-menu-open>
+      <button type="button" class="burger-menu__btn--open" data-btn-menu-open>
+        <svg class="burger-menu__icon--open" width="28" height="28">
+          <use href="./images/sprite.svg#icon-align-left"></use>
+        </svg>
       </button>
-        <button type="button" class="burger-menu__btn--close is-hidden" btn-menu-close>
+        <button type="button" class="burger-menu__btn--close is-hidden" data-btn-menu-close>
+          <svg class="burger-menu__icon--close" width="28" height="28">
+            <use href="./images/sprite.svg#icon-x-close"></use>
+          </svg>
         </button>
     </div>
   </div>

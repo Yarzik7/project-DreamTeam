@@ -8,11 +8,10 @@ import { setTheme, activateThemeSwitch } from './js/themes';
 
 changeCurrentPageOnShoppingList();
 
-const pageEl = document.querySelector('html');
+const pageEl = document.querySelector('body');
 
 setTheme(pageEl);
 
 pageEl.addEventListener('click', event => {
-
   activateThemeSwitch(event, pageEl);
 });
