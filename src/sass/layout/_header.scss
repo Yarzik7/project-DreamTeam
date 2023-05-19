@@ -248,10 +248,13 @@
 
     @include transition (background-color, color);
 
-    &:hover,
-    &:focus {
+    &:hover{
       background: var(--white-color);
       color: var(--black-color);
+    }
+
+    &:hover .profile-name{
+        color: var(--black-color);
     }
   }
 
@@ -276,11 +279,6 @@
   color: var(--white-color);
 
   @include transition (color);
-
-  &:hover,
-  &:focus {
-    color: var(--black-color);
-  }
 
 }
 
