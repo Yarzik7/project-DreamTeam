@@ -9,8 +9,11 @@ const form = document.querySelector('.form');
 const signInEl = document.querySelector('.js-signIn');
 const submitBtn = document.querySelector('.btn_form');
 const signUpEl = document.querySelector('.js-signUp');
-const bdForm = document.querySelector('.backdrop_form')
-const closeBtn = document.querySelector('.js-modal-closeBtn')
+const bdForm = document.querySelector('.backdrop_form');
+const closeBtn = document.querySelector('.js-modal-closeBtn');
+const profileBtn = document.querySelector('.Js-profileBtn');
+const signUpBtnheder = document.querySelector('.Js-signUpBtn-heder');
+const profileName = document.querySelector('.js-profile-name');
 
 form.addEventListener('submit', onSubmit);
 signInEl.addEventListener('click', onSignIn);
@@ -50,6 +53,9 @@ function onSubmit(event) {
     signInWithEmailAndPassword(auth, email, password)
       .then(resp => console.log(resp))
       .catch(err => console.log(err));
+    profileBtn.classList.remove('is-hidden');
+    profileName.textContent = name;
+    signUpBtnheder.classList.add('is-hidden');
     return;
   }
  
@@ -58,6 +64,9 @@ function onSubmit(event) {
       const user = userCredential.user;
       const userId = user.uid;
       writeUserData(userId, name, email);
+      profileBtn.classList.remove('is-hidden');
+      profileName.textContent = name;
+      signUpBtnheder.classList.add('is-hidden');
     })
     .catch(error => {
       console.log(error.code);

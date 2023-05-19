@@ -11,7 +11,6 @@ import {
 
 import { getDatabase, ref, set, child, get, push } from 'firebase/database';
 
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyA33UV7OBjkFv7cGwHXspz56WwnFTkUl1Y',
@@ -35,15 +34,13 @@ initializeApp(firebaseConfig);
 // const form = document.querySelector('.form');
 // form.addEventListener('submit', onSubmit);
 
-
-  // __________Створення нового Користувача_________
+// __________Створення нового Користувача_________
 
 // function onSubmit(event) {
 // //   event.preventDefault();
 //   const name = event.currentTarget.elements.name.value;
 //   const email = event.currentTarget.elements.email.value;
 //   const password = event.currentTarget.elements.password.value;
-    
 
 //   if (password.value === '' || email.value === '') {
 //     alert('Всі поля повинні бути заповненні!');
@@ -63,20 +60,15 @@ initializeApp(firebaseConfig);
 //     });
 // }
 
+// ________________Вхід старого ___________
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then(resp => console.log(resp))
 
+// ?????????????????????????
+// const user = userCredential.user;
+//   userId = user.uid;
 
-  // ________________Вхід старого ___________
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then(resp => console.log(resp))
-
-  // ?????????????????????????
-    // const user = userCredential.user;
-    //   userId = user.uid;
-
-  //         .catch(err => console.log(err));
-
-
-
+//         .catch(err => console.log(err));
 
 function writeUserData(userId, name, email) {
   const db = getDatabase();
@@ -93,13 +85,11 @@ function writeUserData(userId, name, email) {
 //   });
 // }
 
-
 // вхід до системи_________________
 
 //   signInWithEmailAndPassword(auth, email.value, password.value)
 //     .then(resp => console.log(resp))
 //         .catch(err => console.log(err));
-
 
 // ______Наглядач (працює постійно)______________________
 // const auth = getAuth();
@@ -125,28 +115,54 @@ function writeUserData(userId, name, email) {
 //         console.log(error);
 //       });
 
-    // ...
+// ...
 //   } else {
 //     // User is signed out
 //     // _________________користувач вийшов? - змінюємо кнопку_________
 //   }
 // });
 
+// ________________Для хедеру_____________
+
+const signUpBtnheder = document.querySelector('.Js-signUpBtn-heder');
+const signOutBtn = document.querySelector('.js-logOutBtn-header');
+const profileBtn = document.querySelector('.Js-profileBtn');
+const logOutBtnHeader = document.querySelector('.js-logOutBtn-header');
+
+profileBtn.addEventListener('click', hendlerProfileBtn);
+signOutBtn.addEventListener('click', HendlerSignOut);
+signUpBtnheder.addEventListener('click', hendlersignUpBtnheder);
+
 // вихід із системи________________________________
 
-const signOutBtn = document.querySelector('.js-signOutBtn');
-signOutBtn.addEventListener('click', HendlerSignOut);
-
 function HendlerSignOut() {
-    //   const auth = getAuth();
-signOut(auth).then(() => {
-  // Sign-out successful.
- console.log('you are signOut');
-}).catch((error) => {
-  console.log(error)
-})
-};
+  const auth = getAuth();
+  profileBtn.classList.add('is-hidden');
+  signUpBtnheder.classList.remove('is-hidden');
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
 
+      console.log('you are signOut');
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+// __________________heder SignUp button___________
+
+function hendlersignUpBtnheder() {
+  const bdForm = document.querySelector('.backdrop_form');
+  bdForm.classList.remove('is-hidden');
+  logOutBtnHeader.classList.remove('is-hidden');
+}
+
+// _________________heder Profile - button
+
+function hendlerProfileBtn() {
+  logOutBtnHeader.classList.remove('is-hidden');
+}
 
 // const auth = getAuth();
 // const user = auth.currentUser;
@@ -160,12 +176,7 @@ signOut(auth).then(() => {
 //   // No user is signed in.
 //     console.log('usera net');
 // }
-export {HendlerSignOut, writeUserBooks, writeUserData}
-
-
-
-
-
+export { HendlerSignOut, writeUserBooks, writeUserData };
 
 // // запит на данні кристувача___________
 
@@ -179,7 +190,6 @@ export {HendlerSignOut, writeUserBooks, writeUserData}
 // }).catch((error) => {
 //   console.error(error);
 // });
-
 
 // __________запис даних користувача_________
 
