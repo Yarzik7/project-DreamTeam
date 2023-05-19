@@ -10,6 +10,7 @@
   z-index: 999;
   top: 0;
   left: 0;
+  @include centeredByFlex;
 
   width: 100vw;
   height: 100vh;
@@ -21,12 +22,16 @@
 
   overflow-x: hidden;
   overflow-y: auto;
+  animation: popupOpenBackDrop 0.2s ease-in-out forwards;
 
+  &.backdrop__close {
+    animation: popupCloseBackDrop 0.2s ease-in-out forwards;
+  }
 }
 
 .pop-up {
-  position: absolute;
-  @include centeredByPosition;
+  position: relative;
+  // @include centeredByPosition;
 
   display: flex;
   flex-direction: column;
@@ -45,11 +50,14 @@
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
 
-  transition: transform var(--transition-duration) var(--transition-timing-function), visibility var(--transition-duration) var(--transition-timing-function);
+  // transition: transform var(--transition-duration)
+  //     var(--transition-timing-function),
+  //   visibility var(--transition-duration) var(--transition-timing-function);
 
-  transform: scale(1.75);
+  // transform: scale(1.75);
 
   // overflow: hidden;
+  animation: popupOpen 0.2s ease-in-out forwards;
 
   &__book-info {
     overflow: hidden;
@@ -144,7 +152,6 @@
       font-size: 18px;
       line-height: 1.33;
       letter-spacing: -0.01em;
-
     }
   }
 
@@ -190,7 +197,6 @@
     border-radius: 50%;
     @include transition(outline);
 
-
     &:hover,
     &:focus {
       stroke: var(--accent-violet-color);
@@ -214,25 +220,25 @@
       filter: grayscale(100%);
 
       &:hover {
-        filter: grayscale(100%)drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+        filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
       }
     }
   }
 
   .stores-img {
-
-    filter: grayscale(1);
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.35));
     @include transition(filter);
 
     &__amazon {
-      filter: var(--shoppin-list-shops);
+      filter: var(--shoppin-list-shops)
+        drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.35));
+      @include transition(filter);
 
       &:hover {
         filter: var(--shoppin-amazon-hover) !important;
+        // box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
       }
     }
-
-
   }
 
   @include for-tablet-up {
@@ -240,13 +246,53 @@
     min-height: 465px;
     padding: 40px;
   }
+}
 
+.pop-up__close {
+  animation: popupClose 0.2s ease-in-out forwards;
+}
 
+@keyframes popupOpen {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
+@keyframes popupClose {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes popupOpenBackDrop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes popupCloseBackDrop {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .hidden {
-
   display: none;
 }
 
@@ -256,5 +302,4 @@
 
 .pop-up .stores-img:hover {
   filter: var(--shoppin-list-hover);
-
 }
