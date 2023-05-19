@@ -86,4 +86,7 @@ function onSubmit(event) {
 
 function onClose() {
   bdForm.classList.add('is-hidden');
+  if (!signOutBtn.classList.contains('is-hidden')) {
+    signOutBtn.classList.add('is-hidden')
+  }
 }
