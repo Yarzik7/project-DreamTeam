@@ -46,18 +46,20 @@
   border: none;
 
   cursor: pointer;
-
-  transform: scale(1);
-  transition: transform 250ms var(--transition-timing-function);
-
-  &:hover {
-    transform: scale(1.05);
-  }
 }
 
 .backdrop__svg {
   height: 28px;
   fill: var(--border-color-form-modal);
+  border-radius: 50%;
+
+  transition: outline 250ms var(--transition-timing-function),
+    border-radius 250ms var(--transition-timing-function);
+
+  &:hover {
+    outline: 1px solid black;
+    border-radius: 50%;
+  }
 }
 
 .form {
@@ -110,30 +112,48 @@
 
 .form__label {
   position: absolute;
-  padding: 20px 20px 20px 40px;
+  display: block;
+  margin: 20px 20px 20px 40px;
 
   font-size: 18px;
   font-weight: bold;
+
+  transition: transform 250ms var(--transition-timing-function);
+
+  background-color: var(--background-color-form-modal);
 }
 
 .box__field {
-  padding: 20px;
-  padding-left: 100px;
   width: 100%;
   max-height: 64px;
+
+  padding: 20px;
+  padding-left: 100px;
+
+  background-color: var(--background-color-form-modal);
 
   border: 2px solid var(--border-color-form-modal);
   border-radius: 40px;
 
+  transition: transform 250ms var(--transition-timing-function);
+
   &:focus {
-    .box__field {
-      color: red;
-    }
+    padding-left: 20px;
+  }
+
+  &:focus + .form__label {
+    transform: translateY(-149%);
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 
-input[id='password'] {
+input#password {
   padding-left: 150px;
+
+  &:focus {
+    padding-left: 20px;
+  }
 }
 
 .box__icon {
@@ -145,7 +165,7 @@ input[id='password'] {
   max-width: 499px;
   width: 100%;
   max-height: 64px;
-  padding: 20px 210px;
+  padding: 20px;
   margin-bottom: 20px;
 
   font-size: 17px;

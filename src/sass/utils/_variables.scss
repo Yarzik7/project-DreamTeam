@@ -9,6 +9,7 @@
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --burger-menu-link: #ffffff;
   --nav-current-color: #111111;
+  
   /* Sing up modal */
   --background-color: rgba(79, 46, 232, 1);
 }
@@ -23,6 +24,7 @@
   --nav-text-color: #111111;
   --nav-hover-color: #111111;
   --nav-icon-color: #111111;
+  --nav-icon-hover-color: #111111;
   /*Switch btn features*/
   --sw-button-color: linear-gradient(
     180deg,
@@ -93,7 +95,8 @@
   --logo-text-color: rgba(255, 255, 255, 1);
   --nav-text-color: #ffffff;
   --nav-hover-color: #111111;
-  --nav-icon-color: #ffffff;
+  --nav-icon-color: #111111;
+  --nav-icon-hover-color: #ffffff;
   --sw-button-color: linear-gradient(
     180deg,
     var(--accent-violet-color) 0%,
