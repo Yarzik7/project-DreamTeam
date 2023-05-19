@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { writeUserData } from './firebase';
+import Notiflix from 'notiflix';
 
 const form = document.querySelector('.form');
 const signInEl = document.querySelector('.js-signIn');
@@ -52,7 +53,11 @@ function onSubmit(event) {
     alert('Всі поля повинні бути заповненні!');
   } else if (submitBtn.classList.contains('Js-signIn-btn')) {
     signInWithEmailAndPassword(auth, email, password)
-      .then(resp => console.log(resp))
+      .then(resp => {
+        bdForm.classList.add('is-hidden');
+        Notiflix.Notify.success(`
+Welcome back, ${name}`);
+      })
       .catch(err => console.log(err))
       .finally(() => {
         form.reset();
@@ -74,15 +79,22 @@ function onSubmit(event) {
       profileName.textContent = name;
       signUpBtnheder.classList.add('is-hidden');
       signOutBtn.classList.add('is-hidden');
+        bdForm.classList.add('is-hidden');
     })
     .catch(error => {
       console.log(error.code);
+      if (error.code === 'auth/email-already-in-use') {
+        Notiflix.Notify.failure('email already in use');
+      }
+      else if (error.code === 'auth/weak-password') {
+        Notiflix.Notify.failure('Weak password')
+      }
       console.log(error.messag);
     })
     .finally(() => {
       form.reset();
     });
-  bdForm.classList.add('is-hidden');
+
 }
 
 function onClose() {
