@@ -14,13 +14,12 @@ function createShopLinks(buyLinks) {
       <li class="stores-list__item">
         <a href="${url}" target="_blank" rel="noopener noreferrer nofollow">
           <img
-          srset = "${bookShopsIcons[idx].x1} 1x, ${bookShopsIcons[idx].x2} 2x"
-          src="${bookShopsIcons[idx].x1},
-          alt="${name}" 
-          width="${bookShopsIcons[idx].width}" 
-          height="${bookShopsIcons[idx].height}"
-      class="stores-img${!idx ? '__amazon' : ''}" 
-      )}">
+            srcset="${bookShopsIcons[idx].x1} 1x, ${bookShopsIcons[idx].x2} 2x"
+            src="${bookShopsIcons[idx].x1}"
+            alt="${name}" 
+            width="${bookShopsIcons[idx].width}" 
+            height="${bookShopsIcons[idx].height}"
+            class="stores-img${!idx ? '__amazon' : ''}">
         </a>
       </li>`
     )
