@@ -26,10 +26,10 @@ function changeTheme(pageEl) {
 
 function setTheme(pageEl) {
   if (localStorage.getItem(storageKeyLibrary)) {
-    pageEl.setAttribute('page-theme', 'dark');
+    pageEl.setAttribute('data-page-theme', 'dark');
     checkboxBtn.checked = true;
   } else {
-    pageEl.setAttribute('page-theme', 'light');
+    pageEl.setAttribute('data-page-theme', 'light');
     checkboxBtn.checked = false;
   }
 }
